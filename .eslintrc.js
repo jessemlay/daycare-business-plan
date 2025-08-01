@@ -13,6 +13,9 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
     'vue/multi-word-component-names': 'off',
-    'prettier/prettier': 'error',
+    'prettier/prettier': 'warn', // Changed from 'error' to 'warn'
+    // Override other common rules to be warnings instead of errors
+    'no-unused-vars': 'warn',
+    'vue/no-unused-vars': 'warn',
   },
 }

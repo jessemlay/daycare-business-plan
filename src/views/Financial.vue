@@ -45,44 +45,162 @@
                     <thead class="table-primary">
                       <tr>
                         <th>Service Type</th>
+                        <th>Age Group</th>
                         <th>Rate</th>
-                        <th>Expected Monthly Usage</th>
+                        <th>Expected Monthly Hours</th>
                         <th>Monthly Revenue</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Full Day Care (8+ hours)</td>
-                        <td>$45/day</td>
-                        <td>150 days</td>
-                        <td class="text-success fw-bold">$6,750</td>
+                        <td>Registered Hourly Care</td>
+                        <td>6-18 months</td>
+                        <td>$16/hour</td>
+                        <td>300 hours</td>
+                        <td class="text-success fw-bold">$4,800</td>
                       </tr>
                       <tr>
-                        <td>Half Day Care (4-8 hours)</td>
-                        <td>$30/day</td>
-                        <td>100 days</td>
-                        <td class="text-success fw-bold">$3,000</td>
+                        <td>Registered Hourly Care</td>
+                        <td>8 months-12 years</td>
+                        <td>$14/hour</td>
+                        <td>400 hours</td>
+                        <td class="text-success fw-bold">$5,600</td>
                       </tr>
                       <tr>
-                        <td>Hourly Care (2-4 hours)</td>
-                        <td>$12/hour</td>
-                        <td>200 hours</td>
-                        <td class="text-success fw-bold">$2,400</td>
-                      </tr>
-                      <tr>
-                        <td>Emergency/Drop-in Care</td>
-                        <td>$15/hour</td>
+                        <td>Drop-In Care (Non-Registered)</td>
+                        <td>6-18 months</td>
+                        <td>$18/hour</td>
                         <td>80 hours</td>
+                        <td class="text-success fw-bold">$1,440</td>
+                      </tr>
+                      <tr>
+                        <td>Drop-In Care (Non-Registered)</td>
+                        <td>8 months-12 years</td>
+                        <td>$16/hour</td>
+                        <td>60 hours</td>
+                        <td class="text-success fw-bold">$960</td>
+                      </tr>
+                      <tr>
+                        <td>Additional Children (Registered)</td>
+                        <td>All ages</td>
+                        <td>$8/hour</td>
+                        <td>150 hours</td>
                         <td class="text-success fw-bold">$1,200</td>
+                      </tr>
+                      <tr>
+                        <td>Monthly Block Plans</td>
+                        <td>All ages</td>
+                        <td>Variable</td>
+                        <td>-</td>
+                        <td class="text-success fw-bold">$1,800</td>
+                      </tr>
+                      <tr>
+                        <td>Annual Registration Fees</td>
+                        <td>All ages</td>
+                        <td>$40/year</td>
+                        <td>10 registrations/month</td>
+                        <td class="text-success fw-bold">$400</td>
                       </tr>
                     </tbody>
                     <tfoot class="table-success">
                       <tr>
-                        <th colspan="3">Total Monthly Revenue</th>
-                        <th class="text-success">$13,350</th>
+                        <th colspan="4">Total Monthly Revenue</th>
+                        <th class="text-success">$16,200</th>
                       </tr>
                     </tfoot>
                   </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pricing Structure Details -->
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <h6><i class="bi bi-tags me-2"></i>Registered vs Drop-In Pricing</h6>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-striped">
+                    <thead class="table-info">
+                      <tr>
+                        <th>Age Group</th>
+                        <th>Registered Rate</th>
+                        <th>Drop-In Rate</th>
+                        <th>Savings</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>6-18 months</td>
+                        <td class="text-success fw-bold">$16/hr</td>
+                        <td class="text-danger">$18/hr</td>
+                        <td class="text-success">$2/hr (11%)</td>
+                      </tr>
+                      <tr>
+                        <td>8 months-12 years</td>
+                        <td class="text-success fw-bold">$14/hr</td>
+                        <td class="text-danger">$16/hr</td>
+                        <td class="text-success">$2/hr (13%)</td>
+                      </tr>
+                      <tr>
+                        <td>Additional Children</td>
+                        <td class="text-success fw-bold">$8/hr</td>
+                        <td class="text-danger">No discount</td>
+                        <td class="text-success">Up to 50%</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="alert alert-info mt-3">
+                  <small
+                    ><strong>Note:</strong> $40 annual registration fee applies to registered
+                    families</small
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <h6><i class="bi bi-piggy-bank me-2"></i>Monthly Block Plans</h6>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-striped">
+                    <thead class="table-success">
+                      <tr>
+                        <th>Plan</th>
+                        <th>Purchase</th>
+                        <th>Credit Received</th>
+                        <th>Bonus Value</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Small Block</td>
+                        <td>$300</td>
+                        <td class="text-success fw-bold">$345</td>
+                        <td class="text-success">$45 (15%)</td>
+                      </tr>
+                      <tr>
+                        <td>Large Block</td>
+                        <td>$500</td>
+                        <td class="text-success fw-bold">$600</td>
+                        <td class="text-success">$100 (20%)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="alert alert-success mt-3">
+                  <small
+                    ><strong>Block Plans:</strong> Available only to registered families, using
+                    member rates</small
+                  >
                 </div>
               </div>
             </div>
@@ -322,6 +440,40 @@
             </div>
           </div>
         </div>
+
+        <!-- New Charts: Pricing Comparison and Block Plan Savings -->
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <h6><i class="bi bi-cash-coin me-2"></i>Pricing Comparison</h6>
+              </div>
+              <div class="card-body">
+                <FinancialChart
+                  :chartData="pricingChartData"
+                  :chartOptions="chartOptions"
+                  chartType="bar"
+                  chartId="pricing-chart"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <h6><i class="bi bi-gift me-2"></i>Block Plan Savings</h6>
+              </div>
+              <div class="card-body">
+                <FinancialChart
+                  :chartData="blockPlanChartData"
+                  :chartOptions="chartOptions"
+                  chartType="bar"
+                  chartId="block-plan-chart"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -333,6 +485,8 @@
     revenueBreakdownData,
     monthlyProjectionsData,
     expenseBreakdownData,
+    pricingComparisonData,
+    blockPlanSavingsData,
   } from '@/data/financialData.js'
 
   export default {
@@ -357,6 +511,8 @@
         revenueChartData: revenueBreakdownData,
         monthlyChartData: monthlyProjectionsData,
         expenseChartData: expenseBreakdownData,
+        pricingChartData: pricingComparisonData,
+        blockPlanChartData: blockPlanSavingsData,
       }
     },
   }

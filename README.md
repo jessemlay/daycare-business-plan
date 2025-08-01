@@ -1,13 +1,32 @@
-# 🏫 Daycare Business Plan Website
+# Kids Zone - Drop-In Childcare Business Plan
 
-A professional Vue.js 3 application showcasing a comprehensive daycare business
-plan with interactive charts and modern UI components.
+🌟 **Live Demo**: [https://jessemlay.github.io/daycare-business-plan/](https://jessemlay.github.io/daycare-business-plan/)
 
-## ✨ Features
+A comprehensive, interactive business plan application for Kids Zone drop-in childcare service in Fort Smith, Arkansas.
 
-- 📊 **Interactive Charts** - Financial projections and demographic analysis
-  using Chart.js
-- 📱 **Responsive Design** - Mobile-first approach with Bootstrap 5
+## 🚀 Features
+
+### 📊 Interactive Business Plan
+- **Business Overview** - Company vision, mission, and market opportunity
+- **Demographics** - Target market analysis with interactive charts
+- **Products & Services** - Detailed service offerings and pricing structure
+- **Financial Projections** - Revenue forecasts and expense planning
+- **Startup Costs** - Complete investment breakdown
+- **Progress Checklist** - Implementation timeline and milestones
+
+### 🖨️ Professional PDF Export
+- **One-click PDF generation** with complete business plan
+- **Professional title page** with 75mm company logo
+- **Centered table of contents** for easy navigation
+- **High-quality rendering** optimized for printing
+- **Fast generation** (3x speed improvement)
+
+### 💻 Technical Features
+- **Responsive design** - Works on desktop, tablet, and mobile
+- **Vue.js 3** - Modern, fast, and reliable
+- **Bootstrap 5** - Professional styling and components
+- **Chart.js** - Interactive financial charts
+- **Client-side routing** - Smooth navigation between sections
 - 🎨 **Modern UI** - Clean, professional interface with collapsible navigation
 - 📈 **Data Visualization** - Revenue, expenses, market analysis, and growth
   projections

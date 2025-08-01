@@ -45,17 +45,20 @@
       <!-- Header -->
       <header class="header-matched p-3 mb-4">
         <div class="container-fluid">
-          <div class="d-flex align-items-center">
-            <img
-              src="@/assets/logo.jpg"
-              alt="Logo"
-              class="me-3"
-              style="width: 50px; height: 50px; object-fit: contain"
-            />
-            <div>
-              <h1 class="h3 mb-0">{{ getCurrentPageTitle() }}</h1>
-              <small class="text-light">Fort Smith, AR Daycare Business Plan</small>
+          <div class="d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center">
+              <img
+                src="@/assets/logo.jpg"
+                alt="Logo"
+                class="me-3"
+                style="width: 50px; height: 50px; object-fit: contain"
+              />
+              <div>
+                <h1 class="h3 mb-0">{{ getCurrentPageTitle() }}</h1>
+                <small class="text-light">Fort Smith, AR Daycare Business Plan</small>
+              </div>
             </div>
+            <i class="bi bi-printer text-light" style="cursor: pointer; font-size: 1.5rem;" title="Print" @click="printPage"></i>
           </div>
         </div>
       </header>
@@ -71,6 +74,7 @@
 <script>
   import 'bootstrap/dist/css/bootstrap.min.css'
   import 'bootstrap-icons/font/bootstrap-icons.css'
+  import { generateBusinessPlanPDF, generateCurrentPagePDF } from '@/utils/pdfGenerator'
 
   export default {
     name: 'App',
@@ -93,7 +97,7 @@
           {
             id: 'services',
             title: 'Products & Services',
-            icon: 'bi bi-puzzle',
+            icon: 'bi bi-heart',
             route: '/services',
           },
           {
@@ -125,6 +129,56 @@
         const currentRoute = this.$route.name
         const menuItem = this.menuItems.find((item) => item.id === currentRoute)
         return menuItem ? menuItem.title : 'Daycare Business Plan'
+      },
+      async printPage() {
+        try {
+          // Show loading indicator
+          const originalText = 'Print'
+          const printIcon = document.querySelector('.bi-printer')
+          if (printIcon) {
+            printIcon.style.opacity = '0.5'
+            printIcon.title = 'Generating PDF...'
+          }
+
+          // Ask user which type of PDF they want
+          const generateComplete = confirm(
+            'Do you want to generate a complete business plan PDF with all pages?\n\n' +
+            'Click "OK" for complete PDF (takes longer)\n' +
+            'Click "Cancel" for current page only (faster)'
+          )
+
+          let result
+          if (generateComplete) {
+            result = await generateBusinessPlanPDF()
+          } else {
+            generateCurrentPagePDF()
+            result = { success: true, message: 'Current page PDF generated!' }
+          }
+
+          // Reset loading indicator
+          if (printIcon) {
+            printIcon.style.opacity = '1'
+            printIcon.title = 'Print'
+          }
+
+          // Show result message
+          if (result.success) {
+            alert(result.message)
+          } else {
+            alert('Error: ' + result.message)
+          }
+
+        } catch (error) {
+          console.error('Print error:', error)
+          alert('Error generating PDF: ' + error.message)
+
+          // Reset loading indicator
+          const printIcon = document.querySelector('.bi-printer')
+          if (printIcon) {
+            printIcon.style.opacity = '1'
+            printIcon.title = 'Print'
+          }
+        }
       },
     },
   }

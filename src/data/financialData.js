@@ -1,12 +1,18 @@
 // Financial Data for Charts
 export const revenueBreakdownData = {
-  labels: ['Full Day Care', 'Half Day Care', 'Hourly Care', 'Emergency Care'],
+  labels: [
+    'Registered Hourly Care (6-18 months)',
+    'Registered Hourly Care (8 months-12 years)',
+    'Drop-In Care',
+    'Monthly Block Plans',
+    'Registration Fees',
+  ],
   datasets: [
     {
       label: 'Monthly Revenue ($)',
-      data: [6750, 3000, 2400, 1200],
-      backgroundColor: ['#28a745', '#007bff', '#ffc107', '#dc3545'],
-      borderColor: ['#1e7e34', '#0056b3', '#e0a800', '#bd2130'],
+      data: [4800, 5600, 2400, 1800, 400],
+      backgroundColor: ['#28a745', '#007bff', '#ffc107', '#17a2b8', '#6c757d'],
+      borderColor: ['#1e7e34', '#0056b3', '#e0a800', '#117a8b', '#545b62'],
       borderWidth: 2,
     },
   ],
@@ -17,7 +23,7 @@ export const monthlyProjectionsData = {
   datasets: [
     {
       label: 'Revenue ($)',
-      data: [13350, 13350, 13350, 13350, 13350, 13350, 13350, 13350, 13350, 13350, 13350, 13350],
+      data: [15000, 15000, 15000, 15000, 15000, 15000, 15000, 15000, 15000, 15000, 15000, 15000],
       borderColor: '#28a745',
       backgroundColor: 'rgba(40, 167, 69, 0.1)',
       fill: true,
@@ -33,7 +39,7 @@ export const monthlyProjectionsData = {
     },
     {
       label: 'Net Profit ($)',
-      data: [3450, 3450, 3450, 3450, 3450, 3450, 3450, 3450, 3450, 3450, 3450, 3450],
+      data: [5100, 5100, 5100, 5100, 5100, 5100, 5100, 5100, 5100, 5100, 5100, 5100],
       borderColor: '#007bff',
       backgroundColor: 'rgba(0, 123, 255, 0.1)',
       fill: true,
@@ -87,7 +93,7 @@ export const annualGrowthData = {
   datasets: [
     {
       label: 'Annual Revenue ($)',
-      data: [160200, 184000, 212000],
+      data: [180000, 216000, 259200],
       borderColor: '#28a745',
       backgroundColor: 'rgba(40, 167, 69, 0.2)',
       fill: true,
@@ -95,7 +101,7 @@ export const annualGrowthData = {
     },
     {
       label: 'Annual Profit ($)',
-      data: [41400, 55000, 70000],
+      data: [61200, 80000, 102000],
       borderColor: '#007bff',
       backgroundColor: 'rgba(0, 123, 255, 0.2)',
       fill: true,
@@ -112,6 +118,53 @@ export const startupInvestmentData = {
       data: [35000, 20000, 8000, 5000, 7000],
       backgroundColor: ['#28a745', '#007bff', '#ffc107', '#dc3545', '#6c757d'],
       borderColor: ['#1e7e34', '#0056b3', '#e0a800', '#bd2130', '#545b62'],
+      borderWidth: 2,
+    },
+  ],
+}
+
+export const pricingComparisonData = {
+  labels: ['Ages 6-18 months', 'Ages 8 months-12 years', 'Additional Children'],
+  datasets: [
+    {
+      label: 'Registered Rate ($/hr)',
+      data: [16, 14, 8],
+      backgroundColor: '#28a745',
+      borderColor: '#1e7e34',
+      borderWidth: 2,
+    },
+    {
+      label: 'Drop-In Rate ($/hr)',
+      data: [18, 16, 16],
+      backgroundColor: '#dc3545',
+      borderColor: '#bd2130',
+      borderWidth: 2,
+    },
+  ],
+}
+
+export const blockPlanSavingsData = {
+  labels: ['$300 Block Plan', '$500 Block Plan'],
+  datasets: [
+    {
+      label: 'Purchase Amount ($)',
+      data: [300, 500],
+      backgroundColor: '#ffc107',
+      borderColor: '#e0a800',
+      borderWidth: 2,
+    },
+    {
+      label: 'Credit Received ($)',
+      data: [345, 600],
+      backgroundColor: '#28a745',
+      borderColor: '#1e7e34',
+      borderWidth: 2,
+    },
+    {
+      label: 'Savings ($)',
+      data: [45, 100],
+      backgroundColor: '#17a2b8',
+      borderColor: '#117a8b',
       borderWidth: 2,
     },
   ],

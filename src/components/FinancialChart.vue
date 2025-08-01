@@ -66,16 +66,40 @@
     },
     beforeUnmount() {
       this.isDestroyed = true
-      if (this.chart && typeof this.chart.destroy === 'function') {
+      // Immediately stop all chart operations
+      if (this.chart) {
         try {
-          this.chart.destroy()
-        } catch (error) {
-          // eslint-disable-next-line no-console
-          console.warn(`Error destroying chart "${this.chartId}":`, error)
-        } finally {
-          this.chart = null
+          this.chart.stop()
+        } catch (e) {
+          // Ignore errors
         }
       }
+      this.destroyChart()
+    },
+    beforeRouteLeave() {
+      // Ensure chart is destroyed before route change
+      this.isDestroyed = true
+      // Immediately stop all chart operations
+      if (this.chart) {
+        try {
+          this.chart.stop()
+        } catch (e) {
+          // Ignore errors
+        }
+      }
+      this.destroyChart()
+    },
+    deactivated() {
+      // Handle keep-alive deactivation
+      this.isDestroyed = true
+      if (this.chart) {
+        try {
+          this.chart.stop()
+        } catch (e) {
+          // Ignore errors
+        }
+      }
+      this.destroyChart()
     },
     unmounted() {
       // Additional cleanup for Vue 3 compatibility
@@ -93,6 +117,27 @@
       },
     },
     methods: {
+      destroyChart() {
+        if (this.chart) {
+          try {
+            // Stop any ongoing animations immediately
+            this.chart.stop()
+            // Clear any pending animation frames
+            if (this.chart.ctx && this.chart.ctx.canvas) {
+              const canvas = this.chart.ctx.canvas
+              // Clear the canvas completely
+              this.chart.ctx.clearRect(0, 0, canvas.width, canvas.height)
+            }
+            // Destroy the chart instance
+            this.chart.destroy()
+          } catch (error) {
+            // eslint-disable-next-line no-console
+            console.warn(`Error destroying chart "${this.chartId}":`, error)
+          } finally {
+            this.chart = null
+          }
+        }
+      },
       createChart() {
         // Prevent operations on destroyed component
         if (this.isDestroyed) {
@@ -101,16 +146,22 @@
 
         const canvas = document.getElementById(this.chartId)
         if (!canvas) {
+          // eslint-disable-next-line no-console
+          console.warn(`Canvas element with ID "${this.chartId}" not found`)
           return
         }
 
         // Ensure the canvas is connected to the DOM
         if (!canvas.isConnected) {
+          // eslint-disable-next-line no-console
+          console.warn(`Canvas element "${this.chartId}" is not connected to DOM`)
           return
         }
 
         const ctx = canvas.getContext('2d')
         if (!ctx) {
+          // eslint-disable-next-line no-console
+          console.warn(`Cannot get 2D context for canvas "${this.chartId}"`)
           return
         }
 
@@ -121,12 +172,7 @@
 
         // Destroy existing chart if it exists
         if (this.chart) {
-          try {
-            this.chart.destroy()
-          } catch (error) {
-            // eslint-disable-next-line no-console
-            console.warn('Error destroying existing chart:', error)
-          }
+          this.destroyChart()
         }
 
         try {
@@ -136,12 +182,12 @@
             options: {
               responsive: true,
               maintainAspectRatio: false,
-              animation: {
-                onComplete: () => {
-                  // Ensure component is still mounted when animation completes
-                  if (this.isDestroyed) {
-                    return
-                  }
+              animation: false, // Disable all animations to prevent null context errors
+              transitions: {
+                active: {
+                  animation: {
+                    duration: 0,
+                  },
                 },
               },
               ...this.chartOptions,
@@ -158,13 +204,30 @@
         }
 
         try {
+          // Double-check that component isn't destroyed
+          if (this.isDestroyed) {
+            return
+          }
+
+          // Verify the chart still has a valid canvas context
+          if (!this.chart.canvas || !this.chart.canvas.getContext('2d')) {
+            // eslint-disable-next-line no-console
+            console.warn('Chart canvas context is invalid, recreating chart')
+            this.createChart()
+            return
+          }
+
+          // Stop any ongoing operations before updating
+          this.chart.stop()
           this.chart.data = this.chartData
-          this.chart.update()
+          this.chart.update('none') // Use 'none' mode to prevent animations during updates
         } catch (error) {
           // eslint-disable-next-line no-console
           console.error('Error updating chart:', error)
-          // Try to recreate the chart if update fails
-          this.createChart()
+          // Don't try to recreate if component is destroyed
+          if (!this.isDestroyed) {
+            this.createChart()
+          }
         }
       },
     },
