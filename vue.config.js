@@ -3,10 +3,10 @@ module.exports = defineConfig({
   transpileDependencies: true,
 
   // Configure for GitHub Pages deployment
-  publicPath: process.env.NODE_ENV === 'production' 
-    ? '/daycare-business-plan/' 
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/daycare-business-plan/'
     : '/',
-  
+
   // Optimize build output
   configureWebpack: {
     optimization: {
