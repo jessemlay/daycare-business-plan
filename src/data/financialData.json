@@ -1,0 +1,98 @@
+{
+  "monthlyProjections": {
+    "revenue": {
+      "fullDayRate": 35,
+      "halfDayRate": 20,
+      "hourlyRate": 8,
+      "projectedDays": {
+        "fullDay": 180,
+        "halfDay": 120,
+        "hourly": 240
+      },
+      "totalMonthlyRevenue": 13350
+    },
+    "expenses": {
+      "fixedCosts": {
+        "rent": 3500,
+        "insurance": 450,
+        "utilities": 350,
+        "licenses": 100,
+        "total": 4400
+      },
+      "variableCosts": {
+        "salaries": 4800,
+        "supplies": 400,
+        "food": 300,
+        "marketing": 200,
+        "maintenance": 150,
+        "total": 5850
+      },
+      "totalMonthlyExpenses": 10250
+    },
+    "netProfit": 3100
+  },
+  "annualProjections": [
+    {
+      "year": 1,
+      "revenue": 160200,
+      "expenses": 123000,
+      "profit": 37200,
+      "growth": 0
+    },
+    {
+      "year": 2,
+      "revenue": 184000,
+      "expenses": 141450,
+      "profit": 42550,
+      "growth": 15
+    },
+    {
+      "year": 3,
+      "revenue": 212000,
+      "expenses": 162668,
+      "profit": 49332,
+      "growth": 15
+    }
+  ],
+  "startupCosts": {
+    "facilityRenovation": 25000,
+    "equipment": 15000,
+    "furniture": 8000,
+    "licenses": 2000,
+    "marketing": 3000,
+    "workingCapital": 12000,
+    "insurance": 2500,
+    "technology": 4000,
+    "supplies": 3500,
+    "total": 75000
+  },
+  "revenueBreakdown": {
+    "fullDayServices": {
+      "percentage": 55,
+      "monthlyRevenue": 7342
+    },
+    "halfDayServices": {
+      "percentage": 30,
+      "monthlyRevenue": 4005
+    },
+    "hourlyServices": {
+      "percentage": 15,
+      "monthlyRevenue": 2003
+    }
+  },
+  "operatingMetrics": {
+    "capacity": 40,
+    "averageDaily": 28,
+    "utilizationRate": 70,
+    "staffToChildRatio": "1:6",
+    "operatingDays": 250,
+    "hoursPerDay": 13
+  },
+  "financialRatios": {
+    "grossMargin": 0.23,
+    "netMargin": 0.258,
+    "roi": 0.55,
+    "paybackPeriod": 18,
+    "breakEvenMonth": 3
+  }
+}

@@ -1,0 +1,216 @@
+{
+  "overallProgress": {
+    "completedPercentage": 25,
+    "currentPhase": "Planning & Preparation",
+    "nextMilestone": "Secure Funding",
+    "estimatedCompletion": "6 months"
+  },
+  "phases": [
+    {
+      "phase": "Planning & Preparation",
+      "status": "in-progress",
+      "percentage": 75,
+      "startDate": "2024-01-01",
+      "targetDate": "2024-02-28",
+      "color": "warning",
+      "tasks": [
+        { "task": "Market research", "status": "completed", "completedDate": "2024-01-15" },
+        {
+          "task": "Business plan development",
+          "status": "completed",
+          "completedDate": "2024-01-30"
+        },
+        { "task": "Financial projections", "status": "completed", "completedDate": "2024-02-05" },
+        { "task": "Site selection", "status": "in-progress", "targetDate": "2024-02-20" },
+        { "task": "Funding applications", "status": "pending", "targetDate": "2024-02-28" }
+      ]
+    },
+    {
+      "phase": "Legal & Licensing",
+      "status": "pending",
+      "percentage": 0,
+      "startDate": "2024-03-01",
+      "targetDate": "2024-04-30",
+      "color": "info",
+      "tasks": [
+        { "task": "LLC formation", "status": "pending", "targetDate": "2024-03-10" },
+        { "task": "Business license application", "status": "pending", "targetDate": "2024-03-15" },
+        { "task": "Childcare facility license", "status": "pending", "targetDate": "2024-04-15" },
+        { "task": "Insurance procurement", "status": "pending", "targetDate": "2024-04-20" },
+        { "task": "Health department approval", "status": "pending", "targetDate": "2024-04-30" }
+      ]
+    },
+    {
+      "phase": "Facility Setup",
+      "status": "pending",
+      "percentage": 0,
+      "startDate": "2024-05-01",
+      "targetDate": "2024-06-30",
+      "color": "primary",
+      "tasks": [
+        { "task": "Lease signing", "status": "pending", "targetDate": "2024-05-05" },
+        { "task": "Renovation & childproofing", "status": "pending", "targetDate": "2024-06-15" },
+        { "task": "Equipment installation", "status": "pending", "targetDate": "2024-06-20" },
+        { "task": "Safety system setup", "status": "pending", "targetDate": "2024-06-25" },
+        { "task": "Final inspection", "status": "pending", "targetDate": "2024-06-30" }
+      ]
+    },
+    {
+      "phase": "Staffing & Training",
+      "status": "pending",
+      "percentage": 0,
+      "startDate": "2024-07-01",
+      "targetDate": "2024-07-31",
+      "color": "success",
+      "tasks": [
+        { "task": "Staff recruitment", "status": "pending", "targetDate": "2024-07-10" },
+        { "task": "Background checks", "status": "pending", "targetDate": "2024-07-15" },
+        { "task": "Staff training program", "status": "pending", "targetDate": "2024-07-25" },
+        { "task": "Policy implementation", "status": "pending", "targetDate": "2024-07-30" },
+        { "task": "Emergency procedures drill", "status": "pending", "targetDate": "2024-07-31" }
+      ]
+    },
+    {
+      "phase": "Marketing & Launch",
+      "status": "pending",
+      "percentage": 0,
+      "startDate": "2024-08-01",
+      "targetDate": "2024-08-31",
+      "color": "danger",
+      "tasks": [
+        { "task": "Website launch", "status": "pending", "targetDate": "2024-08-05" },
+        { "task": "Marketing campaign", "status": "pending", "targetDate": "2024-08-10" },
+        { "task": "Community outreach", "status": "pending", "targetDate": "2024-08-15" },
+        { "task": "Soft opening", "status": "pending", "targetDate": "2024-08-20" },
+        { "task": "Grand opening", "status": "pending", "targetDate": "2024-08-31" }
+      ]
+    }
+  ],
+  "keyMilestones": [
+    {
+      "milestone": "Business Plan Completed",
+      "date": "2024-01-30",
+      "status": "completed",
+      "importance": "high"
+    },
+    {
+      "milestone": "Funding Secured",
+      "date": "2024-02-28",
+      "status": "in-progress",
+      "importance": "critical"
+    },
+    {
+      "milestone": "Facility Licensed",
+      "date": "2024-04-30",
+      "status": "pending",
+      "importance": "critical"
+    },
+    {
+      "milestone": "Staff Hired & Trained",
+      "date": "2024-07-31",
+      "status": "pending",
+      "importance": "high"
+    },
+    {
+      "milestone": "Grand Opening",
+      "date": "2024-08-31",
+      "status": "pending",
+      "importance": "critical"
+    }
+  ],
+  "currentTasks": [
+    {
+      "task": "Complete site selection",
+      "priority": "high",
+      "dueDate": "2024-02-20",
+      "assignee": "Owner",
+      "progress": 60
+    },
+    {
+      "task": "Submit SBA loan application",
+      "priority": "critical",
+      "dueDate": "2024-02-25",
+      "assignee": "Owner",
+      "progress": 80
+    },
+    {
+      "task": "Research equipment suppliers",
+      "priority": "medium",
+      "dueDate": "2024-03-01",
+      "assignee": "Owner",
+      "progress": 30
+    },
+    {
+      "task": "Interview potential staff candidates",
+      "priority": "medium",
+      "dueDate": "2024-03-15",
+      "assignee": "Owner",
+      "progress": 10
+    }
+  ],
+  "budgetTracking": {
+    "totalBudget": 75000,
+    "spentAmount": 8500,
+    "remainingBudget": 66500,
+    "categories": [
+      {
+        "category": "Legal & Professional Fees",
+        "budgeted": 4500,
+        "spent": 2800,
+        "remaining": 1700,
+        "status": "on-track"
+      },
+      {
+        "category": "Market Research",
+        "budgeted": 2000,
+        "spent": 1200,
+        "remaining": 800,
+        "status": "on-track"
+      },
+      {
+        "category": "Business Plan Development",
+        "budgeted": 3000,
+        "spent": 2500,
+        "remaining": 500,
+        "status": "on-track"
+      },
+      {
+        "category": "Site Visits & Travel",
+        "budgeted": 1500,
+        "spent": 800,
+        "remaining": 700,
+        "status": "under-budget"
+      },
+      {
+        "category": "Initial Marketing",
+        "budgeted": 2500,
+        "spent": 1200,
+        "remaining": 1300,
+        "status": "on-track"
+      }
+    ]
+  },
+  "riskMonitoring": [
+    {
+      "risk": "Funding delays",
+      "probability": "medium",
+      "impact": "high",
+      "status": "monitoring",
+      "mitigation": "Multiple funding sources identified"
+    },
+    {
+      "risk": "Licensing delays",
+      "probability": "low",
+      "impact": "critical",
+      "status": "planning",
+      "mitigation": "Early application submission, professional consultation"
+    },
+    {
+      "risk": "Construction delays",
+      "probability": "medium",
+      "impact": "medium",
+      "status": "planning",
+      "mitigation": "Buffer time built into schedule, vetted contractors"
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "startupSummary": {
+    "totalInvestment": 75000,
+    "fundingSources": {
+      "personalSavings": 35000,
+      "smallBusinessLoan": 30000,
+      "investorFunding": 10000
+    },
+    "paybackPeriod": "18 months",
+    "breakEvenPoint": "Month 3"
+  },
+  "startupCosts": [
+    {
+      "category": "Facility Setup",
+      "items": [
+        { "item": "Security deposit (first & last month)", "cost": 7000 },
+        { "item": "Facility renovation & childproofing", "cost": 18000 },
+        { "item": "Playground installation", "cost": 8000 },
+        { "item": "Safety equipment & systems", "cost": 3000 }
+      ],
+      "subtotal": 36000,
+      "color": "primary"
+    },
+    {
+      "category": "Equipment & Furniture",
+      "items": [
+        { "item": "Cribs, cots, and bedding", "cost": 4000 },
+        { "item": "Tables, chairs, and storage", "cost": 3500 },
+        { "item": "Kitchen appliances & equipment", "cost": 3000 },
+        { "item": "Educational materials & toys", "cost": 2500 },
+        { "item": "Office furniture & supplies", "cost": 2000 }
+      ],
+      "subtotal": 15000,
+      "color": "success"
+    },
+    {
+      "category": "Technology & Systems",
+      "items": [
+        { "item": "Security camera system", "cost": 2500 },
+        { "item": "Access control system", "cost": 1500 },
+        { "item": "Computer & software", "cost": 1200 },
+        { "item": "Phone system", "cost": 300 }
+      ],
+      "subtotal": 5500,
+      "color": "info"
+    },
+    {
+      "category": "Legal & Licensing",
+      "items": [
+        { "item": "Business license & permits", "cost": 800 },
+        { "item": "Childcare facility license", "cost": 500 },
+        { "item": "Legal fees (LLC formation)", "cost": 700 },
+        { "item": "Initial insurance premiums", "cost": 2500 }
+      ],
+      "subtotal": 4500,
+      "color": "warning"
+    },
+    {
+      "category": "Marketing & Branding",
+      "items": [
+        { "item": "Logo design & branding", "cost": 800 },
+        { "item": "Website development", "cost": 1200 },
+        { "item": "Signage (exterior & interior)", "cost": 1500 },
+        { "item": "Marketing materials & advertising", "cost": 1000 }
+      ],
+      "subtotal": 4500,
+      "color": "danger"
+    },
+    {
+      "category": "Working Capital",
+      "items": [
+        { "item": "First month operating expenses", "cost": 6000 },
+        { "item": "Emergency fund", "cost": 3500 }
+      ],
+      "subtotal": 9500,
+      "color": "secondary"
+    }
+  ],
+  "monthlyOperatingCosts": {
+    "fixedCosts": [
+      { "item": "Rent", "cost": 3500 },
+      { "item": "Insurance", "cost": 450 },
+      { "item": "Utilities", "cost": 350 },
+      { "item": "License renewals", "cost": 100 },
+      { "item": "Phone/Internet", "cost": 120 }
+    ],
+    "variableCosts": [
+      { "item": "Staff salaries & benefits", "cost": 4800 },
+      { "item": "Food & supplies", "cost": 700 },
+      { "item": "Cleaning & maintenance", "cost": 200 },
+      { "item": "Marketing", "cost": 150 },
+      { "item": "Office supplies", "cost": 80 }
+    ],
+    "totalFixed": 4520,
+    "totalVariable": 5930,
+    "totalMonthly": 10450
+  },
+  "revenueProjections": {
+    "months": [
+      { "month": 1, "revenue": 8000, "expenses": 10450, "profit": -2450 },
+      { "month": 2, "revenue": 10500, "expenses": 10450, "profit": 50 },
+      { "month": 3, "revenue": 12000, "expenses": 10450, "profit": 1550 },
+      { "month": 4, "revenue": 13000, "expenses": 10450, "profit": 2550 },
+      { "month": 5, "revenue": 13350, "expenses": 10450, "profit": 2900 },
+      { "month": 6, "revenue": 13350, "expenses": 10450, "profit": 2900 }
+    ]
+  },
+  "fundingStrategy": {
+    "personalInvestment": {
+      "amount": 35000,
+      "percentage": 47,
+      "source": "Personal savings and assets"
+    },
+    "smallBusinessLoan": {
+      "amount": 30000,
+      "percentage": 40,
+      "terms": "SBA loan, 7-year term, 6.5% interest",
+      "monthlyPayment": 450
+    },
+    "privateInvestor": {
+      "amount": 10000,
+      "percentage": 13,
+      "terms": "20% equity stake in business"
+    }
+  },
+  "riskAssessment": [
+    {
+      "risk": "Slow initial enrollment",
+      "mitigation": "Aggressive marketing campaign and introductory pricing",
+      "impact": "Medium"
+    },
+    {
+      "risk": "Regulatory changes",
+      "mitigation": "Stay current with licensing requirements and maintain compliance",
+      "impact": "Low"
+    },
+    {
+      "risk": "Competition from new facilities",
+      "mitigation": "Focus on superior service and customer relationships",
+      "impact": "Medium"
+    },
+    {
+      "risk": "Economic downturn",
+      "mitigation": "Diverse revenue streams and flexible pricing options",
+      "impact": "High"
+    }
+  ],
+  "successMetrics": [
+    { "metric": "Monthly revenue target", "target": "$13,350", "timeline": "Month 5" },
+    { "metric": "Break-even point", "target": "Positive cash flow", "timeline": "Month 3" },
+    { "metric": "Customer acquisition", "target": "100 families", "timeline": "Year 1" },
+    { "metric": "Capacity utilization", "target": "70%", "timeline": "Month 6" }
+  ]
+}

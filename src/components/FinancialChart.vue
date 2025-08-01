@@ -5,149 +5,181 @@
 </template>
 
 <script>
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  LineElement,
-  PointElement,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement,
-  BarController,
-  LineController,
-  DoughnutController
-} from 'chart.js'
+  import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    LineElement,
+    PointElement,
+    Title,
+    Tooltip,
+    Legend,
+    ArcElement,
+    BarController,
+    LineController,
+    DoughnutController,
+  } from 'chart.js'
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  LineElement,
-  PointElement,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement,
-  BarController,
-  LineController,
-  DoughnutController
-)
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    LineElement,
+    PointElement,
+    Title,
+    Tooltip,
+    Legend,
+    ArcElement,
+    BarController,
+    LineController,
+    DoughnutController
+  )
 
-export default {
-  name: 'FinancialChart',
-  props: {
-    chartData: {
-      type: Object,
-      required: true
-    },
-    chartOptions: {
-      type: Object,
-      default: () => ({})
-    },
-    chartType: {
-      type: String,
-      default: 'bar',
-      validator: (value) => ['bar', 'line', 'doughnut'].includes(value)
-    },
-    chartId: {
-      type: String,
-      default: 'financial-chart'
-    },
-    width: {
-      type: Number,
-      default: 400
-    },
-    height: {
-      type: Number,
-      default: 200
-    }
-  },
-  data() {
-    return {
-      chart: null
-    }
-  },
-  mounted() {
-    this.createChart()
-  },
-  watch: {
-    chartData: {
-      handler() {
-        if (this.chart) {
-          this.chart.destroy()
-        }
-        this.createChart()
+  export default {
+    name: 'FinancialChart',
+    props: {
+      chartData: {
+        type: Object,
+        required: true,
       },
-      deep: true
-    }
-  },
-  beforeUnmount() {
-    if (this.chart) {
-      this.chart.destroy()
-    }
-  },
-  methods: {
-    createChart() {
-      const ctx = document.getElementById(this.chartId)
-      if (!ctx) return
-
-      const defaultOptions = {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          title: {
-            display: true,
-            text: 'Financial Data'
-          },
-          legend: {
-            display: true,
-            position: 'top'
-          },
-          tooltip: {
-            callbacks: {
-              label: function(context) {
-                if (context.dataset.label && context.parsed.y !== undefined) {
-                  return context.dataset.label + ': $' + context.parsed.y.toLocaleString()
-                }
-                return context.label + ': ' + context.parsed
-              }
-            }
-          }
-        }
+      chartOptions: {
+        type: Object,
+        default: () => ({}),
+      },
+      chartType: {
+        type: String,
+        default: 'bar',
+      },
+    },
+    data() {
+      return {
+        chart: null,
+        chartId: `chart-${Math.random().toString(36).substr(2, 9)}`,
+        isDestroyed: false,
       }
-
-      if (this.chartType !== 'doughnut') {
-        defaultOptions.scales = {
-          y: {
-            beginAtZero: true,
-            ticks: {
-              callback: function(value) {
-                return '$' + value.toLocaleString()
-              }
-            }
-          }
-        }
-      }
-
-      const options = { ...defaultOptions, ...this.chartOptions }
-
-      this.chart = new ChartJS(ctx, {
-        type: this.chartType,
-        data: this.chartData,
-        options: options
+    },
+    mounted() {
+      this.$nextTick(() => {
+        this.createChart()
       })
-    }
+    },
+    beforeUnmount() {
+      this.isDestroyed = true
+      if (this.chart && typeof this.chart.destroy === 'function') {
+        try {
+          this.chart.destroy()
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.warn(`Error destroying chart "${this.chartId}":`, error)
+        } finally {
+          this.chart = null
+        }
+      }
+    },
+    unmounted() {
+      // Additional cleanup for Vue 3 compatibility
+      this.isDestroyed = true
+      this.chart = null
+    },
+    watch: {
+      chartData: {
+        handler() {
+          if (!this.isDestroyed) {
+            this.updateChart()
+          }
+        },
+        deep: true,
+      },
+    },
+    methods: {
+      createChart() {
+        // Prevent operations on destroyed component
+        if (this.isDestroyed) {
+          return
+        }
+
+        const canvas = document.getElementById(this.chartId)
+        if (!canvas) {
+          return
+        }
+
+        // Ensure the canvas is connected to the DOM
+        if (!canvas.isConnected) {
+          return
+        }
+
+        const ctx = canvas.getContext('2d')
+        if (!ctx) {
+          return
+        }
+
+        // Validate chart data
+        if (!this.chartData || !this.chartData.datasets) {
+          return
+        }
+
+        // Destroy existing chart if it exists
+        if (this.chart) {
+          try {
+            this.chart.destroy()
+          } catch (error) {
+            // eslint-disable-next-line no-console
+            console.warn('Error destroying existing chart:', error)
+          }
+        }
+
+        try {
+          this.chart = new ChartJS(ctx, {
+            type: this.chartType,
+            data: this.chartData,
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              animation: {
+                onComplete: () => {
+                  // Ensure component is still mounted when animation completes
+                  if (this.isDestroyed) {
+                    return
+                  }
+                },
+              },
+              ...this.chartOptions,
+            },
+          })
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.error('Error creating chart:', error)
+        }
+      },
+      updateChart() {
+        if (this.isDestroyed || !this.chart) {
+          return
+        }
+
+        try {
+          this.chart.data = this.chartData
+          this.chart.update()
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.error('Error updating chart:', error)
+          // Try to recreate the chart if update fails
+          this.createChart()
+        }
+      },
+    },
   }
-}
 </script>
 
 <style scoped>
-.chart-container {
-  position: relative;
-  height: 300px;
-  width: 100%;
-}
+  .chart-container {
+    position: relative;
+    height: 400px;
+    width: 100%;
+  }
+
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
 </style>

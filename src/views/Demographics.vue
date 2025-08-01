@@ -68,7 +68,7 @@
             </div>
           </div>
         </div>
-        
+
         <!-- Target Customer Analysis -->
         <div class="row mb-4">
           <div class="col-md-12">
@@ -88,7 +88,9 @@
                           <li><strong>Children:</strong> 1-3 kids (ages 6 months - 12 years)</li>
                           <li><strong>Employment:</strong> Full-time professionals</li>
                           <li><strong>Needs:</strong> Flexible, reliable childcare</li>
-                          <li><strong>Pain Points:</strong> Irregular schedules, last-minute needs</li>
+                          <li>
+                            <strong>Pain Points:</strong> Irregular schedules, last-minute needs
+                          </li>
                         </ul>
                         <div class="alert alert-success">
                           <strong>Market Size:</strong> ~1,200 families
@@ -131,10 +133,19 @@
               <div class="card-body">
                 <h6 class="text-primary">Market Demand Indicators</h6>
                 <ul>
-                  <li><strong>Working Mothers:</strong> 67.8% of mothers with children under 6 are in labor force</li>
-                  <li><strong>Limited Options:</strong> Only 3 drop-in daycare facilities currently in area</li>
+                  <li>
+                    <strong>Working Mothers:</strong> 67.8% of mothers with children under 6 are in
+                    labor force
+                  </li>
+                  <li>
+                    <strong>Limited Options:</strong> Only 3 drop-in daycare facilities currently in
+                    area
+                  </li>
                   <li><strong>Population Growth:</strong> Fort Smith growing at 1.2% annually</li>
-                  <li><strong>Economic Stability:</strong> Diverse economy with healthcare, logistics, manufacturing</li>
+                  <li>
+                    <strong>Economic Stability:</strong> Diverse economy with healthcare, logistics,
+                    manufacturing
+                  </li>
                 </ul>
 
                 <h6 class="text-primary mt-4">Competition Analysis</h6>
@@ -176,7 +187,8 @@
                 </div>
 
                 <div class="alert alert-success mt-3">
-                  <strong>Market Opportunity:</strong> Estimated 2,500+ families need flexible childcare, current capacity serves less than 40% of demand.
+                  <strong>Market Opportunity:</strong> Estimated 2,500+ families need flexible
+                  childcare, current capacity serves less than 40% of demand.
                 </div>
               </div>
             </div>
@@ -210,7 +222,10 @@
                 </div>
 
                 <div class="alert alert-light">
-                  <small><strong>Strategy:</strong> Gradual growth focusing on service quality and customer satisfaction</small>
+                  <small
+                    ><strong>Strategy:</strong> Gradual growth focusing on service quality and
+                    customer satisfaction</small
+                  >
                 </div>
               </div>
             </div>
@@ -229,10 +244,14 @@
                   <div class="col-md-6">
                     <h6 class="text-primary">Strategic Benefits</h6>
                     <ul>
-                      <li><strong>Central Location:</strong> Easy access from all Fort Smith areas</li>
+                      <li>
+                        <strong>Central Location:</strong> Easy access from all Fort Smith areas
+                      </li>
                       <li><strong>Major Routes:</strong> Near I-540 and US-71</li>
                       <li><strong>Business District:</strong> Close to major employers</li>
-                      <li><strong>Residential Areas:</strong> Surrounded by family neighborhoods</li>
+                      <li>
+                        <strong>Residential Areas:</strong> Surrounded by family neighborhoods
+                      </li>
                       <li><strong>Parking:</strong> Ample free parking available</li>
                     </ul>
                   </div>
@@ -269,8 +288,8 @@
                 <h6><i class="bi bi-pie-chart me-2"></i>Target Market Distribution</h6>
               </div>
               <div class="card-body">
-                <FinancialChart 
-                  :chartData="targetMarketData" 
+                <FinancialChart
+                  :chartData="targetMarketData"
                   :chartOptions="chartOptions"
                   chartType="doughnut"
                   chartId="target-market-chart"
@@ -284,8 +303,8 @@
                 <h6><i class="bi bi-bar-chart me-2"></i>Market Penetration Goals</h6>
               </div>
               <div class="card-body">
-                <FinancialChart 
-                  :chartData="marketPenetrationData" 
+                <FinancialChart
+                  :chartData="marketPenetrationData"
                   :chartOptions="chartOptions"
                   chartType="bar"
                   chartId="market-penetration-chart"
@@ -300,31 +319,31 @@
 </template>
 
 <script>
-import FinancialChart from '@/components/FinancialChart.vue'
-import { targetMarketData, marketPenetrationData } from '@/data/demographicsData.js'
+  import FinancialChart from '@/components/FinancialChart.vue'
+  import { targetMarketData, marketPenetrationData } from '@/data/demographicsData.js'
 
-export default {
-  name: 'DemographicsPage',
-  components: {
-    FinancialChart
-  },
-  data() {
-    return {
-      chartOptions: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            position: 'bottom'
+  export default {
+    name: 'DemographicsPage',
+    components: {
+      FinancialChart,
+    },
+    data() {
+      return {
+        chartOptions: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+            },
+            title: {
+              display: false,
+            },
           },
-          title: {
-            display: false
-          }
-        }
-      },
-      targetMarketData: targetMarketData,
-      marketPenetrationData: marketPenetrationData
-    }
+        },
+        targetMarketData: targetMarketData,
+        marketPenetrationData: marketPenetrationData,
+      }
+    },
   }
-}
 </script>

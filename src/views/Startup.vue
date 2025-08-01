@@ -10,37 +10,21 @@
           <div class="col-md-12">
             <div class="alert alert-success">
               <h6><i class="bi bi-info-circle me-2"></i>Startup Investment Overview</h6>
-              <p class="mb-0">Initial investment required to launch KidZone Sprouts drop-in daycare facility</p>
+              <p class="mb-0">
+                Initial investment required to launch KidZone Sprouts drop-in daycare facility
+              </p>
             </div>
           </div>
         </div>
 
         <!-- Major Startup Categories -->
         <div class="row mb-4">
-          <div class="col-md-4">
-            <div class="card text-center border-primary">
+          <div v-for="cost in startupCosts" :key="cost.category" class="col-md-4">
+            <div class="card text-center" :class="`border-${cost.color}`">
               <div class="card-body">
-                <i class="bi bi-building text-primary" style="font-size: 2rem;"></i>
-                <h5 class="mt-2 text-primary">Facility Setup</h5>
-                <h4 class="text-primary">$25,000</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card text-center border-warning">
-              <div class="card-body">
-                <i class="bi bi-tools text-warning" style="font-size: 2rem;"></i>
-                <h5 class="mt-2 text-warning">Equipment & Supplies</h5>
-                <h4 class="text-warning">$18,500</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card text-center border-info">
-              <div class="card-body">
-                <i class="bi bi-file-text text-info" style="font-size: 2rem;"></i>
-                <h5 class="mt-2 text-info">Legal & Licensing</h5>
-                <h4 class="text-info">$8,500</h4>
+                <i class="bi bi-building" :class="`text-${cost.color}`" style="font-size: 2rem"></i>
+                <h5 class="mt-2" :class="`text-${cost.color}`">{{ cost.category }}</h5>
+                <h4 :class="`text-${cost.color}`">${{ cost.subtotal.toLocaleString() }}</h4>
               </div>
             </div>
           </div>
@@ -245,7 +229,7 @@
                     <h4 class="text-success">$17,500</h4>
                   </div>
                 </div>
-                <hr>
+                <hr />
                 <div class="text-center">
                   <h3 class="text-success">Total Required: $69,500</h3>
                   <p class="text-muted">Recommended: $75,000 (with additional buffer)</p>
@@ -290,7 +274,14 @@
 </template>
 
 <script>
-export default {
-  name: 'StartupPage'
-}
+  import startupData from '@/data/startupData.json'
+
+  export default {
+    name: 'StartupPage',
+    data() {
+      return {
+        ...startupData,
+      }
+    },
+  }
 </script>

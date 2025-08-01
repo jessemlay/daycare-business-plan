@@ -1,0 +1,212 @@
+{
+  "serviceOfferings": [
+    {
+      "title": "Full Day Care",
+      "icon": "bi-sun",
+      "color": "primary",
+      "description": "Complete daycare services from 6:00 AM to 7:00 PM",
+      "features": [
+        "13 hours of supervised care",
+        "Educational activities",
+        "Meals and snacks included",
+        "Outdoor playtime",
+        "Structured learning"
+      ],
+      "pricing": {
+        "daily": "$35/day",
+        "weekly": "$150/week",
+        "monthly": "$600/month"
+      },
+      "ageGroups": "6 months - 12 years"
+    },
+    {
+      "title": "Half Day Care",
+      "icon": "bi-clock",
+      "color": "success",
+      "description": "Morning or afternoon care sessions (6 hours)",
+      "features": [
+        "6 hours of care",
+        "Flexible AM/PM options",
+        "Educational activities",
+        "Snack included",
+        "Age-appropriate programs"
+      ],
+      "pricing": {
+        "daily": "$20/session",
+        "weekly": "$85/week",
+        "monthly": "$340/month"
+      },
+      "ageGroups": "6 months - 12 years"
+    },
+    {
+      "title": "Hourly Drop-In",
+      "icon": "bi-stopwatch",
+      "color": "warning",
+      "description": "Flexible hourly care for immediate needs",
+      "features": [
+        "No reservations required",
+        "Minimum 2-hour blocks",
+        "Safe, supervised play",
+        "Age-appropriate activities",
+        "Emergency care available"
+      ],
+      "pricing": {
+        "hourly": "$8/hour",
+        "minimum": "2-hour minimum",
+        "peak": "$10/hour (evenings/weekends)"
+      },
+      "ageGroups": "6 months - 12 years"
+    },
+    {
+      "title": "Special Events",
+      "icon": "bi-calendar-event",
+      "color": "info",
+      "description": "Childcare during special occasions and events",
+      "features": [
+        "Wedding & party childcare",
+        "Corporate event services",
+        "Holiday care",
+        "Weekend availability",
+        "Customized programs"
+      ],
+      "pricing": {
+        "event": "$12/hour/child",
+        "minimum": "3-hour minimum",
+        "group": "Discounts for 5+ children"
+      },
+      "ageGroups": "6 months - 12 years"
+    }
+  ],
+  "ageGroups": [
+    {
+      "group": "Infants",
+      "ageRange": "6-18 months",
+      "capacity": 8,
+      "ratio": "1:4",
+      "features": [
+        "Bottle feeding support",
+        "Diaper changing",
+        "Nap scheduling",
+        "Sensory activities",
+        "Individual attention"
+      ]
+    },
+    {
+      "group": "Toddlers",
+      "ageRange": "18 months - 3 years",
+      "capacity": 10,
+      "ratio": "1:5",
+      "features": [
+        "Potty training support",
+        "Language development",
+        "Social skills building",
+        "Creative play",
+        "Motor skill activities"
+      ]
+    },
+    {
+      "group": "Preschoolers",
+      "ageRange": "3-5 years",
+      "capacity": 12,
+      "ratio": "1:6",
+      "features": [
+        "Pre-K readiness",
+        "Structured learning",
+        "Art and crafts",
+        "Music and movement",
+        "Early literacy"
+      ]
+    },
+    {
+      "group": "School Age",
+      "ageRange": "5-12 years",
+      "capacity": 15,
+      "ratio": "1:8",
+      "features": [
+        "Homework assistance",
+        "After-school care",
+        "Recreational activities",
+        "STEM projects",
+        "Sports and games"
+      ]
+    }
+  ],
+  "facilityFeatures": {
+    "safetyFeatures": [
+      "Secure entry system with key card access",
+      "Interior cameras in all common areas",
+      "Childproof locks and safety gates",
+      "First aid stations in each room",
+      "Emergency evacuation procedures"
+    ],
+    "amenities": [
+      "4 age-specific classrooms",
+      "Large indoor play area",
+      "Outdoor playground (fenced)",
+      "Full kitchen for meal preparation",
+      "Parent conference room",
+      "Comfortable nursing area",
+      "Ample parking (20+ spaces)"
+    ],
+    "educationalResources": [
+      "Age-appropriate learning materials",
+      "Books and reading corner",
+      "Art and craft supplies",
+      "Musical instruments",
+      "Educational games and puzzles",
+      "Tablets for older children",
+      "STEM learning kits"
+    ]
+  },
+  "policies": {
+    "hoursOfOperation": {
+      "monday": "6:00 AM - 7:00 PM",
+      "tuesday": "6:00 AM - 7:00 PM",
+      "wednesday": "6:00 AM - 7:00 PM",
+      "thursday": "6:00 AM - 7:00 PM",
+      "friday": "6:00 AM - 7:00 PM",
+      "saturday": "8:00 AM - 6:00 PM",
+      "sunday": "8:00 AM - 6:00 PM"
+    },
+    "requirements": [
+      "Current immunization records",
+      "Emergency contact information",
+      "Medical information and allergies",
+      "Signed liability waiver",
+      "Payment in advance for scheduled care"
+    ],
+    "whatToBring": [
+      "Diapers and wipes (infants/toddlers)",
+      "Change of clothes",
+      "Comfort items (blanket, toy)",
+      "Any medications with instructions",
+      "Lunch for full-day care (or meal plan)"
+    ]
+  },
+  "competitiveAdvantages": [
+    {
+      "title": "Flexible Scheduling",
+      "description": "Unlike traditional daycares, we accommodate irregular schedules and last-minute needs"
+    },
+    {
+      "title": "No Long-Term Contracts",
+      "description": "Pay as you go - no monthly commitments required for drop-in services"
+    },
+    {
+      "title": "Extended Hours",
+      "description": "Open 13 hours daily, including weekends for working parents"
+    },
+    {
+      "title": "All Ages Welcome",
+      "description": "Care for children from 6 months to 12 years in one convenient location"
+    },
+    {
+      "title": "Licensed & Insured",
+      "description": "Fully licensed facility with comprehensive insurance coverage"
+    },
+    {
+      "title": "Experienced Staff",
+      "description": "All caregivers have early childhood education background and ongoing training"
+    }
+  ]
+}

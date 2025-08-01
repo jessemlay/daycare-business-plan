@@ -213,17 +213,28 @@
                     </div>
                   </div>
                 </div>
-                
+
                 <div class="row mt-4">
                   <div class="col-md-6">
                     <div class="card">
                       <div class="card-body">
                         <h6 class="card-title">Annual Projections</h6>
                         <ul class="list-unstyled">
-                          <li><strong>Annual Revenue:</strong> <span class="text-success">$160,200</span></li>
-                          <li><strong>Annual Expenses:</strong> <span class="text-warning">$118,800</span></li>
-                          <li><strong>Annual Net Profit:</strong> <span class="text-success">$41,400</span></li>
-                          <li><strong>Profit Margin:</strong> <span class="text-success">25.8%</span></li>
+                          <li>
+                            <strong>Annual Revenue:</strong>
+                            <span class="text-success">$160,200</span>
+                          </li>
+                          <li>
+                            <strong>Annual Expenses:</strong>
+                            <span class="text-warning">$118,800</span>
+                          </li>
+                          <li>
+                            <strong>Annual Net Profit:</strong>
+                            <span class="text-success">$41,400</span>
+                          </li>
+                          <li>
+                            <strong>Profit Margin:</strong> <span class="text-success">25.8%</span>
+                          </li>
                         </ul>
                       </div>
                     </div>
@@ -233,10 +244,22 @@
                       <div class="card-body">
                         <h6 class="card-title">Break-Even Analysis</h6>
                         <ul class="list-unstyled">
-                          <li><strong>Break-Even Point:</strong> <span class="text-info">Month 3</span></li>
-                          <li><strong>ROI Timeline:</strong> <span class="text-info">12-18 months</span></li>
-                          <li><strong>Growth Target:</strong> <span class="text-info">15% annually</span></li>
-                          <li><strong>Market Share Goal:</strong> <span class="text-info">5% local market</span></li>
+                          <li>
+                            <strong>Break-Even Point:</strong>
+                            <span class="text-info">Month 3</span>
+                          </li>
+                          <li>
+                            <strong>ROI Timeline:</strong>
+                            <span class="text-info">12-18 months</span>
+                          </li>
+                          <li>
+                            <strong>Growth Target:</strong>
+                            <span class="text-info">15% annually</span>
+                          </li>
+                          <li>
+                            <strong>Market Share Goal:</strong>
+                            <span class="text-info">5% local market</span>
+                          </li>
                         </ul>
                       </div>
                     </div>
@@ -255,8 +278,8 @@
                 <h6><i class="bi bi-bar-chart me-2"></i>Revenue Breakdown</h6>
               </div>
               <div class="card-body">
-                <FinancialChart 
-                  :chartData="revenueChartData" 
+                <FinancialChart
+                  :chartData="revenueChartData"
                   :chartOptions="chartOptions"
                   chartType="doughnut"
                   chartId="revenue-chart"
@@ -270,8 +293,8 @@
                 <h6><i class="bi bi-graph-up me-2"></i>Monthly Projections</h6>
               </div>
               <div class="card-body">
-                <FinancialChart 
-                  :chartData="monthlyChartData" 
+                <FinancialChart
+                  :chartData="monthlyChartData"
                   :chartOptions="chartOptions"
                   chartType="line"
                   chartId="monthly-chart"
@@ -289,8 +312,8 @@
                 <h6><i class="bi bi-pie-chart me-2"></i>Expense Breakdown</h6>
               </div>
               <div class="card-body">
-                <FinancialChart 
-                  :chartData="expenseChartData" 
+                <FinancialChart
+                  :chartData="expenseChartData"
                   :chartOptions="chartOptions"
                   chartType="bar"
                   chartId="expense-chart"
@@ -305,36 +328,36 @@
 </template>
 
 <script>
-import FinancialChart from '@/components/FinancialChart.vue'
-import { 
-  revenueBreakdownData, 
-  monthlyProjectionsData, 
-  expenseBreakdownData 
-} from '@/data/financialData.js'
+  import FinancialChart from '@/components/FinancialChart.vue'
+  import {
+    revenueBreakdownData,
+    monthlyProjectionsData,
+    expenseBreakdownData,
+  } from '@/data/financialData.js'
 
-export default {
-  name: 'FinancialPage',
-  components: {
-    FinancialChart
-  },
-  data() {
-    return {
-      chartOptions: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            position: 'bottom'
+  export default {
+    name: 'FinancialPage',
+    components: {
+      FinancialChart,
+    },
+    data() {
+      return {
+        chartOptions: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+            },
+            title: {
+              display: false,
+            },
           },
-          title: {
-            display: false
-          }
-        }
-      },
-      revenueChartData: revenueBreakdownData,
-      monthlyChartData: monthlyProjectionsData,
-      expenseChartData: expenseBreakdownData
-    }
+        },
+        revenueChartData: revenueBreakdownData,
+        monthlyChartData: monthlyProjectionsData,
+        expenseChartData: expenseBreakdownData,
+      }
+    },
   }
-}
 </script>

@@ -1,0 +1,137 @@
+{
+  "keyStatistics": [
+    {
+      "value": "89,771",
+      "label": "Total Population",
+      "color": "primary"
+    },
+    {
+      "value": "30.8%",
+      "label": "Households with Children",
+      "color": "success"
+    },
+    {
+      "value": "$54,009",
+      "label": "Median Income",
+      "color": "warning"
+    },
+    {
+      "value": "36.5",
+      "label": "Median Age",
+      "color": "info"
+    }
+  ],
+  "additionalDemographics": {
+    "familyStructure": {
+      "title": "Family Structure",
+      "color": "primary",
+      "stats": [
+        { "label": "Single-Parent Households", "value": "7.8%" },
+        { "label": "Homeownership Rate", "value": "53%" },
+        { "label": "Average Commute", "value": "17.3 minutes" }
+      ]
+    },
+    "economicIndicators": {
+      "title": "Economic Indicators",
+      "color": "success",
+      "stats": [
+        { "label": "Per Capita Income", "value": "$30,504" },
+        { "label": "Median Property Value", "value": "$181,900" },
+        { "label": "Bachelor's Degree+", "value": "24.3%" }
+      ]
+    }
+  },
+  "targetCustomers": {
+    "primary": {
+      "title": "Primary Target: Working Professionals",
+      "color": "success",
+      "details": [
+        { "label": "Age Range", "value": "25-45 years" },
+        { "label": "Income", "value": "$45,000 - $85,000" },
+        { "label": "Children", "value": "1-3 kids (ages 6 months - 12 years)" },
+        { "label": "Employment", "value": "Full-time professionals" },
+        { "label": "Needs", "value": "Flexible, reliable childcare" },
+        { "label": "Pain Points", "value": "Irregular schedules, last-minute needs" }
+      ],
+      "marketSize": "~1,200 families"
+    },
+    "secondary": {
+      "title": "Secondary Target: Stay-at-Home Parents",
+      "color": "info",
+      "details": [
+        { "label": "Age Range", "value": "22-40 years" },
+        { "label": "Income", "value": "$35,000 - $65,000 (household)" },
+        { "label": "Children", "value": "1-4 kids (various ages)" },
+        { "label": "Employment", "value": "One parent stays home" },
+        { "label": "Needs", "value": "Respite care, social interaction" },
+        { "label": "Pain Points", "value": "Need breaks, appointments" }
+      ],
+      "marketSize": "~800 families"
+    }
+  },
+  "marketAnalysis": {
+    "demandIndicators": [
+      "Working Mothers: 67.8% of mothers with children under 6 are in labor force",
+      "Limited Options: Only 3 drop-in daycare facilities currently in area",
+      "Population Growth: Fort Smith growing at 1.2% annually",
+      "Economic Stability: Diverse economy with healthcare, logistics, manufacturing"
+    ],
+    "competitors": [
+      {
+        "name": "ABC Daycare",
+        "type": "Traditional",
+        "capacity": "60 kids",
+        "pricing": "$150/week",
+        "weakness": "No drop-in option"
+      },
+      {
+        "name": "Little Angels",
+        "type": "Home-based",
+        "capacity": "12 kids",
+        "pricing": "$8/hour",
+        "weakness": "Limited hours"
+      },
+      {
+        "name": "Kid's Corner",
+        "type": "Drop-in",
+        "capacity": "25 kids",
+        "pricing": "$12/hour",
+        "weakness": "Limited age range"
+      }
+    ],
+    "marketOpportunity": "Estimated 2,500+ families need flexible childcare, current capacity serves less than 40% of demand."
+  },
+  "marketPenetration": {
+    "totalTargetFamilies": 2500,
+    "goals": [
+      {
+        "year": "Year 1 Target",
+        "families": 100,
+        "percentage": 4,
+        "color": "success"
+      },
+      {
+        "year": "Year 3 Target",
+        "families": 300,
+        "percentage": 12,
+        "color": "info"
+      }
+    ],
+    "strategy": "Gradual growth focusing on service quality and customer satisfaction"
+  },
+  "locationAdvantages": {
+    "strategicBenefits": [
+      "Central Location: Easy access from all Fort Smith areas",
+      "Major Routes: Near I-540 and US-71",
+      "Business District: Close to major employers",
+      "Residential Areas: Surrounded by family neighborhoods",
+      "Parking: Ample free parking available"
+    ],
+    "fiveMileRadius": {
+      "population": "65,000+",
+      "families": "8,200+",
+      "children": "12,500+",
+      "avgIncome": "$58,000"
+    }
+  }
+}
