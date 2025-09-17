@@ -84,7 +84,7 @@
               <img
                 src="@/assets/logo.jpg"
                 alt="Logo"
-                class="me-3"
+                class="me-3 d-none d-md-block"
                 style="width: 50px; height: 50px; object-fit: contain"
               />
               <div>
