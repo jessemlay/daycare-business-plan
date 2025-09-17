@@ -28,14 +28,14 @@
       var search = window.location.search;
 
       // Prevent infinite redirects - only redirect if we don't already have the search parameter
-      if (!search.startsWith('?/') && path !== '/daycare-business-plan/' && path !== '/daycare-business-plan/index.html') {
-        var route = path.replace('/daycare-business-plan/', '');
+      if (!search.startsWith('?/') && path !== '/' && path !== '/index.html') {
+        var route = path;
         // Clean up any index.html references
         route = route.replace(/index\.html?/g, '');
         // Remove leading/trailing slashes
         route = route.replace(/^\/+|\/+$/g, '');
 
-        var redirectUrl = '/daycare-business-plan/?/' + route + window.location.search + window.location.hash;
+        var redirectUrl = '/?/' + route + window.location.search + window.location.hash;
         window.location.replace(redirectUrl);
       }
     </script>
