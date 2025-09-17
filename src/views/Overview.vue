@@ -9,10 +9,43 @@
         <div class="row mb-4">
           <div class="col-md-12">
             <div class="card border-primary">
-              <div class="card-header bg-primary text-white">
+              <div class="card-header">
                 <h5><i class="bi bi-star me-2"></i>Executive Summary</h5>
               </div>
               <div class="card-body">
+                <!-- Business Header with Logo and Contact Info -->
+                <div class="text-center mb-4 py-3 border-bottom">
+                  <img
+                    src="@/assets/logo.jpg"
+                    alt="Kids Zone Logo"
+                    class="mb-3"
+                    style="width: 120px; height: 120px; object-fit: contain"
+                  />
+                  <h3 class="text-primary mb-1">Kids Zone</h3>
+                  <h5 class="text-muted mb-3">Drop-In Childcare Business Plan</h5>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h6 class="text-primary mb-2">
+                        <i class="bi bi-people-fill me-2"></i>Business Owners
+                      </h6>
+                      <p class="mb-1"><strong>Jesse Lay & Erminia Lay</strong></p>
+                    </div>
+                    <div class="col-md-6">
+                      <h6 class="text-primary mb-2">
+                        <i class="bi bi-telephone-fill me-2"></i>Contact Information
+                      </h6>
+                      <p class="mb-1"><i class="bi bi-phone me-2"></i>Phone: 512-705-7168</p>
+                      <p class="mb-1">
+                        <i class="bi bi-envelope me-2"></i>Email: eduenas@gmail.com
+                      </p>
+                      <p class="mb-0">
+                        <i class="bi bi-geo-alt me-2"></i>Location: Fort Smith, Arkansas
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
                 <h6 class="text-primary">{{ executiveSummary.businessName }}</h6>
                 <p>
                   {{ executiveSummary.description }}
@@ -53,70 +86,6 @@
                       <p class="text-muted small">{{ factor.description }}</p>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Business Model -->
-        <div class="row mb-4">
-          <div class="col-md-6">
-            <div class="card border-success">
-              <div class="card-header bg-success text-white">
-                <h6><i class="bi bi-graph-up me-2"></i>Business Model</h6>
-              </div>
-              <div class="card-body">
-                <h6 class="text-success">Revenue Streams</h6>
-                <ul class="list-unstyled">
-                  <li v-for="stream in businessModel.revenueStreams" :key="stream">
-                    <i class="bi bi-check text-success me-2"></i>{{ stream }}
-                  </li>
-                </ul>
-
-                <h6 class="text-success mt-3">Target Market</h6>
-                <ul class="list-unstyled">
-                  <li v-for="target in businessModel.targetMarket" :key="target">
-                    <i class="bi bi-arrow-right text-success me-2"></i>{{ target }}
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="card border-info">
-              <div class="card-header bg-info text-white">
-                <h6><i class="bi bi-bullseye me-2"></i>Market Opportunity</h6>
-              </div>
-              <div class="card-body">
-                <h6 class="text-info">Fort Smith Demographics</h6>
-                <ul class="list-unstyled">
-                  <li>
-                    <strong>Population:</strong>
-                    {{ marketOpportunity.demographics.population }}
-                  </li>
-                  <li>
-                    <strong>Households with Children:</strong>
-                    {{ marketOpportunity.demographics.householdsWithChildren }}
-                  </li>
-                  <li>
-                    <strong>Median Income:</strong>
-                    {{ marketOpportunity.demographics.medianIncome }}
-                  </li>
-                  <li>
-                    <strong>Working Parents:</strong>
-                    {{ marketOpportunity.demographics.workingParents }}
-                  </li>
-                </ul>
-
-                <h6 class="text-info mt-3">Market Gap</h6>
-                <p class="text-muted">
-                  {{ marketOpportunity.marketGap }}
-                </p>
-
-                <div class="alert alert-info">
-                  <small> <strong>Market Size:</strong> {{ marketOpportunity.marketSize }} </small>
                 </div>
               </div>
             </div>
@@ -170,7 +139,7 @@
         <div class="row mb-4">
           <div class="col-md-12">
             <div class="card border-success">
-              <div class="card-header bg-success text-white">
+              <div class="card-header">
                 <h6><i class="bi bi-currency-dollar me-2"></i>Financial Highlights</h6>
               </div>
               <div class="card-body">
@@ -234,38 +203,6 @@
                         {{ returnItem.split(':')[1] }}
                       </li>
                     </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Implementation Timeline -->
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header">
-                <h6><i class="bi bi-calendar-check me-2"></i>Implementation Timeline</h6>
-              </div>
-              <div class="card-body">
-                <div class="row">
-                  <div
-                    v-for="phase in implementationTimeline.phases"
-                    :key="phase.name"
-                    class="col-md-3"
-                  >
-                    <div class="card bg-light">
-                      <div class="card-body text-center">
-                        <h6 :class="`text-${phase.color}`">{{ phase.name }}</h6>
-                        <p class="small">{{ phase.timeline }}</p>
-                        <ul class="list-unstyled small">
-                          <li v-for="task in phase.tasks" :key="task">
-                            {{ task }}
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>

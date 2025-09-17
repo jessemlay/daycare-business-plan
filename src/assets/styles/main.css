@@ -1,5 +1,16 @@
 /* Custom Styles for Daycare Business Plan Website */
 
+/* Global reset for mobile */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+}
+
 :root {
   --sidebar-width: 280px;
   --sidebar-collapsed-width: 60px;
@@ -22,6 +33,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
 }
 
 /* Sidebar Styles */
@@ -247,13 +259,28 @@ iframe:hover {
   transform: scale(1.01);
 }
 
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none; /* Hidden by default on desktop */
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+  body {
+    padding-top: 0;
+    margin-top: 0;
+  }
+
   .sidebar {
     width: 100%;
     height: auto;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
     transform: translateX(-100%);
+    z-index: 9999;
+    max-height: 100vh;
+    overflow-y: auto;
   }
 
   .sidebar.collapsed {
@@ -263,10 +290,55 @@ iframe:hover {
 
   #main-content {
     margin-left: 0;
+    padding-top: 0;
   }
 
   #main-content.expanded {
     margin-left: 0;
+  }
+
+  .header-matched {
+    margin-top: 0 !important;
+    padding-top: 1rem !important;
+  }
+
+  /* Reduce header padding on mobile */
+  header.header-matched {
+    padding: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Add mobile menu button */
+  .mobile-menu-toggle {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10000;
+    background: rgba(102, 126, 234, 0.9);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  /* Ensure navigation text is visible on mobile when sidebar is open */
+  .sidebar.collapsed .nav-text {
+    display: inline !important;
+  }
+
+  /* Mobile sidebar header spacing */
+  .sidebar .sidebar-header {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .sidebar .mobile-close-btn {
+    margin-right: 0.5rem;
+    flex-shrink: 0;
   }
 }
 

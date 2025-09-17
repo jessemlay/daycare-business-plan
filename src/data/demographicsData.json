@@ -111,6 +111,12 @@
         "color": "success"
       },
       {
+        "year": "Year 2 Target",
+        "families": 200,
+        "percentage": 8,
+        "color": "warning"
+      },
+      {
         "year": "Year 3 Target",
         "families": 300,
         "percentage": 12,

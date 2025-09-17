@@ -1,9 +1,24 @@
 <template>
   <div id="app">
+    <!-- Mobile Menu Toggle (only visible on mobile) -->
+    <button class="mobile-menu-toggle d-md-none" @click="toggleSidebar" v-show="!sidebarCollapsed">
+      <i class="bi bi-list"></i>
+    </button>
+
     <!-- Sidebar -->
     <nav id="sidebar" class="sidebar" :class="{ collapsed: sidebarCollapsed }">
       <div class="sidebar-header">
-        <div v-show="!sidebarCollapsed" class="d-flex align-items-center">
+        <!-- Mobile close button (left side on mobile) -->
+        <button
+          class="btn btn-sm btn-outline-light d-md-none mobile-close-btn"
+          @click="toggleSidebar"
+          v-show="sidebarCollapsed"
+        >
+          <i class="bi bi-x"></i>
+        </button>
+
+        <!-- Logo and title section -->
+        <div v-show="!sidebarCollapsed || !isMobile" class="d-flex align-items-center flex-grow-1">
           <img
             src="@/assets/logo.jpg"
             alt="Logo"
@@ -12,7 +27,20 @@
           />
           <h4 class="mb-0">Business Plan</h4>
         </div>
-        <div v-show="sidebarCollapsed" class="text-center w-100">
+
+        <!-- Mobile: collapsed logo (center) -->
+        <div v-show="sidebarCollapsed && isMobile" class="text-center flex-grow-1">
+          <img
+            src="@/assets/logo.jpg"
+            alt="Logo"
+            class="logo"
+            style="width: 30px; height: 30px; object-fit: contain"
+          />
+          <h6 class="mb-0 mt-1">Business Plan</h6>
+        </div>
+
+        <!-- Desktop: collapsed logo (center) -->
+        <div v-show="sidebarCollapsed && !isMobile" class="text-center w-100">
           <img
             src="@/assets/logo.jpg"
             alt="Logo"
@@ -20,7 +48,12 @@
             style="width: 30px; height: 30px; object-fit: contain"
           />
         </div>
-        <button class="btn btn-sm btn-outline-light toggle-btn" @click="toggleSidebar">
+
+        <!-- Desktop toggle button (right side) -->
+        <button
+          class="btn btn-sm btn-outline-light toggle-btn d-none d-md-block"
+          @click="toggleSidebar"
+        >
           <i :class="sidebarCollapsed ? 'bi bi-chevron-right' : 'bi bi-chevron-left'"></i>
         </button>
       </div>
@@ -32,9 +65,10 @@
             class="nav-link"
             :class="{ active: $route.name === item.id }"
             :title="item.title"
+            @click="onNavItemClick"
           >
             <i :class="item.icon"></i>
-            <span v-show="!sidebarCollapsed" class="nav-text">{{ item.title }}</span>
+            <span v-show="shouldShowNavText" class="nav-text">{{ item.title }}</span>
           </router-link>
         </li>
       </ul>
@@ -58,7 +92,12 @@
                 <small class="text-light">Fort Smith, AR Daycare Business Plan</small>
               </div>
             </div>
-            <i class="bi bi-printer text-light" style="cursor: pointer; font-size: 1.5rem;" title="Print" @click="printPage"></i>
+            <i
+              class="bi bi-printer text-light"
+              style="cursor: pointer; font-size: 1.5rem"
+              title="Print"
+              @click="printPage"
+            ></i>
           </div>
         </div>
       </header>
@@ -81,6 +120,7 @@
     data() {
       return {
         sidebarCollapsed: false,
+        isMobile: false,
         menuItems: [
           {
             id: 'overview',
@@ -121,9 +161,32 @@
         ],
       }
     },
+    computed: {
+      shouldShowNavText() {
+        // On mobile: show text when sidebar is collapsed (which means it's visible)
+        // On desktop: show text when sidebar is not collapsed
+        return this.isMobile ? this.sidebarCollapsed : !this.sidebarCollapsed
+      },
+    },
+    mounted() {
+      this.checkIfMobile()
+      window.addEventListener('resize', this.checkIfMobile)
+    },
+    beforeUnmount() {
+      window.removeEventListener('resize', this.checkIfMobile)
+    },
     methods: {
+      checkIfMobile() {
+        this.isMobile = window.innerWidth <= 768
+      },
       toggleSidebar() {
         this.sidebarCollapsed = !this.sidebarCollapsed
+      },
+      onNavItemClick() {
+        // Close sidebar on mobile when navigation item is clicked
+        if (this.isMobile && this.sidebarCollapsed) {
+          this.sidebarCollapsed = false
+        }
       },
       getCurrentPageTitle() {
         const currentRoute = this.$route.name
@@ -133,7 +196,6 @@
       async printPage() {
         try {
           // Show loading indicator
-          const originalText = 'Print'
           const printIcon = document.querySelector('.bi-printer')
           if (printIcon) {
             printIcon.style.opacity = '0.5'
@@ -143,8 +205,8 @@
           // Ask user which type of PDF they want
           const generateComplete = confirm(
             'Do you want to generate a complete business plan PDF with all pages?\n\n' +
-            'Click "OK" for complete PDF (takes longer)\n' +
-            'Click "Cancel" for current page only (faster)'
+              'Click "OK" for complete PDF (takes longer)\n' +
+              'Click "Cancel" for current page only (faster)'
           )
 
           let result
@@ -167,9 +229,7 @@
           } else {
             alert('Error: ' + result.message)
           }
-
         } catch (error) {
-          console.error('Print error:', error)
           alert('Error generating PDF: ' + error.message)
 
           // Reset loading indicator

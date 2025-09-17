@@ -31,31 +31,6 @@
       "description": "Convenient Fort Smith location"
     }
   ],
-  "businessModel": {
-    "revenueStreams": [
-      "Full-day care services",
-      "Half-day care programs",
-      "Hourly drop-in care",
-      "Emergency care services",
-      "Special event childcare"
-    ],
-    "targetMarket": [
-      "Working professionals",
-      "Parents with irregular schedules",
-      "Stay-at-home parents needing respite",
-      "Visitors and travelers"
-    ]
-  },
-  "marketOpportunity": {
-    "demographics": {
-      "population": "89,771",
-      "householdsWithChildren": "30.8%",
-      "medianIncome": "$54,009",
-      "workingParents": "High demand"
-    },
-    "marketGap": "Limited flexible daycare options in Fort Smith create opportunity for drop-in services that accommodate varying schedules and immediate needs.",
-    "marketSize": "Estimated 2,000+ families needing flexible childcare services"
-  },
   "management": {
     "staffingPlan": [
       { "role": "Director", "type": "Full-time management" },
@@ -71,7 +46,6 @@
     ],
     "operatingCapacity": {
       "maxCapacity": "40 children",
-      "staffToChildRatio": "1:6",
       "ageGroups": "4 separate rooms",
       "operatingHours": "13 hours/day"
     }
@@ -81,7 +55,7 @@
       "title": "Organizational Structure",
       "roles": [
         "Owner/Director: Business operations & oversight",
-        "Lead Teacher: Educational program coordination",
+        "Lead Teacher: Activity program coordination",
         "Assistant Teachers: Direct childcare services",
         "Administrative Staff: Registration & billing"
       ]
@@ -102,7 +76,6 @@
         "Hours: Monday-Friday 6:00 AM - 7:00 PM",
         "Capacity: Up to 40 children maximum",
         "Age Groups: 6 months to 12 years",
-        "Staff Ratio: 1:6 (meets state requirements)",
         "Safety: Secure entry & emergency procedures"
       ]
     }
@@ -111,7 +84,7 @@
     "metrics": {
       "startupInvestment": {
         "label": "Initial Investment",
-        "value": "$75,000",
+        "value": "$50,000",
         "description": "Total startup capital required"
       },
       "monthlyRevenue": {
@@ -143,32 +116,6 @@
       "items": ["Annual ROI: 55% (Year 1)", "Payback Period: 18 months", "Profit Margin: 25.8%"]
     }
   },
-  "implementationTimeline": [
-    {
-      "phase": "Phase 1",
-      "timeframe": "Months 1-2",
-      "color": "primary",
-      "tasks": ["Secure funding", "Obtain licenses", "Lease facility"]
-    },
-    {
-      "phase": "Phase 2",
-      "timeframe": "Months 3-4",
-      "color": "warning",
-      "tasks": ["Renovate space", "Purchase equipment", "Hire staff"]
-    },
-    {
-      "phase": "Phase 3",
-      "timeframe": "Month 5",
-      "color": "info",
-      "tasks": ["Marketing launch", "Staff training", "Soft opening"]
-    },
-    {
-      "phase": "Phase 4",
-      "timeframe": "Month 6",
-      "color": "success",
-      "tasks": ["Grand opening", "Full operations", "Customer acquisition"]
-    }
-  ],
   "businessPlanSections": {
     "left": ["Executive Summary", "Company Description", "Market Analysis"],
     "right": ["Organization & Management", "Service or Product Line", "Marketing & Sales"]

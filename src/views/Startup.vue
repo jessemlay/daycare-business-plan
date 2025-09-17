@@ -34,7 +34,7 @@
         <div class="row">
           <div class="col-md-6">
             <div class="card">
-              <div class="card-header bg-primary text-white">
+              <div class="card-header border-primary">
                 <h6><i class="bi bi-building me-2"></i>Facility & Infrastructure</h6>
               </div>
               <div class="card-body">
@@ -124,7 +124,7 @@
         <div class="row mt-4">
           <div class="col-md-6">
             <div class="card">
-              <div class="card-header bg-info text-white">
+              <div class="card-header border-info">
                 <h6><i class="bi bi-shield-check me-2"></i>Legal & Licensing</h6>
               </div>
               <div class="card-body">
@@ -164,7 +164,7 @@
 
           <div class="col-md-6">
             <div class="card">
-              <div class="card-header bg-success text-white">
+              <div class="card-header border-success">
                 <h6><i class="bi bi-megaphone me-2"></i>Marketing & Operations</h6>
               </div>
               <div class="card-body">
@@ -207,7 +207,7 @@
         <div class="row mt-4">
           <div class="col-md-12">
             <div class="card border-success">
-              <div class="card-header bg-success text-white">
+              <div class="card-header">
                 <h5><i class="bi bi-calculator me-2"></i>Total Startup Investment</h5>
               </div>
               <div class="card-body">

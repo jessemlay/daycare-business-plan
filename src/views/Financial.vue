@@ -301,7 +301,7 @@
         <div class="row mt-4">
           <div class="col-md-12">
             <div class="card border-success">
-              <div class="card-header bg-success text-white">
+              <div class="card-header">
                 <h6><i class="bi bi-calculator me-2"></i>Profit Analysis</h6>
               </div>
               <div class="card-body">
@@ -323,9 +323,9 @@
                     </div>
                   </div>
                   <div class="col-md-4">
-                    <div class="card bg-success text-white">
+                    <div class="card border-success">
                       <div class="card-body">
-                        <h4>$3,450</h4>
+                        <h4 class="text-success">$3,450</h4>
                         <p class="mb-0">Net Monthly Profit</p>
                       </div>
                     </div>

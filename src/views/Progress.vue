@@ -9,7 +9,7 @@
         <div class="row mb-4">
           <div class="col-md-12">
             <div class="card border-info">
-              <div class="card-header bg-info text-white">
+              <div class="card-header">
                 <h5><i class="bi bi-speedometer2 me-2"></i>Business Launch Progress Overview</h5>
               </div>
               <div class="card-body">

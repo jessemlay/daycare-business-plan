@@ -73,7 +73,7 @@
         <div class="row mb-4">
           <div class="col-md-12">
             <div class="card border-success">
-              <div class="card-header bg-success text-white">
+              <div class="card-header">
                 <h6><i class="bi bi-bullseye me-2"></i>Target Customer Profiles</h6>
               </div>
               <div class="card-body">
@@ -196,36 +196,25 @@
 
           <div class="col-md-4">
             <div class="card border-info">
-              <div class="card-header bg-info text-white">
+              <div class="card-header">
                 <h6><i class="bi bi-pie-chart me-2"></i>Market Penetration Goals</h6>
               </div>
               <div class="card-body">
                 <div class="text-center mb-3">
-                  <h4 class="text-info">2,500</h4>
+                  <h4 class="text-info">{{ demographicsData.marketPenetration.totalTargetFamilies.toLocaleString() }}</h4>
                   <p class="mb-0">Total Target Families</p>
                 </div>
 
-                <div class="mb-3">
-                  <h6>Year 1 Target</h6>
+                <div v-for="goal in demographicsData.marketPenetration.goals" :key="goal.year" class="mb-3">
+                  <h6>{{ goal.year }}</h6>
                   <div class="progress mb-2">
-                    <div class="progress-bar bg-success" style="width: 4%"></div>
+                    <div :class="`progress-bar bg-${goal.color}`" :style="`width: ${goal.percentage}%`"></div>
                   </div>
-                  <small>100 families (4% market share)</small>
-                </div>
-
-                <div class="mb-3">
-                  <h6>Year 3 Target</h6>
-                  <div class="progress mb-2">
-                    <div class="progress-bar bg-info" style="width: 12%"></div>
-                  </div>
-                  <small>300 families (12% market share)</small>
+                  <small>{{ goal.families }} families ({{ goal.percentage }}% market share)</small>
                 </div>
 
                 <div class="alert alert-light">
-                  <small
-                    ><strong>Strategy:</strong> Gradual growth focusing on service quality and
-                    customer satisfaction</small
-                  >
+                  <small><strong>Strategy:</strong> {{ demographicsData.marketPenetration.strategy }}</small>
                 </div>
               </div>
             </div>
@@ -321,6 +310,7 @@
 <script>
   import FinancialChart from '@/components/FinancialChart.vue'
   import { targetMarketData, marketPenetrationData } from '@/data/demographicsData.js'
+  import demographicsData from '@/data/demographicsData.json'
 
   export default {
     name: 'DemographicsPage',
@@ -343,6 +333,7 @@
         },
         targetMarketData: targetMarketData,
         marketPenetrationData: marketPenetrationData,
+        demographicsData: demographicsData,
       }
     },
   }
