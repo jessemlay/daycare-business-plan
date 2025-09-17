@@ -306,7 +306,7 @@ iframe:hover {
   header.header-matched {
     padding: 1rem !important;
     margin-bottom: 1rem !important;
-    padding-left: 4rem !important; /* Add space for menu button */
+    padding-left: 5rem !important; /* Increased space for menu button */
   }
 
   /* Center header text on mobile */
@@ -318,7 +318,7 @@ iframe:hover {
   header.header-matched .d-flex.align-items-center:first-child {
     text-align: center;
     flex-grow: 1;
-    margin-left: -1.5rem; /* Compensate for print button to truly center */
+    margin-left: -2.5rem; /* Adjusted to compensate for increased padding and print button */
   }
 
   /* Add mobile menu button */
