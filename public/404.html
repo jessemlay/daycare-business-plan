@@ -5,16 +5,9 @@
     <title>Kids Zone Business Plan</title>
     <script type="text/javascript">
       // Single Page Apps for GitHub Pages
-      // MIT License
-      // https://github.com/rafgraph/spa-github-pages
-      // This script checks to see if a redirect is present in the query string,
-      // converts it back into the correct url and adds it to the
-      // browser's history using window.history.replaceState(...),
-      // which won't cause the browser to attempt to load the new url.
-      // When the single page app is loaded further down in this file,
-      // the correct url will be waiting in the browser's history for
-      // the single page app to route accordingly.
+      // Simplified approach to prevent recursive URL issues
       (function(l) {
+        // Check if we have a search parameter that starts with '/'
         if (l.search[1] === '/' ) {
           var decoded = l.search.slice(1).split('&').map(function(s) {
             return s.replace(/~and~/g, '&')
@@ -28,23 +21,23 @@
   </head>
   <body>
     <div id="app"></div>
-    <!-- Fixed redirect script to prevent recursive appending -->
+    <!-- Simplified redirect script -->
     <script>
-      // Get the current path and redirect properly
-      var currentPath = window.location.pathname;
-      var basePath = '/daycare-business-plan/';
+      // Only redirect if we're actually on a 404 page and not already redirected
+      var path = window.location.pathname;
+      var search = window.location.search;
 
-      // Remove the base path to get the route
-      var route = currentPath.replace(basePath, '');
+      // Prevent infinite redirects - only redirect if we don't already have the search parameter
+      if (!search.startsWith('?/') && path !== '/daycare-business-plan/' && path !== '/daycare-business-plan/index.html') {
+        var route = path.replace('/daycare-business-plan/', '');
+        // Clean up any index.html references
+        route = route.replace(/index\.html?/g, '');
+        // Remove leading/trailing slashes
+        route = route.replace(/^\/+|\/+$/g, '');
 
-      // Prevent recursive index.html appending
-      if (route.includes('index.html') || route.includes('index.htm')) {
-        route = '';
+        var redirectUrl = '/daycare-business-plan/?/' + route + window.location.search + window.location.hash;
+        window.location.replace(redirectUrl);
       }
-
-      // Clean redirect to index.html with proper path encoding
-      var redirectUrl = basePath + '?/' + route + window.location.search + window.location.hash;
-      window.location.replace(redirectUrl);
     </script>
   </body>
 </html>
