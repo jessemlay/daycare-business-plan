@@ -28,10 +28,23 @@
   </head>
   <body>
     <div id="app"></div>
-    <!-- This script adds the Redirect from the 404 page -->
+    <!-- Fixed redirect script to prevent recursive appending -->
     <script>
-      // Immediately redirect to index.html with the current path as a query parameter
-      window.location.replace('/daycare-business-plan/index.html?/' + window.location.pathname.slice('/daycare-business-plan/'.length) + window.location.search + window.location.hash);
+      // Get the current path and redirect properly
+      var currentPath = window.location.pathname;
+      var basePath = '/daycare-business-plan/';
+      
+      // Remove the base path to get the route
+      var route = currentPath.replace(basePath, '');
+      
+      // Prevent recursive index.html appending
+      if (route.includes('index.html') || route.includes('index.htm')) {
+        route = '';
+      }
+      
+      // Clean redirect to index.html with proper path encoding
+      var redirectUrl = basePath + '?/' + route + window.location.search + window.location.hash;
+      window.location.replace(redirectUrl);
     </script>
   </body>
 </html>
