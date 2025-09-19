@@ -48,7 +48,6 @@
                     getPhaseStatusText(phase)
                   }}</span>
                 </h6>
-                <small class="text-muted">Target: {{ phase.targetDate }}</small>
               </div>
               <div class="card-body">
                 <div class="row">
@@ -75,12 +74,6 @@
                         >
                           {{ task.task }}
                         </span>
-                        <small v-if="task.completedDate" class="text-success ms-2">
-                          ✓ {{ task.completedDate }}
-                        </small>
-                        <small v-else-if="task.targetDate" class="text-muted ms-2">
-                          Target: {{ task.targetDate }}
-                        </small>
                       </li>
                     </ul>
                   </div>
@@ -117,10 +110,8 @@
         const task = this.phases[phaseIndex].tasks[taskIndex]
         if (task.status === 'completed') {
           task.status = 'pending'
-          task.completedDate = null
         } else {
           task.status = 'completed'
-          task.completedDate = new Date().toISOString().split('T')[0]
         }
 
         // Update phase progress
