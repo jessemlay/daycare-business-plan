@@ -1340,10 +1340,10 @@
       },
       currentYearNetIncome() {
         if (this.activeExpenseTab === 'year2') {
-          return this.currentYearRevenue - this.currentYearExpenses
+          return this.getYear2TotalYearlyTakeHome()
         } else {
-          // For Year 1, use the calculated net income that accounts for startup costs properly
-          return this.financialData.monthlyProjections.totalNetIncome
+          // For Year 1, use the calculated take-home profit that matches the table total
+          return this.getTotalYearlyTakeHome()
         }
       },
       currentYearData() {
@@ -1636,10 +1636,10 @@
         })
       },
       getExpenseRowClass(percentage) {
-        if (percentage >= 50) return 'table-danger' // Only extremely high percentages are red
-        if (percentage >= 40) return 'table-warning' // High expenses are yellow
-        if (percentage >= 37) return 'table-info' // Only higher moderate expenses are blue
-        return '' // Normal expenses like wages (36%) remain white
+        if (percentage >= 55) return 'table-danger' // Only extremely high percentages are red
+        if (percentage >= 50) return 'table-warning' // High expenses are yellow
+        if (percentage >= 48) return 'table-info' // Only higher moderate expenses are blue
+        return '' // Normal expenses like wages (up to 47%) remain white
       },
       // Year 2 methods using December values
       getYear2ExpenseCategories() {

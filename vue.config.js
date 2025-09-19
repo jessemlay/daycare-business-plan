@@ -32,12 +32,14 @@ module.exports = defineConfig({
       return args
     })
 
-    // Add cache busting for CSS files
-    config.plugin('extract-css').tap((args) => {
-      args[0].filename = '[name].[contenthash:8].css'
-      args[0].chunkFilename = '[name].[contenthash:8].css'
-      return args
-    })
+    // Add cache busting for CSS files (only in production)
+    if (process.env.NODE_ENV === 'production') {
+      config.plugin('extract-css').tap((args) => {
+        args[0].filename = '[name].[contenthash:8].css'
+        args[0].chunkFilename = '[name].[contenthash:8].css'
+        return args
+      })
+    }
 
     // Configure HTML plugin for cache busting
     config.plugin('html').tap((args) => {
