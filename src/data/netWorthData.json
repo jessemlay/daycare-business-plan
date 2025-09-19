@@ -123,6 +123,36 @@
           "type": "loan",
           "balance": 20834.07,
           "payment": 372
+        },
+        {
+          "description": "One Main",
+          "type": "loan",
+          "balance": 4922.60,
+          "payment": 213.83
+        },
+        {
+          "description": "Trash Service",
+          "type": "utility",
+          "balance": 0,
+          "payment": 50
+        },
+        {
+          "description": "Electricity",
+          "type": "utility",
+          "balance": 0,
+          "payment": 90
+        },
+        {
+          "description": "Water",
+          "type": "utility",
+          "balance": 0,
+          "payment": 55
+        },
+        {
+          "description": "Pest Control",
+          "type": "misc",
+          "balance": 0,
+          "payment": 59
         }
       ]
     }

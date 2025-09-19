@@ -232,7 +232,7 @@
                         </tr>
                         <tr>
                           <td>Secondary Earner (Wife)</td>
-                          <td class="text-end text-success fw-bold">$1,500</td>
+                          <td class="text-end text-success fw-bold">$2,200</td>
                         </tr>
                       </tbody>
                     </table>
@@ -241,7 +241,7 @@
 
                 <!-- Credit Cards & Loans -->
                 <div class="mb-4">
-                  <h6 class="text-danger border-bottom pb-2">Credit Cards/Loans</h6>
+                  <h6 class="text-danger border-bottom pb-2">Credit Cards/Loans/Expenses</h6>
                   <div class="table-responsive">
                     <table class="table table-sm">
                       <thead>
@@ -340,9 +340,9 @@ export default {
       return this.vehiclesArray.filter(vehicle => vehicle.currentValue > 0)
     },
     visibleDebts() {
-      // Filter debts that have a balance greater than 0
+      // Filter debts that have a balance greater than 0 OR a payment greater than 0
       const debts = this.netWorthData?.personalNetWorth?.liabilities?.debts || []
-      return debts.filter(debt => debt.balance > 0)
+      return debts.filter(debt => debt.balance > 0 || debt.payment > 0)
     },
     realEstateAssets() {
       if (!this.netWorthData?.personalNetWorth?.assets?.realEstate) return 0
@@ -396,7 +396,7 @@ export default {
 
     // Income and Cash Flow Calculations
     totalMonthlyIncome() {
-      return 6320 + 1500  // Primary Earner + Secondary Earner
+      return 6320 + 2200  // Primary Earner + Secondary Earner
     },
     availableCashFlow() {
       return this.totalMonthlyIncome - this.totalMonthlyPayments
