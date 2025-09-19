@@ -152,6 +152,12 @@
             icon: 'bi bi-check2-square',
             route: '/progress',
           },
+          {
+            id: 'networth',
+            title: 'Personal Net Worth',
+            icon: 'bi bi-pie-chart-fill',
+            route: '/net-worth',
+          },
         ],
       }
     },

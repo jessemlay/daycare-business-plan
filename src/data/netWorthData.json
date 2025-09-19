@@ -1,0 +1,122 @@
+{
+  "personalNetWorth": {
+    "lastUpdated": "2025-09-19",
+    "assets": {
+      "realEstate": {
+        "primaryHome": {
+          "description": "Primary Residence",
+          "currentValue": 297399,
+          "mortgageBalance": 215682,
+          "equity": 81717,
+          "monthlyPayment": 2250
+        },
+        "rentalProperty": {
+          "description": "Rental Property",
+          "currentValue": 0,
+          "mortgageBalance": 0,
+          "equity": 0,
+          "monthlyPayment": 0
+        }
+      },
+      "vehicles": {
+        "car1": {
+          "description": "Primary Vehicle",
+          "make": "Ford",
+          "model": "Expedition",
+          "year": 2005,
+          "currentValue": 3800,
+          "loanBalance": 0,
+          "equity": 3800,
+          "monthlyPayment": 0
+        },
+        "car2": {
+          "description": "Secondary Vehicle",
+          "make": "Honda",
+          "model": "Civic",
+          "year": 2013,
+          "currentValue": 8000,
+          "loanBalance": 0,
+          "equity": 8000,
+          "monthlyPayment": 0
+        },
+        "tractor": {
+          "description": "Tractor/Equipment",
+          "make": "TYM",
+          "model": "T25",
+          "year": 2024,
+          "currentValue": 16500,
+          "loanBalance": 12366.64,
+          "equity": 4133.36,
+          "monthlyPayment": 125
+        },
+        "rv": {
+          "description": "RV/Travel Trailer",
+          "make": "Forest River",
+          "model": "Wolf Pup",
+          "year": 2025,
+          "currentValue": 19000,
+          "loanBalance": 20834.07,
+          "equity": -1834.07,
+          "monthlyPayment": 0
+        }
+      },
+      "liquidAssets": {
+        "checkingAccount": {
+          "description": "Primary Checking",
+          "institution": "Local Bank",
+          "balance": 2700
+        },
+        "savingsAccount": {
+          "description": "Emergency Savings",
+          "institution": "Local Bank",
+          "balance": 907
+        },
+        "moneyMarket": {
+          "description": "Money Market Account",
+          "institution": "Investment Firm",
+          "balance": 40000,
+          "interestRate": 4.1
+        }
+      },
+      "investments": {
+        "retirement401k": {
+          "description": "401(k) Retirement (Husband)",
+          "institution": "Current Employer",
+          "balance": 18822
+        }
+      }
+    },
+    "liabilities": {
+      "creditCards": {
+        "card1": {
+          "description": "Primary Credit Card",
+          "institution": "Chase",
+          "balance": 2342,
+          "minimumPayment": 71,
+          "interestRate": 18.99
+        },
+        "card2": {
+          "description": "Secondary Credit Card",
+          "institution": "Discover",
+          "balance": 334,
+          "minimumPayment": 35,
+          "interestRate": 15.99
+        },
+        "loan1": {
+          "description": "Personal Loan",
+          "institution": "Bank",
+          "balance": 5800,
+          "minimumPayment": 180,
+          "interestRate": 0
+        }
+      },
+      "otherDebt": {
+        "medicalDebt": {
+          "description": "Medical Bills",
+          "balance": 0,
+          "monthlyPayment": 0
+        }
+      }
+    }
+  }
+}

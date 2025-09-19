@@ -5,6 +5,7 @@ import Services from '../views/Services.vue'
 import Financial from '../views/Financial.vue'
 import Startup from '../views/Startup.vue'
 import Progress from '../views/Progress.vue'
+import NetWorth from '../views/NetWorth.vue'
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: '/progress',
     name: 'progress',
     component: Progress,
+  },
+  {
+    path: '/net-worth',
+    name: 'networth',
+    component: NetWorth,
   },
 ]
 
