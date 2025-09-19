@@ -11,7 +11,7 @@
             <div class="alert alert-success">
               <h6><i class="bi bi-info-circle me-2"></i>Startup Investment Overview</h6>
               <p class="mb-0">
-                Initial investment required to launch KidZone drop-in daycare facility
+                Initial investment required to launch Kid Zone drop-in daycare facility
               </p>
             </div>
           </div>
