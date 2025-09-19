@@ -47,17 +47,17 @@
           "currentValue": 16500,
           "loanBalance": 12366.64,
           "equity": 4133.36,
-          "monthlyPayment": 125
+          "monthlyPayment": 281
         },
         "rv": {
           "description": "RV/Travel Trailer",
           "make": "Forest River",
           "model": "Wolf Pup",
           "year": 2025,
-          "currentValue": 19000,
+          "currentValue": 15000,
           "loanBalance": 20834.07,
-          "equity": -1834.07,
-          "monthlyPayment": 231.03
+          "equity": -5834.07,
+          "monthlyPayment": 372
         }
       },
       "liquidAssets": {

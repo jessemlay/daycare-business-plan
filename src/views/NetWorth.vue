@@ -167,6 +167,41 @@
                   </div>
                 </div>
 
+                <!-- Total Assets Summary -->
+                <div class="mt-4">
+                  <h6 class="text-primary border-bottom pb-2">Total Assets Summary</h6>
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table table-sm">
+                          <tbody>
+                            <tr>
+                              <td>Real Estate Equity</td>
+                              <td class="text-end text-success fw-bold">${{ formatNumber(realEstateEquity) }}</td>
+                            </tr>
+                            <tr>
+                              <td>Vehicle/Equipment Equity</td>
+                              <td class="text-end fw-bold" :class="vehicleAssets >= 0 ? 'text-success' : 'text-danger'">${{ formatNumber(vehicleAssets) }}</td>
+                            </tr>
+                            <tr>
+                              <td>Liquid Assets</td>
+                              <td class="text-end text-success fw-bold">${{ formatNumber(liquidAssetsTotal) }}</td>
+                            </tr>
+                            <tr>
+                              <td>Investments & Retirement</td>
+                              <td class="text-end text-success fw-bold">${{ formatNumber(investmentTotal) }}</td>
+                            </tr>
+                            <tr class="border-top">
+                              <td class="fw-bold">Total Assets</td>
+                              <td class="text-end text-primary fw-bold h6">${{ formatNumber(totalAssets) }}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
@@ -314,8 +349,16 @@ export default {
       return this.netWorthData.personalNetWorth.assets.realEstate.primaryHome.currentValue +
              this.netWorthData.personalNetWorth.assets.realEstate.rentalProperty.currentValue
     },
+    realEstateEquity() {
+      if (!this.netWorthData?.personalNetWorth?.assets?.realEstate) return 0
+      return this.netWorthData.personalNetWorth.assets.realEstate.primaryHome.equity +
+             this.netWorthData.personalNetWorth.assets.realEstate.rentalProperty.equity
+    },
     vehicleAssets() {
-      return this.vehiclesArray.reduce((total, vehicle) => total + (vehicle.equity || 0), 0)
+      return this.vehiclesArray.reduce((total, vehicle) => {
+        const equity = vehicle.equity !== undefined ? vehicle.equity : 0
+        return total + equity
+      }, 0)
     },
     liquidAssetsTotal() {
       const liquid = this.netWorthData.personalNetWorth.assets.liquidAssets
