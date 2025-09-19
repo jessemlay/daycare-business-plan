@@ -5,8 +5,8 @@
       "personalInvestment": 8000,
       "businessLoan": 80000
     },
-    "startupCosts": 55000,
-    "contingencyFund": 25000,
+    "startupCosts": 50000,
+    "contingencyFund": 30000,
     "paybackPeriod": "18 months",
     "breakEvenPoint": "Month 3"
   },
@@ -23,14 +23,14 @@
     {
       "category": "Facility Setup",
       "items": [
-        { "item": "Indoor playscape", "cost": 20000 },
+        { "item": "Indoor playscape", "cost": 15000 },
         { "item": "Renovation & childproofing", "cost": 7000 },
         { "item": "Age-appropriate furniture (used)", "cost": 3000 },
         { "item": "Educational toys & materials", "cost": 1000 },
         { "item": "Kitchen appliances & supplies", "cost": 500 },
         { "item": "Cribs, cots, and bedding", "cost": 1000 }
       ],
-      "subtotal": 32500,
+      "subtotal": 27500,
       "color": "success"
     },
     {
