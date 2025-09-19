@@ -211,49 +211,20 @@
                     <table class="table table-sm">
                       <thead>
                         <tr>
-                          <th>Card</th>
-                          <th class="text-end">Balance</th>
-                          <th class="text-end">Min Payment</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr v-if="netWorthData.personalNetWorth.liabilities.creditCards.card1.balance > 0">
-                          <td>{{ netWorthData.personalNetWorth.liabilities.creditCards.card1.description }}</td>
-                          <td class="text-end text-danger fw-bold">${{ formatNumber(netWorthData.personalNetWorth.liabilities.creditCards.card1.balance) }}</td>
-                          <td class="text-end">${{ formatNumber(netWorthData.personalNetWorth.liabilities.creditCards.card1.minimumPayment) }}</td>
-                        </tr>
-                        <tr v-if="netWorthData.personalNetWorth.liabilities.creditCards.card2.balance > 0">
-                          <td>{{ netWorthData.personalNetWorth.liabilities.creditCards.card2.description }}</td>
-                          <td class="text-end text-danger fw-bold">${{ formatNumber(netWorthData.personalNetWorth.liabilities.creditCards.card2.balance) }}</td>
-                          <td class="text-end">${{ formatNumber(netWorthData.personalNetWorth.liabilities.creditCards.card2.minimumPayment) }}</td>
-                        </tr>
-                        <tr v-if="netWorthData.personalNetWorth.liabilities.creditCards.loan1 && netWorthData.personalNetWorth.liabilities.creditCards.loan1.balance > 0">
-                          <td>{{ netWorthData.personalNetWorth.liabilities.creditCards.loan1.description }}</td>
-                          <td class="text-end text-danger fw-bold">${{ formatNumber(netWorthData.personalNetWorth.liabilities.creditCards.loan1.balance) }}</td>
-                          <td class="text-end">${{ formatNumber(netWorthData.personalNetWorth.liabilities.creditCards.loan1.minimumPayment) }}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-
-                <!-- Other Debt -->
-                <div class="mb-4" v-if="netWorthData.personalNetWorth.liabilities.otherDebt.medicalDebt.balance > 0">
-                  <h6 class="text-danger border-bottom pb-2">Other Debt</h6>
-                  <div class="table-responsive">
-                    <table class="table table-sm">
-                      <thead>
-                        <tr>
-                          <th>Debt</th>
+                          <th>Description</th>
+                          <th>Type</th>
                           <th class="text-end">Balance</th>
                           <th class="text-end">Payment</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>{{ netWorthData.personalNetWorth.liabilities.otherDebt.medicalDebt.description }}</td>
-                          <td class="text-end text-danger fw-bold">${{ formatNumber(netWorthData.personalNetWorth.liabilities.otherDebt.medicalDebt.balance) }}</td>
-                          <td class="text-end">${{ formatNumber(netWorthData.personalNetWorth.liabilities.otherDebt.medicalDebt.monthlyPayment) }}</td>
+                        <tr v-for="debt in visibleDebts" :key="debt.description">
+                          <td>{{ debt.description }}</td>
+                          <td>{{ debt.type }}</td>
+                          <td class="text-end text-danger fw-bold">
+                            ${{ formatNumber(debt.balance) }}
+                          </td>
+                          <td class="text-end">${{ formatNumber(debt.payment) }}</td>
                         </tr>
                       </tbody>
                     </table>
@@ -270,7 +241,7 @@
                           <div class="text-success">
                             <strong>Total Income</strong>
                             <br />
-                            <h5 class="text-success">$7,820</h5>
+                            <h5 class="text-success">${{ formatNumber(totalMonthlyIncome) }}</h5>
                           </div>
                         </div>
                         <div class="col-md-1 text-center">
@@ -280,7 +251,7 @@
                           <div class="text-danger">
                             <strong>Total Obligations</strong>
                             <br />
-                            <h5 class="text-danger">$1,563.03</h5>
+                            <h5 class="text-danger">${{ formatNumber(totalMonthlyPayments) }}</h5>
                           </div>
                         </div>
                         <div class="col-md-1 text-center">
@@ -290,7 +261,7 @@
                           <div class="text-primary">
                             <strong>Available Cash Flow</strong>
                             <br />
-                            <h4 class="text-primary fw-bold">$6,256.97</h4>
+                            <h4 class="text-primary fw-bold">${{ formatNumber(availableCashFlow) }}</h4>
                           </div>
                         </div>
                       </div>
@@ -333,6 +304,11 @@ export default {
       // Filter vehicles that have a value greater than 0
       return this.vehiclesArray.filter(vehicle => vehicle.currentValue > 0)
     },
+    visibleDebts() {
+      // Filter debts that have a balance greater than 0
+      const debts = this.netWorthData?.personalNetWorth?.liabilities?.debts || []
+      return debts.filter(debt => debt.balance > 0)
+    },
     realEstateAssets() {
       if (!this.netWorthData?.personalNetWorth?.assets?.realEstate) return 0
       return this.netWorthData.personalNetWorth.assets.realEstate.primaryHome.currentValue +
@@ -358,26 +334,10 @@ export default {
              this.investmentTotal
     },
 
-    // Liability Calculations - Only credit cards and loans (not mortgages)
-    mortgageDebt() {
-      return this.netWorthData.personalNetWorth.assets.realEstate.primaryHome.mortgageBalance +
-             this.netWorthData.personalNetWorth.assets.realEstate.rentalProperty.mortgageBalance
-    },
-    vehicleDebt() {
-      return this.vehiclesArray.reduce((total, vehicle) => total + vehicle.loanBalance, 0)
-    },
-    creditCardDebt() {
-      const cards = this.netWorthData.personalNetWorth.liabilities.creditCards
-      return cards.card1.balance + cards.card2.balance + (cards.loan1?.balance || 0)
-    },
-    otherDebt() {
-      return this.netWorthData.personalNetWorth.liabilities.otherDebt.medicalDebt.balance
-    },
+    // Liability Calculations - Using the new debts array
     totalLiabilities() {
-      return this.mortgageDebt +
-             this.vehicleDebt +
-             this.creditCardDebt +
-             this.otherDebt
+      const debts = this.netWorthData?.personalNetWorth?.liabilities?.debts || []
+      return debts.reduce((total, debt) => total + debt.balance, 0)
     },
 
     // Net Worth
@@ -386,21 +346,9 @@ export default {
     },
 
     // Monthly Payment Calculations
-    totalMonthlyDebtPayments() {
-      const vehicles = this.netWorthData.personalNetWorth.assets.vehicles
-      const creditCards = this.netWorthData.personalNetWorth.liabilities.creditCards
-      const loans = this.netWorthData.personalNetWorth.liabilities
-
-      return vehicles.car1.monthlyPayment +
-             vehicles.car2.monthlyPayment +
-             vehicles.tractor.monthlyPayment +
-             creditCards.card1.minimumPayment +
-             creditCards.card2.minimumPayment +
-             loans.otherDebt.medicalDebt.monthlyPayment
-    },
     totalMonthlyPayments() {
-      return this.netWorthData.personalNetWorth.assets.realEstate.primaryHome.monthlyPayment +
-             this.totalMonthlyDebtPayments
+      const debts = this.netWorthData?.personalNetWorth?.liabilities?.debts || []
+      return debts.reduce((total, debt) => total + debt.payment, 0)
     },
 
     // Income and Cash Flow Calculations

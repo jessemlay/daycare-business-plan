@@ -8,7 +8,7 @@
           "currentValue": 297399,
           "mortgageBalance": 215682,
           "equity": 81717,
-          "monthlyPayment": 2250
+          "monthlyPayment": 1332.03
         },
         "rentalProperty": {
           "description": "Rental Property",
@@ -57,7 +57,7 @@
           "currentValue": 19000,
           "loanBalance": 20834.07,
           "equity": -1834.07,
-          "monthlyPayment": 0
+          "monthlyPayment": 231.03
         }
       },
       "liquidAssets": {
@@ -87,36 +87,44 @@
       }
     },
     "liabilities": {
-      "creditCards": {
-        "card1": {
+      "debts": [
+        {
           "description": "Primary Credit Card",
-          "institution": "Chase",
+          "type": "credit card",
           "balance": 2342,
-          "minimumPayment": 71,
-          "interestRate": 18.99
+          "payment": 71
         },
-        "card2": {
+        {
           "description": "Secondary Credit Card",
-          "institution": "Discover",
+          "type": "credit card",
           "balance": 334,
-          "minimumPayment": 35,
-          "interestRate": 15.99
+          "payment": 35
         },
-        "loan1": {
+        {
           "description": "Personal Loan",
-          "institution": "Bank",
+          "type": "loan",
           "balance": 5800,
-          "minimumPayment": 180,
-          "interestRate": 0
+          "payment": 180
+        },
+        {
+          "description": "Mortgage Payment",
+          "type": "loan",
+          "balance": 215682,
+          "payment": 1332.03
+        },
+        {
+          "description": "Tractor Loan",
+          "type": "loan",
+          "balance": 12366.64,
+          "payment": 281
+        },
+        {
+          "description": "RV Loan",
+          "type": "loan",
+          "balance": 20834.07,
+          "payment": 372
         }
-      },
-      "otherDebt": {
-        "medicalDebt": {
-          "description": "Medical Bills",
-          "balance": 0,
-          "monthlyPayment": 0
-        }
-      }
+      ]
     }
   }
 }
