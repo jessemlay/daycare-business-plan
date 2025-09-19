@@ -11,190 +11,61 @@
             <div class="alert alert-success">
               <h6><i class="bi bi-info-circle me-2"></i>Startup Investment Overview</h6>
               <p class="mb-0">
-                Initial investment required to launch KidZone Sprouts drop-in daycare facility
+                Initial investment required to launch KidZone drop-in daycare facility
               </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Major Startup Categories -->
-        <div class="row mb-4">
-          <div v-for="cost in startupCosts" :key="cost.category" class="col-md-4">
-            <div class="card text-center" :class="`border-${cost.color}`">
-              <div class="card-body">
-                <i class="bi bi-building" :class="`text-${cost.color}`" style="font-size: 2rem"></i>
-                <h5 class="mt-2" :class="`text-${cost.color}`">{{ cost.category }}</h5>
-                <h4 :class="`text-${cost.color}`">${{ cost.subtotal.toLocaleString() }}</h4>
-              </div>
             </div>
           </div>
         </div>
 
         <!-- Detailed Startup Costs -->
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div class="card">
-              <div class="card-header border-primary">
-                <h6><i class="bi bi-building me-2"></i>Facility & Infrastructure</h6>
+              <div class="card-header">
+                <h6><i class="bi bi-building me-2"></i>Startup Costs Breakdown</h6>
               </div>
               <div class="card-body">
                 <table class="table table-sm">
                   <tbody>
-                    <tr>
-                      <td>Security deposit (3 months)</td>
-                      <td class="text-end fw-bold">$7,500</td>
-                    </tr>
-                    <tr>
-                      <td>Renovation & childproofing</td>
-                      <td class="text-end fw-bold">$8,000</td>
-                    </tr>
-                    <tr>
-                      <td>Security system installation</td>
-                      <td class="text-end fw-bold">$2,500</td>
-                    </tr>
-                    <tr>
-                      <td>HVAC modifications</td>
-                      <td class="text-end fw-bold">$3,000</td>
-                    </tr>
-                    <tr>
-                      <td>Flooring & wall coverings</td>
-                      <td class="text-end fw-bold">$2,500</td>
-                    </tr>
-                    <tr>
-                      <td>Outdoor playground setup</td>
-                      <td class="text-end fw-bold">$1,500</td>
-                    </tr>
-                  </tbody>
-                  <tfoot class="table-primary">
-                    <tr>
-                      <th>Subtotal</th>
-                      <th class="text-end">$25,000</th>
-                    </tr>
-                  </tfoot>
-                </table>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="card">
-              <div class="card-header bg-warning text-dark">
-                <h6><i class="bi bi-toys me-2"></i>Equipment & Furniture</h6>
-              </div>
-              <div class="card-body">
-                <table class="table table-sm">
-                  <tbody>
-                    <tr>
-                      <td>Age-appropriate furniture</td>
-                      <td class="text-end fw-bold">$6,000</td>
-                    </tr>
-                    <tr>
-                      <td>Educational toys & materials</td>
-                      <td class="text-end fw-bold">$3,500</td>
-                    </tr>
-                    <tr>
-                      <td>Safety equipment & supplies</td>
-                      <td class="text-end fw-bold">$2,000</td>
-                    </tr>
-                    <tr>
-                      <td>Kitchen appliances & supplies</td>
-                      <td class="text-end fw-bold">$2,500</td>
-                    </tr>
-                    <tr>
-                      <td>Cleaning & sanitizing equipment</td>
-                      <td class="text-end fw-bold">$1,500</td>
-                    </tr>
-                    <tr>
-                      <td>Office equipment & software</td>
-                      <td class="text-end fw-bold">$3,000</td>
-                    </tr>
-                  </tbody>
-                  <tfoot class="table-warning">
-                    <tr>
-                      <th>Subtotal</th>
-                      <th class="text-end">$18,500</th>
-                    </tr>
-                  </tfoot>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row mt-4">
-          <div class="col-md-6">
-            <div class="card">
-              <div class="card-header border-info">
-                <h6><i class="bi bi-shield-check me-2"></i>Legal & Licensing</h6>
-              </div>
-              <div class="card-body">
-                <table class="table table-sm">
-                  <tbody>
-                    <tr>
-                      <td>Business license & permits</td>
-                      <td class="text-end fw-bold">$1,500</td>
-                    </tr>
-                    <tr>
-                      <td>Daycare licensing fees</td>
-                      <td class="text-end fw-bold">$2,000</td>
-                    </tr>
-                    <tr>
-                      <td>Insurance (first year)</td>
-                      <td class="text-end fw-bold">$3,600</td>
-                    </tr>
-                    <tr>
-                      <td>Legal consultation</td>
-                      <td class="text-end fw-bold">$1,000</td>
-                    </tr>
-                    <tr>
-                      <td>Background checks & training</td>
-                      <td class="text-end fw-bold">$400</td>
-                    </tr>
-                  </tbody>
-                  <tfoot class="table-info">
-                    <tr>
-                      <th>Subtotal</th>
-                      <th class="text-end">$8,500</th>
-                    </tr>
-                  </tfoot>
-                </table>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="card">
-              <div class="card-header border-success">
-                <h6><i class="bi bi-megaphone me-2"></i>Marketing & Operations</h6>
-              </div>
-              <div class="card-body">
-                <table class="table table-sm">
-                  <tbody>
-                    <tr>
-                      <td>Website development</td>
-                      <td class="text-end fw-bold">$2,000</td>
-                    </tr>
-                    <tr>
-                      <td>Initial marketing campaign</td>
-                      <td class="text-end fw-bold">$1,500</td>
-                    </tr>
-                    <tr>
-                      <td>Signage & branding</td>
-                      <td class="text-end fw-bold">$1,000</td>
-                    </tr>
-                    <tr>
-                      <td>Working capital (3 months)</td>
-                      <td class="text-end fw-bold">$10,000</td>
-                    </tr>
-                    <tr>
-                      <td>Contingency fund</td>
-                      <td class="text-end fw-bold">$3,000</td>
-                    </tr>
+                    <template v-for="category in startupCosts" :key="category.category">
+                      <tr class="table-light">
+                        <td colspan="2">
+                          <h6 class="mb-0" :class="`text-${category.color}`">
+                            {{ category.category }}
+                          </h6>
+                        </td>
+                      </tr>
+                      <tr v-for="item in category.items" :key="item.item">
+                        <td class="ps-4">{{ item.item }}</td>
+                        <td class="text-end fw-bold">${{ item.cost.toLocaleString() }}</td>
+                      </tr>
+                      <tr :class="`table-${category.color}`">
+                        <th class="ps-4">{{ category.category }} Subtotal</th>
+                        <th class="text-end">
+                          ${{
+                            category.items
+                              .reduce((total, item) => total + item.cost, 0)
+                              .toLocaleString()
+                          }}
+                        </th>
+                      </tr>
+                    </template>
                   </tbody>
                   <tfoot class="table-success">
                     <tr>
-                      <th>Subtotal</th>
-                      <th class="text-end">$17,500</th>
+                      <th>Total</th>
+                      <th class="text-end">
+                        ${{
+                          startupCosts
+                            .reduce(
+                              (total, category) =>
+                                total +
+                                category.items.reduce((catTotal, item) => catTotal + item.cost, 0),
+                              0
+                            )
+                            .toLocaleString()
+                        }}
+                      </th>
                     </tr>
                   </tfoot>
                 </table>
@@ -212,56 +83,68 @@
               </div>
               <div class="card-body">
                 <div class="row text-center">
-                  <div class="col-md-3">
-                    <h6>Facility & Infrastructure</h6>
-                    <h4 class="text-primary">$25,000</h4>
-                  </div>
-                  <div class="col-md-3">
-                    <h6>Equipment & Supplies</h6>
-                    <h4 class="text-warning">$18,500</h4>
-                  </div>
-                  <div class="col-md-3">
-                    <h6>Legal & Licensing</h6>
-                    <h4 class="text-info">$8,500</h4>
-                  </div>
-                  <div class="col-md-3">
-                    <h6>Marketing & Operations</h6>
-                    <h4 class="text-success">$17,500</h4>
+                  <div v-for="cost in startupCosts" :key="cost.category" class="col-md-2">
+                    <h6>{{ cost.category }}</h6>
+                    <h4 :class="`text-${cost.color}`">${{ cost.subtotal.toLocaleString() }}</h4>
                   </div>
                 </div>
                 <hr />
                 <div class="text-center">
-                  <h3 class="text-success">Total Required: $69,500</h3>
-                  <p class="text-muted">Recommended: $75,000 (with additional buffer)</p>
+                  <h3 class="text-success">
+                    Total Required: ${{ startupSummary.totalInvestment.toLocaleString() }}
+                  </h3>
+                  <hr />
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h6 class="text-primary">Startup Costs</h6>
+                      <h4 class="text-primary">
+                        ${{ startupSummary.startupCosts.toLocaleString() }}
+                      </h4>
+                    </div>
+                    <div class="col-md-6">
+                      <h6 class="text-warning">Contingency Fund</h6>
+                      <h4 class="text-warning">
+                        ${{ startupSummary.contingencyFund.toLocaleString() }}
+                      </h4>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Funding Options -->
+        <!-- Funding Sources -->
         <div class="row mt-4">
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h6><i class="bi bi-bank me-2"></i>Potential Funding Sources</h6>
+                <h6><i class="bi bi-bank me-2"></i>Funding Structure</h6>
               </div>
               <div class="card-body">
                 <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-md-6">
                     <h6 class="text-primary">Personal Investment</h6>
-                    <p class="text-muted">Owner equity contribution</p>
-                    <h5 class="text-success">$30,000</h5>
+                    <p class="text-muted">{{ fundingStrategy.personalInvestment.source }}</p>
+                    <h5 class="text-success">
+                      ${{ fundingStrategy.personalInvestment.amount.toLocaleString() }} ({{
+                        fundingStrategy.personalInvestment.percentage
+                      }}%)
+                    </h5>
                   </div>
-                  <div class="col-md-4">
-                    <h6 class="text-primary">Small Business Loan</h6>
-                    <p class="text-muted">Bank or SBA financing</p>
-                    <h5 class="text-warning">$35,000</h5>
-                  </div>
-                  <div class="col-md-4">
-                    <h6 class="text-primary">Equipment Financing</h6>
-                    <p class="text-muted">Equipment-specific loans</p>
-                    <h5 class="text-info">$10,000</h5>
+                  <div class="col-md-6">
+                    <h6 class="text-primary">Business Loan</h6>
+                    <p class="text-muted">{{ fundingStrategy.businessLoan.terms }}</p>
+                    <h5 class="text-warning">
+                      ${{ fundingStrategy.businessLoan.amount.toLocaleString() }} ({{
+                        fundingStrategy.businessLoan.percentage
+                      }}%)
+                    </h5>
+                    <small class="text-muted"
+                      >Monthly payment: ${{
+                        fundingStrategy.businessLoan.monthlyPayment.toLocaleString()
+                      }}</small
+                    >
                   </div>
                 </div>
               </div>

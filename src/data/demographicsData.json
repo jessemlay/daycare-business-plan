@@ -82,21 +82,63 @@
         "type": "Traditional",
         "capacity": "60 kids",
         "pricing": "$150/week",
-        "weakness": "No drop-in option"
+        "dropin": "No"
       },
       {
         "name": "Little Angels",
         "type": "Home-based",
         "capacity": "12 kids",
         "pricing": "$8/hour",
-        "weakness": "Limited hours"
+        "dropin": "No"
       },
       {
         "name": "Kid's Corner",
         "type": "Drop-in",
         "capacity": "25 kids",
         "pricing": "$12/hour",
-        "weakness": "Limited age range"
+        "dropin": "No"
+      },
+      {
+        "name": "Jack and Jill Childcare",
+        "type": "Traditional",
+        "capacity": "N/A",
+        "pricing": "N/A",
+        "dropin": "No"
+      },
+      {
+        "name": "Cavanaugh Children's Center",
+        "type": "Traditional",
+        "capacity": "N/A",
+        "pricing": "N/A",
+        "dropin": "No"
+      },
+      {
+        "name": "Little Lions Child Development Center",
+        "type": "Traditional",
+        "capacity": "N/A",
+        "pricing": "Infants $770–$1,100/mo, Toddlers $700–$1,000/mo, Pre-K3 $560–$800/mo",
+        "dropin": "No"
+      },
+      {
+        "name": "Orbiting Opportunities LLC",
+        "type": "Traditional",
+        "capacity": "N/A",
+        "pricing": "N/A",
+        "dropin": "No"
+      },
+      {
+        "name": "Bright Start Early Learning Center",
+        "type": "Traditional",
+        "capacity": "N/A",
+        "pricing": "N/A",
+        "dropin": "No"
+      },
+      {
+        "name": "St. Anne's Childcare",
+        "type": "Traditional",
+        "capacity": "N/A",
+        "pricing": "$140–$170/week",
+        "dropin": "No"
       }
     ],
     "marketOpportunity": "Estimated 2,500+ families need flexible childcare, current capacity serves less than 40% of demand."

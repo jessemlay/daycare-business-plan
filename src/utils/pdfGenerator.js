@@ -70,13 +70,17 @@ class BusinessPlanPDFGenerator {
     this.currentY += 15
 
     this.pdf.setFontSize(20)
-    this.pdf.text('Drop-In Childcare Business Plan', this.pageWidth / 2, this.currentY, { align: 'center' })
+    this.pdf.text('Drop-In Childcare Business Plan', this.pageWidth / 2, this.currentY, {
+      align: 'center',
+    })
     this.currentY += 25
 
     // Owner information
     this.pdf.setFontSize(14)
     this.pdf.setFont('helvetica', 'bold')
-    this.pdf.text('Owners: Jesse Lay & Ermenia Lay', this.pageWidth / 2, this.currentY, { align: 'center' })
+    this.pdf.text('Owners: Jesse Lay & Ermenia Lay', this.pageWidth / 2, this.currentY, {
+      align: 'center',
+    })
     this.currentY += 12
 
     this.pdf.setFontSize(12)
@@ -84,7 +88,9 @@ class BusinessPlanPDFGenerator {
     this.pdf.text('Phone: 512-705-7168', this.pageWidth / 2, this.currentY, { align: 'center' })
     this.currentY += 10
 
-    this.pdf.text('Email: eduenas@gmail.com', this.pageWidth / 2, this.currentY, { align: 'center' })
+    this.pdf.text('Email: eduenas@gmail.com', this.pageWidth / 2, this.currentY, {
+      align: 'center',
+    })
     this.currentY += 20
 
     // Location
@@ -102,7 +108,9 @@ class BusinessPlanPDFGenerator {
     this.pdf.setFontSize(12)
     this.pdf.setFont('helvetica', 'normal')
     this.pages.forEach((page, index) => {
-      this.pdf.text(`${index + 1}. ${page.title}`, this.pageWidth / 2, this.currentY, { align: 'center' })
+      this.pdf.text(`${index + 1}. ${page.title}`, this.pageWidth / 2, this.currentY, {
+        align: 'center',
+      })
       this.currentY += 8
     })
 
@@ -114,7 +122,9 @@ class BusinessPlanPDFGenerator {
   async addLogoToPDF() {
     return new Promise((resolve) => {
       // Try to get the logo from an existing img element in the DOM first
-      const existingImg = document.querySelector('img[src*="logo.jpg"], img[src*="logo.png"]')
+      const existingImg = document.querySelector(
+        'img[src*="logo-transparent.png"], img[src*="logo.png"]'
+      )
 
       if (existingImg && existingImg.complete && existingImg.naturalWidth > 0) {
         try {
@@ -147,7 +157,7 @@ class BusinessPlanPDFGenerator {
       }
 
       // Try the most common path first
-      img.src = './src/assets/logo.jpg'
+      img.src = './src/assets/logo-transparent.png'
     })
   }
 
@@ -171,13 +181,13 @@ class BusinessPlanPDFGenerator {
     }
 
     // Try relative path
-    img.src = '../assets/logo.jpg'
+    img.src = '../assets/logo-transparent.png'
   }
 
   tryImportLogo(resolve) {
     try {
       // Try to use import/require approach
-      const logoUrl = require('@/assets/logo.jpg')
+      const logoUrl = require('@/assets/logo-transparent.png')
       const img = new Image()
       img.crossOrigin = 'anonymous'
 
@@ -259,9 +269,10 @@ class BusinessPlanPDFGenerator {
       this.currentY = this.margin
 
       // Capture the main content area
-      const contentElement = document.querySelector('.content-section') ||
-                            document.querySelector('main .container-fluid') ||
-                            document.querySelector('#main-content')
+      const contentElement =
+        document.querySelector('.content-section') ||
+        document.querySelector('main .container-fluid') ||
+        document.querySelector('#main-content')
 
       if (contentElement) {
         await this.addElementToPDF(contentElement)
@@ -269,7 +280,6 @@ class BusinessPlanPDFGenerator {
         // Fallback: capture visible text content
         await this.addTextContentToPDF()
       }
-
     } catch (error) {
       console.error(`Error processing page ${pageInfo.title}:`, error)
 
@@ -283,17 +293,20 @@ class BusinessPlanPDFGenerator {
 
   async navigateToPage(route) {
     return new Promise((resolve) => {
-      router.push(route).then(() => {
-        // Wait for Vue to update the DOM - reduced from 1000ms to 300ms
-        setTimeout(resolve, 300)
-      }).catch(() => {
-        resolve() // Continue even if navigation fails
-      })
+      router
+        .push(route)
+        .then(() => {
+          // Wait for Vue to update the DOM - reduced from 1000ms to 300ms
+          setTimeout(resolve, 300)
+        })
+        .catch(() => {
+          resolve() // Continue even if navigation fails
+        })
     })
   }
 
   async waitForContent() {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       // Wait for any charts or dynamic content to load - reduced from 1500ms to 500ms
       setTimeout(resolve, 500)
     })
@@ -328,7 +341,10 @@ class BusinessPlanPDFGenerator {
 
             // Force background colors for containers
             if (['DIV', 'SECTION', 'MAIN', 'ARTICLE'].includes(el.tagName)) {
-              if (!computedStyle.backgroundColor || computedStyle.backgroundColor === 'rgba(0, 0, 0, 0)') {
+              if (
+                !computedStyle.backgroundColor ||
+                computedStyle.backgroundColor === 'rgba(0, 0, 0, 0)'
+              ) {
                 el.style.setProperty('background-color', '#ffffff', 'important')
               }
             }
@@ -350,7 +366,7 @@ class BusinessPlanPDFGenerator {
       })
 
       // Calculate dimensions with better scaling for long content
-      const maxWidth = this.pageWidth - (this.margin * 2)
+      const maxWidth = this.pageWidth - this.margin * 2
       const maxHeight = this.pageHeight - this.currentY - this.margin - 10 // Leave some bottom margin
 
       let imgWidth = maxWidth
@@ -377,9 +393,17 @@ class BusinessPlanPDFGenerator {
 
       // Convert to image data with higher quality
       const imgData = canvas.toDataURL('image/jpeg', 1.0) // Use JPEG with max quality
-      this.pdf.addImage(imgData, 'JPEG', this.margin, this.currentY, imgWidth, imgHeight, '', 'FAST')
+      this.pdf.addImage(
+        imgData,
+        'JPEG',
+        this.margin,
+        this.currentY,
+        imgWidth,
+        imgHeight,
+        '',
+        'FAST'
+      )
       this.currentY += imgHeight + 10
-
     } catch (error) {
       console.error('Error converting element to image:', error)
       await this.addTextContentToPDF()
@@ -391,7 +415,7 @@ class BusinessPlanPDFGenerator {
     const textElements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li, td, span, div')
     const textContent = []
 
-    textElements.forEach(el => {
+    textElements.forEach((el) => {
       const text = el.textContent?.trim()
       if (text && text.length > 0 && !textContent.includes(text)) {
         textContent.push(text)
@@ -401,13 +425,14 @@ class BusinessPlanPDFGenerator {
     this.pdf.setFontSize(10)
     this.pdf.setFont('helvetica', 'normal')
 
-    textContent.slice(0, 50).forEach(text => { // Limit to prevent overflow
+    textContent.slice(0, 50).forEach((text) => {
+      // Limit to prevent overflow
       if (this.currentY > this.pageHeight - this.margin - 20) {
         this.pdf.addPage()
         this.currentY = this.margin
       }
 
-      const lines = this.pdf.splitTextToSize(text, this.pageWidth - (this.margin * 2))
+      const lines = this.pdf.splitTextToSize(text, this.pageWidth - this.margin * 2)
       this.pdf.text(lines, this.margin, this.currentY)
       this.currentY += lines.length * 5 + 5
     })
@@ -463,7 +488,10 @@ export function generateCurrentPagePDF() {
 
             // Force background colors for containers
             if (['DIV', 'SECTION', 'MAIN', 'ARTICLE'].includes(el.tagName)) {
-              if (!computedStyle.backgroundColor || computedStyle.backgroundColor === 'rgba(0, 0, 0, 0)') {
+              if (
+                !computedStyle.backgroundColor ||
+                computedStyle.backgroundColor === 'rgba(0, 0, 0, 0)'
+              ) {
                 el.style.setProperty('background-color', '#ffffff', 'important')
               }
             }
@@ -488,16 +516,7 @@ export function generateCurrentPagePDF() {
           const imgHeight = (canvas.height * imgWidth) / canvas.width
 
           const imgData = canvas.toDataURL('image/jpeg', 1.0)
-          pdf.addImage(
-            imgData,
-            'JPEG',
-            15,
-            50,
-            imgWidth,
-            imgHeight,
-            '',
-            'FAST'
-          )
+          pdf.addImage(imgData, 'JPEG', 15, 50, imgWidth, imgHeight, '', 'FAST')
 
           const fileName = `Kids_Zone_Page_${new Date().toISOString().split('T')[0]}.pdf`
           pdf.save(fileName)

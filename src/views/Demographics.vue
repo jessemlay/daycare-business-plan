@@ -157,30 +157,19 @@
                         <th>Type</th>
                         <th>Capacity</th>
                         <th>Pricing</th>
-                        <th>Weakness</th>
+                        <th>Drop-in</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>ABC Daycare</td>
-                        <td>Traditional</td>
-                        <td>60 kids</td>
-                        <td>$150/week</td>
-                        <td>No drop-in option</td>
-                      </tr>
-                      <tr>
-                        <td>Little Angels</td>
-                        <td>Home-based</td>
-                        <td>12 kids</td>
-                        <td>$8/hour</td>
-                        <td>Limited hours</td>
-                      </tr>
-                      <tr>
-                        <td>Kid's Corner</td>
-                        <td>Drop-in</td>
-                        <td>25 kids</td>
-                        <td>$12/hour</td>
-                        <td>Limited age range</td>
+                      <tr
+                        v-for="competitor in demographicsData.marketAnalysis.competitors"
+                        :key="competitor.name"
+                      >
+                        <td>{{ competitor.name }}</td>
+                        <td>{{ competitor.type }}</td>
+                        <td>{{ competitor.capacity }}</td>
+                        <td>{{ competitor.pricing }}</td>
+                        <td>{{ competitor.dropin }}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -201,20 +190,32 @@
               </div>
               <div class="card-body">
                 <div class="text-center mb-3">
-                  <h4 class="text-info">{{ demographicsData.marketPenetration.totalTargetFamilies.toLocaleString() }}</h4>
+                  <h4 class="text-info">
+                    {{ demographicsData.marketPenetration.totalTargetFamilies.toLocaleString() }}
+                  </h4>
                   <p class="mb-0">Total Target Families</p>
                 </div>
 
-                <div v-for="goal in demographicsData.marketPenetration.goals" :key="goal.year" class="mb-3">
+                <div
+                  v-for="goal in demographicsData.marketPenetration.goals"
+                  :key="goal.year"
+                  class="mb-3"
+                >
                   <h6>{{ goal.year }}</h6>
                   <div class="progress mb-2">
-                    <div :class="`progress-bar bg-${goal.color}`" :style="`width: ${goal.percentage}%`"></div>
+                    <div
+                      :class="`progress-bar bg-${goal.color}`"
+                      :style="`width: ${goal.percentage}%`"
+                    ></div>
                   </div>
                   <small>{{ goal.families }} families ({{ goal.percentage }}% market share)</small>
                 </div>
 
                 <div class="alert alert-light">
-                  <small><strong>Strategy:</strong> {{ demographicsData.marketPenetration.strategy }}</small>
+                  <small
+                    ><strong>Strategy:</strong>
+                    {{ demographicsData.marketPenetration.strategy }}</small
+                  >
                 </div>
               </div>
             </div>
@@ -338,3 +339,9 @@
     },
   }
 </script>
+
+<style scoped>
+  .table th {
+    white-space: nowrap;
+  }
+</style>

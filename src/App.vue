@@ -20,7 +20,7 @@
         <!-- Logo and title section -->
         <div v-show="!sidebarCollapsed || !isMobile" class="d-flex align-items-center flex-grow-1">
           <img
-            src="@/assets/logo.jpg"
+            src="@/assets/logo-transparent.png"
             alt="Logo"
             class="logo me-2"
             style="width: 40px; height: 40px; object-fit: contain"
@@ -31,7 +31,7 @@
         <!-- Mobile: collapsed logo (center) -->
         <div v-show="sidebarCollapsed && isMobile" class="text-center flex-grow-1">
           <img
-            src="@/assets/logo.jpg"
+            src="@/assets/logo-transparent.png"
             alt="Logo"
             class="logo"
             style="width: 30px; height: 30px; object-fit: contain"
@@ -42,7 +42,7 @@
         <!-- Desktop: collapsed logo (center) -->
         <div v-show="sidebarCollapsed && !isMobile" class="text-center w-100">
           <img
-            src="@/assets/logo.jpg"
+            src="@/assets/logo-transparent.png"
             alt="Logo"
             class="logo"
             style="width: 30px; height: 30px; object-fit: contain"
@@ -81,12 +81,6 @@
         <div class="container-fluid">
           <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
-              <img
-                src="@/assets/logo.jpg"
-                alt="Logo"
-                class="me-3 d-none d-md-block"
-                style="width: 50px; height: 50px; object-fit: contain"
-              />
               <div>
                 <h1 class="h3 mb-0">{{ getCurrentPageTitle() }}</h1>
                 <small class="text-light">Fort Smith, AR Daycare Business Plan</small>

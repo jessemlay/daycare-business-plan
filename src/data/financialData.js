@@ -23,7 +23,7 @@ export const monthlyProjectionsData = {
   datasets: [
     {
       label: 'Revenue ($)',
-      data: [15000, 15000, 15000, 15000, 15000, 15000, 15000, 15000, 15000, 15000, 15000, 15000],
+      data: [10860, 13032, 14560, 17224, 19436, 21644, 23872, 26520, 28732, 31124, 33496, 35900],
       borderColor: '#28a745',
       backgroundColor: 'rgba(40, 167, 69, 0.1)',
       fill: true,
@@ -31,15 +31,15 @@ export const monthlyProjectionsData = {
     },
     {
       label: 'Expenses ($)',
-      data: [9900, 9900, 9900, 9900, 9900, 9900, 9900, 9900, 9900, 9900, 9900, 9900],
-      borderColor: '#ffc107',
-      backgroundColor: 'rgba(255, 193, 7, 0.1)',
+      data: [40759, 15744, 15744, 15744, 15744, 15744, 15744, 15744, 15744, 15744, 15744, 15744],
+      borderColor: '#dc3545',
+      backgroundColor: 'rgba(220, 53, 69, 0.1)',
       fill: true,
       tension: 0.4,
     },
     {
-      label: 'Net Profit ($)',
-      data: [5100, 5100, 5100, 5100, 5100, 5100, 5100, 5100, 5100, 5100, 5100, 5100],
+      label: 'Net Income ($)',
+      data: [-29899, -2712, -1184, 1480, 3692, 5900, 8128, 10776, 12988, 15380, 17752, 20156],
       borderColor: '#007bff',
       backgroundColor: 'rgba(0, 123, 255, 0.1)',
       fill: true,
@@ -50,38 +50,44 @@ export const monthlyProjectionsData = {
 
 export const expenseBreakdownData = {
   labels: [
-    'Rent/Lease',
     'Staff Wages',
-    'Food/Snacks',
+    'Rent/Lease',
+    'Facility Setup',
+    'Payroll Taxes',
+    'Accounting/Legal',
     'Insurance',
-    'Supplies',
-    'Marketing',
     'Utilities',
-    'Other',
+    'Food/Snacks',
+    'Technology',
+    'Other Expenses',
   ],
   datasets: [
     {
-      label: 'Monthly Expenses ($)',
-      data: [2500, 4800, 600, 450, 400, 300, 300, 550],
+      label: 'Annual Expenses ($)',
+      data: [112620, 30000, 21650, 9048, 6000, 5400, 5600, 4800, 4325, 14500],
       backgroundColor: [
         '#dc3545',
         '#ffc107',
-        '#28a745',
-        '#007bff',
-        '#6c757d',
-        '#e83e8c',
-        '#17a2b8',
         '#fd7e14',
+        '#6f42c1',
+        '#20c997',
+        '#0dcaf0',
+        '#198754',
+        '#e83e8c',
+        '#6c757d',
+        '#495057',
       ],
       borderColor: [
         '#bd2130',
         '#e0a800',
-        '#1e7e34',
-        '#0056b3',
-        '#545b62',
-        '#d91a72',
-        '#117a8b',
         '#dc6545',
+        '#563d7c',
+        '#1a9f7c',
+        '#0bb5d1',
+        '#146c43',
+        '#d91a72',
+        '#545b62',
+        '#3a3f44',
       ],
       borderWidth: 2,
     },
@@ -166,6 +172,60 @@ export const blockPlanSavingsData = {
       backgroundColor: '#17a2b8',
       borderColor: '#117a8b',
       borderWidth: 2,
+    },
+  ],
+}
+
+// Cash flow analysis
+export const cashFlowData = {
+  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  datasets: [
+    {
+      label: 'Operating Income ($)',
+      data: [-29899, -2712, -1184, 1480, 3692, 5900, 8128, 10776, 12988, 15380, 17752, 20156],
+      borderColor: '#007bff',
+      backgroundColor: 'rgba(0, 123, 255, 0.1)',
+      fill: true,
+      tension: 0.4,
+    },
+    {
+      label: 'Break-Even Line ($)',
+      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      borderColor: '#6c757d',
+      borderDash: [5, 5],
+      fill: false,
+    },
+  ],
+}
+
+// Capacity and staffing growth
+export const capacityGrowthData = {
+  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  datasets: [
+    {
+      label: 'Kids per Day',
+      data: [15, 18, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47],
+      borderColor: '#28a745',
+      backgroundColor: 'rgba(40, 167, 69, 0.2)',
+      yAxisID: 'y',
+      tension: 0.4,
+    },
+    {
+      label: 'Total Capacity',
+      data: [20, 20, 20, 32, 32, 32, 44, 44, 44, 56, 56, 56],
+      borderColor: '#ffc107',
+      backgroundColor: 'rgba(255, 193, 7, 0.2)',
+      yAxisID: 'y',
+      tension: 0.4,
+      borderDash: [5, 5],
+    },
+    {
+      label: 'Number of Teachers',
+      data: [2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5],
+      borderColor: '#dc3545',
+      backgroundColor: 'rgba(220, 53, 69, 0.2)',
+      yAxisID: 'y1',
+      tension: 0.4,
     },
   ],
 }

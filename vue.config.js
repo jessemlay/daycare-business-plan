@@ -2,7 +2,7 @@ const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
   transpileDependencies: true,
 
-  // Configure for GitHub Pages deployment
+  // Configure for GitHub Pages deployment -- broke website on purpose change to / when ready to go live
   publicPath: process.env.NODE_ENV === 'production' ? '/daycare-business-plan/' : '/',
 
   // Optimize build output

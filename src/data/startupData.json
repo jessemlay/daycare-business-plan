@@ -1,47 +1,48 @@
 {
   "startupSummary": {
-    "totalInvestment": 75000,
+    "totalInvestment": 80000,
     "fundingSources": {
-      "personalSavings": 35000,
-      "smallBusinessLoan": 30000,
-      "investorFunding": 10000
+      "personalInvestment": 8000,
+      "businessLoan": 80000
     },
+    "startupCosts": 45000,
+    "contingencyFund": 35000,
     "paybackPeriod": "18 months",
     "breakEvenPoint": "Month 3"
   },
   "startupCosts": [
     {
-      "category": "Facility Setup",
+      "category": "Rent & Deposits",
       "items": [
-        { "item": "Security deposit (first & last month)", "cost": 7000 },
-        { "item": "Facility renovation & childproofing", "cost": 18000 },
-        { "item": "Playground installation", "cost": 8000 },
-        { "item": "Safety equipment & systems", "cost": 3000 }
+        { "item": "Security deposit", "cost": 7500 },
+        { "item": "First month rent", "cost": 2500 }
       ],
-      "subtotal": 36000,
+      "subtotal": 10000,
       "color": "primary"
     },
     {
-      "category": "Equipment & Furniture",
+      "category": "Facility Setup",
       "items": [
-        { "item": "Cribs, cots, and bedding", "cost": 4000 },
-        { "item": "Tables, chairs, and storage", "cost": 3500 },
-        { "item": "Kitchen appliances & equipment", "cost": 3000 },
-        { "item": "Educational materials & toys", "cost": 2500 },
-        { "item": "Office furniture & supplies", "cost": 2000 }
+        { "item": "Indoor playscape", "cost": 10000 },
+        { "item": "Renovation & childproofing", "cost": 7000 },
+        { "item": "Age-appropriate furniture (used)", "cost": 3000 },
+        { "item": "Educational toys & materials", "cost": 1000 },
+        { "item": "Kitchen appliances & supplies", "cost": 500 },
+        { "item": "Cribs, cots, and bedding", "cost": 1000 }
       ],
-      "subtotal": 15000,
+      "subtotal": 22500,
       "color": "success"
     },
     {
       "category": "Technology & Systems",
       "items": [
-        { "item": "Security camera system", "cost": 2500 },
-        { "item": "Access control system", "cost": 1500 },
-        { "item": "Computer & software", "cost": 1200 },
+        { "item": "POS system", "cost": 800 },
+        { "item": "Security camera system", "cost": 1200 },
+        { "item": "Tablets for check-in/out", "cost": 600 },
+        { "item": "Computer & software", "cost": 600 },
         { "item": "Phone system", "cost": 300 }
       ],
-      "subtotal": 5500,
+      "subtotal": 3500,
       "color": "info"
     },
     {
@@ -65,15 +66,6 @@
       ],
       "subtotal": 4500,
       "color": "danger"
-    },
-    {
-      "category": "Working Capital",
-      "items": [
-        { "item": "First month operating expenses", "cost": 6000 },
-        { "item": "Emergency fund", "cost": 3500 }
-      ],
-      "subtotal": 9500,
-      "color": "secondary"
     }
   ],
   "monthlyOperatingCosts": {
@@ -107,20 +99,15 @@
   },
   "fundingStrategy": {
     "personalInvestment": {
-      "amount": 35000,
-      "percentage": 47,
-      "source": "Personal savings and assets"
+      "amount": 8000,
+      "percentage": 10,
+      "source": "Personal savings and investment (down payment)"
     },
-    "smallBusinessLoan": {
-      "amount": 30000,
-      "percentage": 40,
-      "terms": "SBA loan, 7-year term, 6.5% interest",
-      "monthlyPayment": 450
-    },
-    "privateInvestor": {
-      "amount": 10000,
-      "percentage": 13,
-      "terms": "20% equity stake in business"
+    "businessLoan": {
+      "amount": 80000,
+      "percentage": 100,
+      "terms": "Business loan, 7-year term, 8.5% interest with $8,000 down payment",
+      "monthlyPayment": 1642
     }
   },
   "riskAssessment": [

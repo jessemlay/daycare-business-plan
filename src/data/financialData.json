@@ -1,56 +1,229 @@
 {
   "monthlyProjections": {
-    "revenue": {
-      "fullDayRate": 35,
-      "halfDayRate": 20,
-      "hourlyRate": 8,
-      "projectedDays": {
-        "fullDay": 180,
-        "halfDay": 120,
-        "hourly": 240
-      },
-      "totalMonthlyRevenue": 13350
+    "revenue": [10860, 12360, 14560, 17224, 19436, 21644, 23872, 26520, 28732, 31124, 33496, 33496],
+    "expenses": [60244, 15329, 15329, 15329, 18447, 18447, 18447, 18447, 20005, 20005, 20005, 20005],
+    "netOperatingIncome": [-49384, -2969, -769, 1895, 989, 3197, 5425, 8073, 8727, 11119, 13491, 13491],
+    "totalYearlyRevenue": 160200,
+    "totalYearlyExpenses": 260039,
+    "totalNetIncome": 13285,
+    "registrationFees": [440, 0, 0, 80, 80, 80, 80, 120, 80, 80, 80, 0],
+    "kidsPerDay": [15, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 44],
+    "registeredKids": [11, 12, 14, 16, 18, 20, 22, 25, 27, 29, 31, 31],
+    "nonRegisteredKids": [4, 5, 6, 7, 8, 9, 10, 10, 11, 12, 13, 13],
+    "capacity": [20, 20, 20, 32, 32, 32, 44, 44, 44, 44, 44, 44],
+    "teachers": [2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 4]
+  },
+  "year2Projections": {
+    "revenue": [33496, 33496, 33496, 33496, 33496, 33496, 33496, 33496, 33496, 33496, 33496, 33496],
+    "totalYearlyRevenue": 401952,
+    "kidsPerDay": [44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44],
+    "registeredKids": [31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31],
+    "nonRegisteredKids": [13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13],
+    "capacity": [44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44],
+    "teachers": [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+    "registrationFees": [80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80]
+  },
+  "expenseBreakdown": {
+    "rent": {
+      "monthly": [10000, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500],
+      "yearly": 37500
     },
-    "expenses": {
-      "fixedCosts": {
-        "rent": 3500,
-        "insurance": 450,
-        "utilities": 350,
-        "licenses": 100,
-        "total": 4400
-      },
-      "variableCosts": {
-        "salaries": 4800,
-        "supplies": 400,
-        "food": 300,
-        "marketing": 200,
-        "maintenance": 150,
-        "total": 5850
-      },
-      "totalMonthlyExpenses": 10250
+    "wages": {
+      "monthly": [6928, 6928, 6928, 6928, 10046, 10046, 10046, 10046, 11604, 11604, 11604, 11604],
+      "yearly": 114312
     },
-    "netProfit": 3100
+    "loanPayment": {
+      "monthly": [1642, 1642, 1642, 1642, 1642, 1642, 1642, 1642, 1642, 1642, 1642, 1642],
+      "yearly": 19704
+    },
+    "payrollTaxes": {
+      "monthly": [754, 754, 754, 754, 754, 754, 754, 754, 754, 754, 754, 754],
+      "yearly": 9048
+    },
+    "accountingLegal": {
+      "monthly": [8900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900],
+      "yearly": 18800
+    },
+    "advertising": {
+      "monthly": [4500, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
+      "yearly": 5600
+    },
+    "duesSubscriptions": {
+      "monthly": [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
+      "yearly": 1200
+    },
+    "website": {
+      "monthly": [20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20],
+      "yearly": 240
+    },
+    "technology": {
+      "monthly": [3500, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75],
+      "yearly": 4325
+    },
+    "bankServiceCharges": {
+      "monthly": [185, 185, 185, 185, 185, 185, 185, 185, 185, 185, 185, 185],
+      "yearly": 2220
+    },
+    "facilitySetup": {
+      "monthly": [20000, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150],
+      "yearly": 21650
+    },
+    "miscellaneous": {
+      "monthly": [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150],
+      "yearly": 1800
+    },
+    "insurance": {
+      "monthly": [450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450],
+      "yearly": 5400
+    },
+    "officeExpenses": {
+      "monthly": [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
+      "yearly": 1200
+    },
+    "permits": {
+      "monthly": [800, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50],
+      "yearly": 1350
+    },
+    "taxes": {
+      "monthly": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "yearly": 0
+    },
+    "communications": {
+      "monthly": [75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75],
+      "yearly": 900
+    },
+    "utilities": {
+      "monthly": [650, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450],
+      "yearly": 5600
+    },
+    "foodSnacks": {
+      "monthly": [400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400],
+      "yearly": 4800
+    },
+    "staffTraining": {
+      "monthly": [840, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50],
+      "yearly": 1390
+    },
+    "software": {
+      "monthly": [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150],
+      "yearly": 1800
+    },
+    "supplies": {
+      "monthly": [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
+      "yearly": 1200
+    },
+    "totalOperatingExpenses": {
+      "monthly": [60244, 15329, 15329, 15329, 18447, 18447, 18447, 18447, 20005, 20005, 20005, 20005],
+      "yearly": 260039
+    }
+  },
+  "year2ExpenseBreakdown": {
+    "rent": {
+      "monthly": [2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500],
+      "yearly": 30000
+    },
+    "wages": {
+      "monthly": [11604, 11604, 11604, 11604, 11604, 11604, 11604, 11604, 11604, 11604, 11604, 11604],
+      "yearly": 139248
+    },
+    "loanPayment": {
+      "monthly": [1642, 1642, 1642, 1642, 1642, 1642, 1642, 1642, 1642, 1642, 1642, 1642],
+      "yearly": 19704
+    },
+    "payrollTaxes": {
+      "monthly": [754, 754, 754, 754, 754, 754, 754, 754, 754, 754, 754, 754],
+      "yearly": 9048
+    },
+    "accountingLegal": {
+      "monthly": [900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900],
+      "yearly": 10800
+    },
+    "advertising": {
+      "monthly": [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
+      "yearly": 1200
+    },
+    "duesSubscriptions": {
+      "monthly": [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
+      "yearly": 1200
+    },
+    "website": {
+      "monthly": [20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20],
+      "yearly": 240
+    },
+    "technology": {
+      "monthly": [75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75],
+      "yearly": 900
+    },
+    "bankServiceCharges": {
+      "monthly": [185, 185, 185, 185, 185, 185, 185, 185, 185, 185, 185, 185],
+      "yearly": 2220
+    },
+    "facilitySetup": {
+      "monthly": [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150],
+      "yearly": 1800
+    },
+    "miscellaneous": {
+      "monthly": [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150],
+      "yearly": 1800
+    },
+    "insurance": {
+      "monthly": [450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450],
+      "yearly": 5400
+    },
+    "officeExpenses": {
+      "monthly": [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
+      "yearly": 1200
+    },
+    "permits": {
+      "monthly": [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50],
+      "yearly": 600
+    },
+    "communications": {
+      "monthly": [75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75],
+      "yearly": 900
+    },
+    "utilities": {
+      "monthly": [450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450],
+      "yearly": 5400
+    },
+    "foodSnacks": {
+      "monthly": [400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400],
+      "yearly": 4800
+    },
+    "staffTraining": {
+      "monthly": [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50],
+      "yearly": 600
+    },
+    "software": {
+      "monthly": [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150],
+      "yearly": 1800
+    },
+    "supplies": {
+      "monthly": [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
+      "yearly": 1200
+    },
+    "totalOperatingExpenses": {
+      "monthly": [20005, 20005, 20005, 20005, 20005, 20005, 20005, 20005, 20005, 20005, 20005, 20005],
+      "yearly": 240060
+    }
   },
   "annualProjections": [
     {
       "year": 1,
       "revenue": 160200,
       "expenses": 123000,
-      "profit": 37200,
       "growth": 0
     },
     {
       "year": 2,
       "revenue": 184000,
       "expenses": 141450,
-      "profit": 42550,
       "growth": 15
     },
     {
       "year": 3,
       "revenue": 212000,
       "expenses": 162668,
-      "profit": 49332,
       "growth": 15
     }
   ],
@@ -65,20 +238,6 @@
     "technology": 4000,
     "supplies": 3500,
     "total": 75000
-  },
-  "revenueBreakdown": {
-    "fullDayServices": {
-      "percentage": 55,
-      "monthlyRevenue": 7342
-    },
-    "halfDayServices": {
-      "percentage": 30,
-      "monthlyRevenue": 4005
-    },
-    "hourlyServices": {
-      "percentage": 15,
-      "monthlyRevenue": 2003
-    }
   },
   "operatingMetrics": {
     "capacity": 40,
