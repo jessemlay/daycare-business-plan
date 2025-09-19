@@ -87,40 +87,36 @@
                         <td>
                           <strong>{{ month }}</strong>
                         </td>
-                        <td>{{ financialData.monthlyProjections.kidsPerDay[index] }}</td>
+                        <td>{{ currentYearData.kidsPerDay[index] }}</td>
                         <td>{{ getTeacherRatioDisplay(index) }}</td>
-                        <td>{{ financialData.monthlyProjections.registeredKids[index] }}</td>
-                        <td>{{ financialData.monthlyProjections.nonRegisteredKids[index] }}</td>
+                        <td>{{ currentYearData.registeredKids[index] }}</td>
+                        <td>{{ currentYearData.nonRegisteredKids[index] }}</td>
                         <td
                           :class="
-                            financialData.monthlyProjections.registrationFees[index] > 0
-                              ? 'text-info'
-                              : 'text-muted'
+                            currentYearData.registrationFees[index] > 0 ? 'text-info' : 'text-muted'
                           "
                         >
-                          ${{ financialData.monthlyProjections.registrationFees[index] }}
+                          ${{ currentYearData.registrationFees[index] }}
                         </td>
                         <td class="text-success fw-bold">
-                          ${{ formatNumber(financialData.monthlyProjections.revenue[index]) }}
+                          ${{ formatNumber(currentYearData.revenue[index]) }}
                         </td>
                       </tr>
                     </tbody>
                     <tfoot class="table-success">
                       <tr>
-                        <th colspan="6">Total Year 1 Revenue</th>
+                        <th colspan="6">
+                          Total {{ activeExpenseTab === 'year2' ? 'Year 2' : 'Year 1' }} Revenue
+                        </th>
                         <th class="text-success">
-                          ${{
-                            financialData.monthlyProjections.totalYearlyRevenue.toLocaleString()
-                          }}
+                          ${{ currentYearData.totalYearlyRevenue.toLocaleString() }}
                         </th>
                       </tr>
                       <tr>
                         <th colspan="6">Average Monthly Revenue</th>
                         <th class="text-success">
                           ${{
-                            Math.round(
-                              financialData.monthlyProjections.totalYearlyRevenue / 12
-                            ).toLocaleString()
+                            Math.round(currentYearData.totalYearlyRevenue / 12).toLocaleString()
                           }}
                         </th>
                       </tr>
@@ -1336,28 +1332,24 @@
       },
       currentYearExpenses() {
         if (this.activeExpenseTab === 'year2') {
-          // Calculate Year 2 total expenses
-          const expenses = this.financialData.year2ExpenseBreakdown
-          return (
-            expenses.rent.yearly +
-            expenses.wages.yearly +
-            expenses.loanPayment.yearly +
-            expenses.payrollTaxes.yearly +
-            expenses.accountingLegal.yearly +
-            expenses.advertising.yearly +
-            expenses.insurance.yearly +
-            expenses.utilities.yearly +
-            expenses.foodSnacks.yearly +
-            expenses.facilitySetup.yearly +
-            expenses.technology.yearly +
-            expenses.miscellaneous.yearly
-          )
+          // Use the total operating expenses for Year 2
+          return this.financialData.year2ExpenseBreakdown.totalOperatingExpenses.yearly
         } else {
           return this.financialData.monthlyProjections.totalYearlyExpenses
         }
       },
       currentYearNetIncome() {
-        return this.currentYearRevenue - this.currentYearExpenses
+        if (this.activeExpenseTab === 'year2') {
+          return this.currentYearRevenue - this.currentYearExpenses
+        } else {
+          // For Year 1, use the calculated net income that accounts for startup costs properly
+          return this.financialData.monthlyProjections.totalNetIncome
+        }
+      },
+      currentYearData() {
+        return this.activeExpenseTab === 'year2'
+          ? this.financialData.year2Projections
+          : this.financialData.monthlyProjections
       },
       currentYearLabel() {
         return this.activeExpenseTab === 'year2' ? 'Year 2' : 'Year 1'
@@ -1365,14 +1357,16 @@
     },
     methods: {
       getTeacherRatioDisplay(index) {
-        const teachers = this.financialData.monthlyProjections.teachers[index]
-        const capacity = this.financialData.monthlyProjections.capacity[index]
+        const currentData =
+          this.activeExpenseTab === 'year2'
+            ? this.financialData.year2Projections
+            : this.financialData.monthlyProjections
+
+        const teachers = currentData.teachers[index]
+        const capacity = currentData.capacity[index]
 
         // Calculate how many teachers are for 1:8 ratio vs 1:12 ratio
-        const teachers8to1 = Math.min(
-          1,
-          Math.ceil(this.financialData.monthlyProjections.kidsPerDay[index] / 8)
-        )
+        const teachers8to1 = Math.min(1, Math.ceil(currentData.kidsPerDay[index] / 8))
         const remaining = Math.max(0, teachers - teachers8to1)
 
         if (remaining === 0) {
@@ -1644,8 +1638,8 @@
       getExpenseRowClass(percentage) {
         if (percentage >= 50) return 'table-danger' // Only extremely high percentages are red
         if (percentage >= 40) return 'table-warning' // High expenses are yellow
-        if (percentage >= 36) return 'table-info' // Only higher moderate expenses are blue
-        return '' // Normal expenses like wages (35%) remain white
+        if (percentage >= 37) return 'table-info' // Only higher moderate expenses are blue
+        return '' // Normal expenses like wages (36%) remain white
       },
       // Year 2 methods using December values
       getYear2ExpenseCategories() {
@@ -1665,12 +1659,13 @@
             )
           })
           .map((key) => {
+            const percentage = (expenses[key].yearly / year2Revenue) * 100
             return {
               key,
               label: this.formatCategoryName(key),
               monthly: expenses[key].monthly,
               yearly: expenses[key].yearly,
-              percentage: Math.round((expenses[key].yearly / year2Revenue) * 100),
+              percentage: percentage < 1 ? percentage.toFixed(1) : Math.round(percentage),
             }
           })
           .sort((a, b) => b.yearly - a.yearly)
