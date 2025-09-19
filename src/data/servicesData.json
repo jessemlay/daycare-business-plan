@@ -52,39 +52,13 @@
       "ratio": "1:12"
     }
   ],
-  "facilityFeatures": {
-    "safetyFeatures": [
-      "Secure entry system with key card access",
-      "Interior cameras in all common areas",
-      "Childproof locks and safety gates",
-      "First aid stations in each room",
-      "Emergency evacuation procedures"
-    ],
-    "amenities": [
-      "Age-appropriate play areas",
-      "Indoor play space",
-      "Outdoor playground (fenced)",
-      "Snack preparation area",
-      "Parent check-in/check-out area",
-      "Comfortable seating areas",
-      "Ample parking"
-    ],
-    "educationalResources": [
-      "Age-appropriate toys and games",
-      "Books and reading materials",
-      "Art and craft supplies",
-      "Educational games",
-      "Safe play equipment",
-      "Learning activities"
-    ]
-  },
   "policies": {
     "hours": "Wednesday-Thursday: 10AM-10PM, Friday-Saturday: 10AM-12AM, Sunday: 12PM-6PM",
     "ageRange": "18 months - 12 years",
     "dropIn": "No advance reservation required - walk-ins welcome",
     "membership": {
       "registered": "Reduced hourly rates and bonus credits on block plans",
-      "nonRegistered": "Standard hourly rates, no block plan bonuses"
+      "nonRegistered": "Standard hourly rates, no block palns"
     },
     "payment": "Hourly rates, block plans available, cash/card accepted",
     "ratios": "State-compliant child-to-staff ratios maintained at all times",
@@ -92,8 +66,7 @@
       "Children must be accompanied by parent/guardian for check-in",
       "Valid ID required for child pickup",
       "Maximum stay limits may apply during peak hours",
-      "Sick child policy - no fever or contagious symptoms",
-      "Parents responsible for providing snacks if needed"
+      "Sick child policy - no fever or contagious symptoms"
     ]
   },
   "hoursOfOperation": {
@@ -105,31 +78,5 @@
     "monday": "Closed",
     "tuesday": "Closed",
     "holidays": "Check website or call for holiday hours"
-  },
-  "competitiveAdvantages": [
-    {
-      "title": "Flexible Scheduling",
-      "description": "Unlike traditional daycares, we accommodate irregular schedules and last-minute needs"
-    },
-    {
-      "title": "No Long-Term Contracts",
-      "description": "Pay as you go - no monthly commitments required for drop-in services"
-    },
-    {
-      "title": "Extended Hours",
-      "description": "Open 13 hours daily, including weekends for working parents"
-    },
-    {
-      "title": "All Ages Welcome",
-      "description": "Care for children from 6 months to 12 years in one convenient location"
-    },
-    {
-      "title": "Licensed & Insured",
-      "description": "Fully licensed facility with comprehensive insurance coverage"
-    },
-    {
-      "title": "Experienced Staff",
-      "description": "All caregivers have early childhood education background and ongoing training"
-    }
-  ]
+  }
 }

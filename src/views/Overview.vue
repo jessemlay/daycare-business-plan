@@ -123,6 +123,20 @@
                   <div class="col-md-4">
                     <h6 class="text-primary">{{ managementTeam.operations.title }}</h6>
                     <ul class="list-unstyled">
+                      <!-- Operating Hours -->
+                      <li>
+                        <strong>Hours:</strong>
+                        <ul class="list-unstyled ms-3 mt-1">
+                          <li
+                            v-for="(schedule, day) in managementTeam.operatingHours"
+                            :key="day"
+                            class="small"
+                          >
+                            <strong>{{ schedule.day }}:</strong> {{ schedule.hours }}
+                          </li>
+                        </ul>
+                      </li>
+                      <!-- Other Operations -->
                       <li v-for="operation in managementTeam.operations.items" :key="operation">
                         <strong>{{ operation.split(':')[0] }}:</strong>
                         {{ operation.split(':')[1] }}
@@ -380,15 +394,19 @@
       dynamicGrowthProjections() {
         // Calculate growth projections from actual financial data
         const year1Profit = financialData.monthlyProjections.totalNetIncome
-        const year2Profit = Math.round(year1Profit * 1.15)
-        const year3Profit = Math.round(year2Profit * 1.15)
+        // Year 2 profit calculated from actual Year 2 financial data
+        const year2Revenue = financialData.year2Projections.totalYearlyRevenue
+        const year2Expenses = financialData.year2ExpenseBreakdown.totalOperatingExpenses.yearly
+        const year2Profit = year2Revenue - year2Expenses
+        // Year 3 profit maintains the same level as Year 2
+        const year3Profit = year2Profit
 
         return {
           title: 'Growth Projections',
           items: [
             `Year 1: $${year1Profit.toLocaleString()} profit`,
-            `Year 2: $${year2Profit.toLocaleString()} profit (15% growth)`,
-            `Year 3: $${year3Profit.toLocaleString()} profit (15% growth)`,
+            `Year 2: $${year2Profit.toLocaleString()} profit`,
+            `Year 3: $${year3Profit.toLocaleString()} profit`,
           ],
         }
       },

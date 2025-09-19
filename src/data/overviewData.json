@@ -1,7 +1,7 @@
 {
   "executiveSummary": {
     "businessName": "Kid Zone - Drop-in Daycare Center",
-    "description": "Kid Zone is a professional drop-in daycare facility serving Fort Smith, Arkansas, designed to meet the growing demand for flexible, reliable childcare services. Our facility will provide safe, nurturing, and educational care for children ages 6 months to 12 years on a flexible scheduling basis.",
+    "description": "Kid Zone is a professional drop-in daycare facility serving Fort Smith, Arkansas, designed to meet the growing demand for flexible, reliable childcare services. Our facility will provide safe, nurturing, and educational care for children ages 18 months to 12 years on a flexible scheduling basis.",
     "mission": "To provide exceptional, flexible childcare services that support busy families while fostering children's growth, development, and happiness in a safe, nurturing environment.",
     "vision": "To become Fort Smith's premier drop-in daycare provider, known for reliability, quality care, and exceptional customer service."
   },
@@ -45,9 +45,9 @@
       "State licensing requirements met"
     ],
     "operatingCapacity": {
-      "maxCapacity": "40 children",
+      "maxCapacity": "44 children",
       "ageGroups": "4 separate rooms",
-      "operatingHours": "13 hours/day"
+      "operatingHours": "Wed-Thu: 12hrs, Fri-Sat: 14hrs, Sun: 6hrs"
     }
   },
   "managementTeam": {
@@ -70,12 +70,18 @@
         "Ongoing professional development training"
       ]
     },
+    "operatingHours": {
+      "wednesday": { "day": "Wednesday", "hours": "10:00 AM – 10:00 PM" },
+      "thursday": { "day": "Thursday", "hours": "10:00 AM – 10:00 PM" },
+      "friday": { "day": "Friday", "hours": "10:00 AM – 12:00 Midnight" },
+      "saturday": { "day": "Saturday", "hours": "10:00 AM – 12:00 Midnight" },
+      "sunday": { "day": "Sunday", "hours": "12:00 PM – 6:00 PM" }
+    },
     "operations": {
       "title": "Daily Operations",
       "items": [
-        "Hours: Monday-Friday 6:00 AM - 7:00 PM",
-        "Capacity: Up to 40 children maximum",
-        "Age Groups: 6 months to 12 years",
+        "Capacity: Up to 44 children maximum",
+        "Age Groups: 18 months to 12 years",
         "Safety: Secure entry & emergency procedures"
       ]
     }
@@ -106,9 +112,9 @@
     "projections": {
       "title": "Growth Projections",
       "items": [
-        "Year 1: $160,200 revenue",
-        "Year 2: $184,000 revenue (15% growth)",
-        "Year 3: $212,000 revenue (15% growth)"
+        "Year 1: $13,285 profit",
+        "Year 2: $161,892 profit (15% growth)",
+        "Year 3: $186,176 profit (15% growth)"
       ]
     },
     "returns": {

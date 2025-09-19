@@ -240,7 +240,7 @@
     "total": 75000
   },
   "operatingMetrics": {
-    "capacity": 40,
+    "capacity": 44,
     "averageDaily": 28,
     "utilizationRate": 70,
     "staffToChildRatio": "1:6",

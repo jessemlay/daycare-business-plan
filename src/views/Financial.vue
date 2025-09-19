@@ -3,6 +3,32 @@
     <div class="card">
       <div class="card-header">
         <h5><i class="bi bi-calculator me-2"></i>Financial Projections</h5>
+
+        <!-- Tab Navigation -->
+        <ul class="nav nav-tabs mt-3" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              :class="{ active: activeExpenseTab === 'year1' }"
+              @click="activeExpenseTab = 'year1'"
+              type="button"
+              role="tab"
+            >
+              Year 1
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              :class="{ active: activeExpenseTab === 'year2' }"
+              @click="activeExpenseTab = 'year2'"
+              type="button"
+              role="tab"
+            >
+              Year 2
+            </button>
+          </li>
+        </ul>
       </div>
       <div class="card-body">
         <div class="row mb-4">
@@ -10,10 +36,8 @@
             <div class="card border-primary">
               <div class="card-body text-center">
                 <h4 class="text-primary">Revenue</h4>
-                <p class="h5">
-                  ${{ financialData.monthlyProjections.totalYearlyRevenue.toLocaleString() }}
-                </p>
-                <small class="text-muted">Year 1 Total</small>
+                <p class="h5">${{ currentYearRevenue.toLocaleString() }}</p>
+                <small class="text-muted">{{ currentYearLabel }} Total</small>
               </div>
             </div>
           </div>
@@ -21,10 +45,8 @@
             <div class="card border-warning">
               <div class="card-body text-center">
                 <h4 class="text-warning">Expenses</h4>
-                <p class="h5">
-                  ${{ financialData.monthlyProjections.totalYearlyExpenses.toLocaleString() }}
-                </p>
-                <small class="text-muted">Year 1 Total</small>
+                <p class="h5">${{ currentYearExpenses.toLocaleString() }}</p>
+                <small class="text-muted">{{ currentYearLabel }} Total</small>
               </div>
             </div>
           </div>
@@ -32,10 +54,8 @@
             <div class="card border-success">
               <div class="card-body text-center">
                 <h4 class="text-success">Net Income</h4>
-                <p class="h5">
-                  ${{ financialData.monthlyProjections.totalNetIncome.toLocaleString() }}
-                </p>
-                <small class="text-muted">Year 1 Profit</small>
+                <p class="h5">${{ currentYearNetIncome.toLocaleString() }}</p>
+                <small class="text-muted">{{ currentYearLabel }} Profit</small>
               </div>
             </div>
           </div>
@@ -186,98 +206,6 @@
           </div>
         </div>
 
-        <!-- Pricing Structure Details -->
-        <div class="row mt-4">
-          <div class="col-md-6">
-            <div class="card">
-              <div class="card-header">
-                <h6><i class="bi bi-tags me-2"></i>Registered vs Drop-In Pricing</h6>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table table-striped">
-                    <thead class="table-info">
-                      <tr>
-                        <th>Age Group</th>
-                        <th>Registered Rate</th>
-                        <th>Drop-In Rate</th>
-                        <th>Savings</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>6-18 months</td>
-                        <td class="text-success fw-bold">$16/hr</td>
-                        <td class="text-danger">$18/hr</td>
-                        <td class="text-success">$2/hr (11%)</td>
-                      </tr>
-                      <tr>
-                        <td>8 months-12 years</td>
-                        <td class="text-success fw-bold">$14/hr</td>
-                        <td class="text-danger">$16/hr</td>
-                        <td class="text-success">$2/hr (13%)</td>
-                      </tr>
-                      <tr>
-                        <td>Additional Children</td>
-                        <td class="text-success fw-bold">$8/hr</td>
-                        <td class="text-danger">No discount</td>
-                        <td class="text-success">Up to 50%</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <div class="alert alert-info mt-3">
-                  <small
-                    ><strong>Note:</strong> $40 annual registration fee applies to registered
-                    families</small
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card">
-              <div class="card-header">
-                <h6><i class="bi bi-piggy-bank me-2"></i>Monthly Block Plans</h6>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table table-striped">
-                    <thead class="table-success">
-                      <tr>
-                        <th>Plan</th>
-                        <th>Purchase</th>
-                        <th>Credit Received</th>
-                        <th>Bonus Value</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Small Block</td>
-                        <td>$300</td>
-                        <td class="text-success fw-bold">$345</td>
-                        <td class="text-success">$45 (15%)</td>
-                      </tr>
-                      <tr>
-                        <td>Large Block</td>
-                        <td>$500</td>
-                        <td class="text-success fw-bold">$600</td>
-                        <td class="text-success">$100 (20%)</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <div class="alert alert-success mt-3">
-                  <small
-                    ><strong>Block Plans:</strong> Available only to registered families, using
-                    member rates</small
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <!-- Operating Expenses -->
         <div class="row mt-4">
           <div class="col-md-12">
@@ -285,32 +213,6 @@
               <div class="card-header">
                 <h6><i class="bi bi-cash-stack me-2"></i>Monthly Operating Expenses Breakdown</h6>
                 <small class="text-muted">Year-over-Year Analysis</small>
-
-                <!-- Tab Navigation -->
-                <ul class="nav nav-tabs card-header-tabs mt-2" role="tablist">
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link"
-                      :class="{ active: activeExpenseTab === 'year1' }"
-                      @click="activeExpenseTab = 'year1'"
-                      type="button"
-                      role="tab"
-                    >
-                      Year 1
-                    </button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link"
-                      :class="{ active: activeExpenseTab === 'year2' }"
-                      @click="activeExpenseTab = 'year2'"
-                      type="button"
-                      role="tab"
-                    >
-                      Year 2
-                    </button>
-                  </li>
-                </ul>
               </div>
               <div class="card-body">
                 <!-- Tab Content -->
@@ -916,6 +818,36 @@
                                   )
                                 }}</span>
                               </div>
+                              <div
+                                class="list-group-item d-flex justify-content-between align-items-center"
+                              >
+                                <div>
+                                  <strong>Payroll Taxes</strong>
+                                  <br /><small class="text-muted"
+                                    >Employer taxes on staff wages</small
+                                  >
+                                </div>
+                                <span class="badge bg-dark rounded-pill">{{
+                                  calculateYear2ExpensePercentage(
+                                    financialData.year2ExpenseBreakdown.payrollTaxes.yearly
+                                  )
+                                }}</span>
+                              </div>
+                              <div
+                                class="list-group-item d-flex justify-content-between align-items-center"
+                              >
+                                <div>
+                                  <strong>Insurance</strong>
+                                  <br /><small class="text-muted"
+                                    >Ongoing liability and property coverage</small
+                                  >
+                                </div>
+                                <span class="badge bg-success rounded-pill">{{
+                                  calculateYear2ExpensePercentage(
+                                    financialData.year2ExpenseBreakdown.insurance.yearly
+                                  )
+                                }}</span>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -961,25 +893,6 @@
                               </small>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Year 2 Analysis -->
-                    <div class="row mt-4">
-                      <div class="col-md-12">
-                        <div class="alert alert-success">
-                          <strong>Year 2 Outlook:</strong>
-                          Based on projected growth and operational stability, Year 2 projects
-                          consistent monthly revenue of ${{
-                            formatNumber(financialData.year2Projections.revenue[0])
-                          }}
-                          and expenses of ${{ formatNumber(getYear2TotalExpensesMonthly()[0]) }},
-                          resulting in steady monthly profit of ${{
-                            formatNumber(getYear2MonthlyTakeHome()[0])
-                          }}. Annual revenue expected to reach ${{
-                            formatNumber(financialData.year2Projections.totalYearlyRevenue)
-                          }}.
                         </div>
                       </div>
                     </div>
@@ -1415,6 +1328,40 @@
           'December',
         ]
       },
+      // Dynamic values for summary cards based on active tab
+      currentYearRevenue() {
+        return this.activeExpenseTab === 'year2'
+          ? this.financialData.year2Projections.totalYearlyRevenue
+          : this.financialData.monthlyProjections.totalYearlyRevenue
+      },
+      currentYearExpenses() {
+        if (this.activeExpenseTab === 'year2') {
+          // Calculate Year 2 total expenses
+          const expenses = this.financialData.year2ExpenseBreakdown
+          return (
+            expenses.rent.yearly +
+            expenses.wages.yearly +
+            expenses.loanPayment.yearly +
+            expenses.payrollTaxes.yearly +
+            expenses.accountingLegal.yearly +
+            expenses.advertising.yearly +
+            expenses.insurance.yearly +
+            expenses.utilities.yearly +
+            expenses.foodSnacks.yearly +
+            expenses.facilitySetup.yearly +
+            expenses.technology.yearly +
+            expenses.miscellaneous.yearly
+          )
+        } else {
+          return this.financialData.monthlyProjections.totalYearlyExpenses
+        }
+      },
+      currentYearNetIncome() {
+        return this.currentYearRevenue - this.currentYearExpenses
+      },
+      currentYearLabel() {
+        return this.activeExpenseTab === 'year2' ? 'Year 2' : 'Year 1'
+      },
     },
     methods: {
       getTeacherRatioDisplay(index) {
@@ -1695,10 +1642,10 @@
         })
       },
       getExpenseRowClass(percentage) {
-        if (percentage >= 45) return 'table-danger' // Only very high percentages are red
-        if (percentage >= 25) return 'table-warning' // High but normal for major expenses
-        if (percentage >= 10) return 'table-info' // Moderate expenses
-        return ''
+        if (percentage >= 50) return 'table-danger' // Only extremely high percentages are red
+        if (percentage >= 40) return 'table-warning' // High expenses are yellow
+        if (percentage >= 36) return 'table-info' // Only higher moderate expenses are blue
+        return '' // Normal expenses like wages (35%) remain white
       },
       // Year 2 methods using December values
       getYear2ExpenseCategories() {

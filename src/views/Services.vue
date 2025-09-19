@@ -133,6 +133,10 @@
                       <td><strong>Monday - Tuesday</strong></td>
                       <td class="text-muted">Closed</td>
                     </tr>
+                    <tr>
+                      <td><strong>Holidays</strong></td>
+                      <td class="text-muted">{{ hoursOfOperation.holidays }}</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -153,70 +157,6 @@
                   <li><i class="bi bi-check text-success me-2"></i>{{ policies.payment }}</li>
                   <li><i class="bi bi-check text-success me-2"></i>{{ policies.ratios }}</li>
                 </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Membership Benefits -->
-        <div class="row mb-4">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header" style="background-color: #6c757d; color: black !important">
-                <h6 style="color: black !important; margin: 0">
-                  <i class="bi bi-star me-2"></i>Pricing Comparison: Registered vs Non-Registered
-                </h6>
-              </div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-6">
-                    <h6 class="text-success">Registered Member Benefits</h6>
-                    <ul class="list-unstyled">
-                      <li>
-                        <i class="bi bi-check text-success me-2"></i
-                        >{{ policies.membership.registered }}
-                      </li>
-                      <li>
-                        <i class="bi bi-check text-success me-2"></i>Lower rate: $14/hr (18mo-12yrs)
-                      </li>
-                      <li>
-                        <i class="bi bi-check text-success me-2"></i>Additional children: $8/hour
-                        each
-                      </li>
-                      <li>
-                        <i class="bi bi-check text-success me-2"></i>Block plans with 15-20% bonus
-                        credits
-                      </li>
-                      <li>
-                        <i class="bi bi-check text-success me-2"></i>$40/year registration fee
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="col-md-6">
-                    <h6 class="text-warning">Non-Registered (Walk-In)</h6>
-                    <ul class="list-unstyled">
-                      <li>
-                        <i class="bi bi-arrow-right text-warning me-2"></i
-                        >{{ policies.membership.nonRegistered }}
-                      </li>
-                      <li>
-                        <i class="bi bi-arrow-right text-warning me-2"></i>Standard rate: $16/hr
-                        (18mo-12yrs)
-                      </li>
-                      <li>
-                        <i class="bi bi-arrow-right text-warning me-2"></i>No additional children
-                        discount
-                      </li>
-                      <li>
-                        <i class="bi bi-arrow-right text-warning me-2"></i>No block plan bonuses
-                        available
-                      </li>
-                      <li>
-                        <i class="bi bi-arrow-right text-warning me-2"></i>No registration required
-                      </li>
-                    </ul>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
