@@ -3,7 +3,7 @@ module.exports = defineConfig({
   transpileDependencies: true,
 
   // Configure for GitHub Pages deployment -- broke website on purpose change to / when ready to go live
-  publicPath: '/',
+  publicPath: '/demo',
 
   // Enable cache busting with file hashing
   filenameHashing: true,

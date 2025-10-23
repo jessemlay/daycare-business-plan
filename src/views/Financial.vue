@@ -213,9 +213,9 @@
               <div class="card-body">
                 <!-- Tab Content -->
                 <div class="tab-content">
-                  <!-- Year 1 Tab -->
-                  <div v-if="activeExpenseTab === 'year1'">
-                    <!-- Debug: Current tab = {{ activeExpenseTab }} -->
+                  <!-- Single tab that updates based on year selection -->
+                  <div>
+                    <!-- Current tab = {{ activeExpenseTab }} -->
                     <!-- Expense Summary Cards -->
                     <div class="row mb-4">
                       <div class="col-md-4">
@@ -224,18 +224,30 @@
                             <h4>
                               ${{
                                 formatNumber(
-                                  financialData.expenseBreakdown.totalOperatingExpenses.yearly -
-                                    startupData.startupSummary.startupCosts
+                                  activeExpenseTab === 'year1'
+                                    ? financialData.expenseBreakdown.totalOperatingExpenses.yearly -
+                                        startupData.startupSummary.startupCosts
+                                    : getYear2ExpenseCategories().reduce(
+                                        (sum, cat) => sum + cat.yearly.value,
+                                        0
+                                      )
                                 )
                               }}
                             </h4>
                             <p class="mb-0">Total Operating Expenses</p>
                             <small
                               >{{
-                                calculateExpensePercentage(
-                                  financialData.expenseBreakdown.totalOperatingExpenses.yearly -
-                                    startupData.startupSummary.startupCosts
-                                )
+                                activeExpenseTab === 'year1'
+                                  ? calculateExpensePercentage(
+                                      financialData.expenseBreakdown.totalOperatingExpenses.yearly -
+                                        startupData.startupSummary.startupCosts
+                                    )
+                                  : calculateYear2ExpensePercentage(
+                                      getYear2ExpenseCategories().reduce(
+                                        (sum, cat) => sum + cat.yearly.value,
+                                        0
+                                      )
+                                    )
                               }}
                               of Revenue</small
                             >
@@ -295,119 +307,20 @@
 
                     <!-- Detailed Monthly Table -->
                     <div class="table-responsive">
-                      <table class="table table-sm table-hover">
-                        <thead class="table-warning">
-                          <tr>
-                            <th>Expense Category</th>
-                            <th class="text-center">Jan</th>
-                            <th class="text-center">Feb</th>
-                            <th class="text-center">Mar</th>
-                            <th class="text-center">Apr</th>
-                            <th class="text-center">May</th>
-                            <th class="text-center">Jun</th>
-                            <th class="text-center">Jul</th>
-                            <th class="text-center">Aug</th>
-                            <th class="text-center">Sep</th>
-                            <th class="text-center">Oct</th>
-                            <th class="text-center">Nov</th>
-                            <th class="text-center">Dec</th>
-                            <th class="text-center">Yearly</th>
-                            <th class="text-center">% of Revenue</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <!-- Major expense categories -->
-                          <tr
-                            v-for="(category, key) in getTopExpenseCategories()"
-                            :key="key"
-                            :class="getExpenseRowClass(category.percentage)"
-                          >
-                            <td class="fw-bold">{{ category.label }}</td>
-                            <td
-                              v-for="(amount, index) in category.monthly"
-                              :key="index"
-                              class="text-end"
-                            >
-                              ${{ formatNumber(amount) }}
-                            </td>
-                            <td class="text-end fw-bold text-success">
-                              ${{ formatNumber(category.yearly) }}
-                            </td>
-                            <td class="text-center">
-                              <span class="badge bg-secondary">{{ category.percentage }}</span>
-                            </td>
-                          </tr>
-                          <!-- Total row -->
-                          <tr class="table-warning border-top border-3">
-                            <td class="fw-bold">TOTAL OPERATING EXPENSES</td>
-                            <td
-                              v-for="(amount, index) in getTotalExpensesMonthly()"
-                              :key="index"
-                              class="text-end fw-bold"
-                            >
-                              ${{ formatNumber(amount) }}
-                            </td>
-                            <td class="text-end fw-bold text-danger">
-                              ${{
-                                formatNumber(
-                                  financialData.expenseBreakdown.totalOperatingExpenses.yearly
-                                )
-                              }}
-                            </td>
-                            <td class="text-center">
-                              <span class="badge bg-warning text-dark">{{
-                                calculateExpensePercentage(
-                                  financialData.expenseBreakdown.totalOperatingExpenses.yearly
-                                )
-                              }}</span>
-                            </td>
-                          </tr>
-                          <!-- Monthly Revenue row -->
-                          <tr class="table-primary border-top border-3">
-                            <td class="fw-bold text-primary">MONTHLY REVENUE</td>
-                            <td
-                              v-for="(amount, index) in financialData.monthlyProjections.revenue"
-                              :key="index"
-                              class="text-end fw-bold text-primary"
-                            >
-                              ${{ formatNumber(amount) }}
-                            </td>
-                            <td class="text-end fw-bold text-primary">
-                              ${{
-                                formatNumber(financialData.monthlyProjections.totalYearlyRevenue)
-                              }}
-                            </td>
-                            <td class="text-center">
-                              <span class="badge bg-primary">100%</span>
-                            </td>
-                          </tr>
-                          <!-- Monthly Take-Home row -->
-                          <tr class="table-success border-top border-3">
-                            <td class="fw-bold text-success">MONTHLY TAKE-HOME PROFIT</td>
-                            <td
-                              v-for="(amount, index) in getMonthlyTakeHome()"
-                              :key="index"
-                              class="text-end fw-bold text-success"
-                            >
-                              ${{ formatNumber(amount) }}
-                            </td>
-                            <td class="text-end fw-bold text-success">
-                              ${{ formatNumber(getTotalYearlyTakeHome()) }}
-                            </td>
-                            <td class="text-center">
-                              <span class="badge bg-success"
-                                >{{
-                                  Math.round(
-                                    (getTotalYearlyTakeHome() /
-                                      financialData.monthlyProjections.totalYearlyRevenue) *
-                                      100
-                                  )
-                                }}%</span
-                              >
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                      <!-- Financial Grid Component -->
+                      <FinancialGrid
+                        :categories="getCurrentExpenseCategories()"
+                        :total-expenses="getCurrentMonthlyExpenses()"
+                        :total-yearly-expense="getCurrentYearlyTotalExpense()"
+                        :total-percentage="getCurrentTotalPercentage()"
+                        :monthly-revenue="getCurrentMonthlyRevenue()"
+                        :total-yearly-revenue="getCurrentYearlyRevenue()"
+                        :monthly-profit="getCurrentMonthlyProfit()"
+                        :total-yearly-profit="getCurrentYearlyProfit()"
+                        :contingency-balances="getCurrentContingencyBalances()"
+                        :final-contingency-balance="getCurrentFinalContingencyBalance()"
+                        :show-contingency-row="true"
+                      ></FinancialGrid>
                     </div>
 
                     <!-- Expense Category Analysis -->
@@ -561,11 +474,7 @@
                         </div>
                       </div>
                     </div>
-                  </div>
-
-                  <!-- Year 2 Tab -->
-                  <div v-if="activeExpenseTab === 'year2'">
-                    <!-- Year 2 Expense Summary Cards -->
+                    <!-- No closing div here as we now have a single tab -->
                     <div class="row mb-4">
                       <div class="col-md-4">
                         <div class="card bg-warning text-white">
@@ -620,137 +529,17 @@
                       </div>
                     </div>
 
-                    <!-- Year 2 Detailed Monthly Table -->
-                    <div class="table-responsive">
-                      <table class="table table-sm table-hover">
-                        <thead class="table-warning">
-                          <tr>
-                            <th>Expense Category</th>
-                            <th class="text-center">Jan</th>
-                            <th class="text-center">Feb</th>
-                            <th class="text-center">Mar</th>
-                            <th class="text-center">Apr</th>
-                            <th class="text-center">May</th>
-                            <th class="text-center">Jun</th>
-                            <th class="text-center">Jul</th>
-                            <th class="text-center">Aug</th>
-                            <th class="text-center">Sep</th>
-                            <th class="text-center">Oct</th>
-                            <th class="text-center">Nov</th>
-                            <th class="text-center">Dec</th>
-                            <th class="text-center">Yearly</th>
-                            <th class="text-center">% of Revenue</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <!-- Year 2 expense categories -->
-                          <tr
-                            v-for="category in getYear2ExpenseCategories()"
-                            :key="category.key"
-                            :class="getExpenseRowClass(category.percentage)"
-                          >
-                            <td class="fw-bold">{{ category.label }}</td>
-                            <td
-                              v-for="(amount, index) in category.monthly"
-                              :key="index"
-                              class="text-end"
-                            >
-                              ${{ formatNumber(amount) }}
-                            </td>
-                            <td class="text-end fw-bold text-success">
-                              ${{ formatNumber(category.yearly) }}
-                            </td>
-                            <td class="text-center">
-                              <span class="badge bg-secondary">{{ category.percentage }}%</span>
-                            </td>
-                          </tr>
-                          <!-- Year 2 Total row -->
-                          <tr class="table-warning border-top border-3">
-                            <td class="fw-bold">TOTAL OPERATING EXPENSES</td>
-                            <td
-                              v-for="(amount, index) in getYear2TotalExpensesMonthly()"
-                              :key="index"
-                              class="text-end fw-bold"
-                            >
-                              ${{ formatNumber(amount) }}
-                            </td>
-                            <td class="text-end fw-bold text-danger">
-                              ${{
-                                formatNumber(
-                                  getYear2ExpenseCategories().reduce(
-                                    (sum, cat) => sum + cat.yearly,
-                                    0
-                                  )
-                                )
-                              }}
-                            </td>
-                            <td class="text-center">
-                              <span class="badge bg-warning text-dark">
-                                {{
-                                  Math.round(
-                                    (getYear2ExpenseCategories().reduce(
-                                      (sum, cat) => sum + cat.yearly,
-                                      0
-                                    ) /
-                                      financialData.year2Projections.totalYearlyRevenue) *
-                                      100
-                                  )
-                                }}%
-                              </span>
-                            </td>
-                          </tr>
-                          <!-- Year 2 Monthly Revenue row -->
-                          <tr class="table-primary border-top border-3">
-                            <td class="fw-bold text-primary">MONTHLY REVENUE</td>
-                            <td
-                              v-for="(amount, index) in financialData.year2Projections.revenue"
-                              :key="index"
-                              class="text-end fw-bold text-primary"
-                            >
-                              ${{ formatNumber(amount) }}
-                            </td>
-                            <td class="text-end fw-bold text-primary">
-                              ${{ formatNumber(financialData.year2Projections.totalYearlyRevenue) }}
-                            </td>
-                            <td class="text-center">
-                              <span class="badge bg-primary">100%</span>
-                            </td>
-                          </tr>
-                          <!-- Year 2 Monthly Take-Home row -->
-                          <tr class="table-success border-top border-3">
-                            <td class="fw-bold text-success">MONTHLY TAKE-HOME PROFIT</td>
-                            <td
-                              v-for="(amount, index) in getYear2MonthlyTakeHome()"
-                              :key="index"
-                              class="text-end fw-bold text-success"
-                            >
-                              ${{ formatNumber(amount) }}
-                            </td>
-                            <td class="text-end fw-bold text-success">
-                              ${{ formatNumber(getYear2TotalYearlyTakeHome()) }}
-                            </td>
-                            <td class="text-center">
-                              <span class="badge bg-success">
-                                {{
-                                  Math.round(
-                                    (getYear2TotalYearlyTakeHome() /
-                                      (financialData.monthlyProjections.revenue[11] * 12)) *
-                                      100
-                                  )
-                                }}%
-                              </span>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                    <!-- Empty space where Year 2 table was removed -->
+                    <div v-if="activeExpenseTab === 'year2'" class="text-muted text-center my-3">
+                      <small>Year 2 expense details are displayed above.</small>
                     </div>
 
-                    <!-- Year 2 Expense Category Analysis -->
-                    <div class="row mt-4">
+                    <!-- Expense Category Analysis - Conditionally show Year 1 or Year 2 -->
+                    <div v-if="activeExpenseTab === 'year2'" class="row mt-4">
                       <div class="col-md-6">
                         <div class="card border-primary">
                           <div class="card-header">
-                            <h6 class="mb-0">Largest Expense Categories</h6>
+                            <h6 class="mb-0">Largest Expense Categories - Year 2</h6>
                           </div>
                           <div class="card-body">
                             <div class="list-group list-group-flush">
@@ -1037,6 +826,7 @@
 
 <script>
   import FinancialChart from '@/components/FinancialChart.vue'
+  import FinancialGrid from '@/components/FinancialGrid.vue'
   import financialData from '@/data/financialData.json'
   import startupData from '@/data/startupData.json'
 
@@ -1044,6 +834,7 @@
     name: 'FinancialPage',
     components: {
       FinancialChart,
+      FinancialGrid,
     },
     data() {
       return {
@@ -1100,13 +891,48 @@
       }
     },
     computed: {
+      // Properties that switch based on selected year
+      currentYearFinancials() {
+        return this.activeExpenseTab === 'year2'
+          ? {
+              revenue: this.financialData.year2Projections.revenue,
+              totalExpensesMonthly: this.getYear2TotalExpensesMonthly(),
+              expenseCategories: this.getYear2ExpenseCategories(),
+              monthlyTakeHome: this.getYear2MonthlyTakeHome(),
+              totalYearlyTakeHome: this.getYear2TotalYearlyTakeHome(),
+              totalYearlyRevenue: this.financialData.year2Projections.totalYearlyRevenue,
+              kidsPerDay: this.financialData.year2Projections.kidsPerDay,
+              registeredKids: this.financialData.year2Projections.registeredKids,
+              nonRegisteredKids: this.financialData.year2Projections.nonRegisteredKids,
+              capacity: this.financialData.year2Projections.capacity,
+              teachers: this.financialData.year2Projections.teachers,
+              loanBalance: this.financialData.year2Projections.loanBalance,
+              registrationFees: this.financialData.year2Projections.registrationFees,
+            }
+          : {
+              revenue: this.financialData.monthlyProjections.revenue,
+              totalExpensesMonthly: this.getTotalExpensesMonthly(),
+              expenseCategories: this.getExpenseCategories(),
+              monthlyTakeHome: this.getMonthlyTakeHome(),
+              totalYearlyTakeHome: this.getTotalYearlyTakeHome(),
+              totalYearlyRevenue: this.financialData.monthlyProjections.totalYearlyRevenue,
+              kidsPerDay: this.financialData.monthlyProjections.kidsPerDay,
+              registeredKids: this.financialData.monthlyProjections.registeredKids,
+              nonRegisteredKids: this.financialData.monthlyProjections.nonRegisteredKids,
+              capacity: this.financialData.monthlyProjections.capacity,
+              teachers: this.financialData.monthlyProjections.teachers,
+              loanBalance: this.financialData.monthlyProjections.loanBalance,
+              registrationFees: this.financialData.monthlyProjections.registrationFees,
+            }
+      },
+
       monthlyChartData() {
         const isYear2 = this.activeExpenseTab === 'year2'
         const revenue = isYear2
           ? this.financialData.year2Projections.revenue
           : this.financialData.monthlyProjections.revenue
         const expenses = isYear2
-          ? this.getYear2TotalExpensesMonthly()
+          ? this.getYear2TotalExpensesMonthly().map((item) => item.value)
           : this.financialData.monthlyProjections.expenses
         const netIncome = isYear2
           ? this.getYear2MonthlyTakeHome()
@@ -1378,13 +1204,137 @@
       getMonthlyTakeHome() {
         // Calculate monthly revenue minus monthly operating expenses
         return Array.from({ length: 12 }, (_, monthIndex) => {
-          const monthlyRevenue = this.financialData.monthlyProjections.revenue[monthIndex]
-          const monthlyExpenses = this.getTotalExpensesMonthly()[monthIndex]
-          return monthlyRevenue - monthlyExpenses
+          const monthlyRevenue = this.financialData.monthlyProjections.revenue[monthIndex].value
+          const monthlyExpenses = this.getTotalExpensesMonthly()[monthIndex].value
+          return {
+            value: monthlyRevenue - monthlyExpenses,
+            note: `Revenue ($${monthlyRevenue}) - Expenses ($${monthlyExpenses}) = Net profit/loss`,
+          }
         })
       },
       getTotalYearlyTakeHome() {
-        return this.getMonthlyTakeHome().reduce((sum, monthly) => sum + monthly, 0)
+        return this.getMonthlyTakeHome().reduce((sum, monthly) => sum + monthly.value, 0)
+      },
+
+      // Methods for the reusable FinancialGrid component
+      getCurrentExpenseCategories() {
+        return this.activeExpenseTab === 'year2'
+          ? this.getYear2ExpenseCategories()
+          : this.getTopExpenseCategories()
+      },
+
+      getCurrentMonthlyExpenses() {
+        return this.activeExpenseTab === 'year2'
+          ? this.getYear2TotalExpensesMonthly()
+          : this.getTotalExpensesMonthly()
+      },
+
+      getCurrentYearlyTotalExpense() {
+        return this.activeExpenseTab === 'year2'
+          ? this.getYear2ExpenseCategories().reduce((sum, cat) => sum + cat.yearly.value, 0)
+          : this.financialData.expenseBreakdown.totalOperatingExpenses.yearly
+      },
+
+      getCurrentTotalPercentage() {
+        const expense = this.getCurrentYearlyTotalExpense()
+        const revenue = this.getCurrentYearlyRevenue()
+        return Math.round((expense / revenue) * 100)
+      },
+
+      getCurrentMonthlyRevenue() {
+        // Get the raw revenue data based on active tab
+        const rawRevenueData = this.activeExpenseTab === 'year2'
+            ? this.financialData.year2Projections.revenue
+            : this.financialData.monthlyProjections.revenue
+
+        // Strip any notes to remove tooltips from monthly revenue
+        return rawRevenueData.map((item) => {
+          // If it's an object with value property, return just the value
+          if (item && typeof item === 'object' && 'value' in item) {
+            return item.value
+          }
+          // Otherwise return the item as is (likely a number)
+          return item
+        })
+      },
+
+      getCurrentYearlyRevenue() {
+        return this.activeExpenseTab === 'year2'
+          ? this.financialData.year2Projections.totalYearlyRevenue
+          : this.financialData.monthlyProjections.totalYearlyRevenue
+      },
+
+      getCurrentMonthlyProfit() {
+        // Get raw profit data based on active tab
+        const rawProfitData = this.activeExpenseTab === 'year2'
+            ? this.getYear2MonthlyTakeHome()
+            : this.getMonthlyTakeHome()
+
+        // Return profit data without notes to remove tooltips
+        return rawProfitData.map((item) => {
+          // Keep only the value, remove any note properties
+          return {
+            value: item.value,
+          }
+        })
+      },
+
+      getCurrentYearlyProfit() {
+        return this.activeExpenseTab === 'year2'
+          ? this.getYear2TotalYearlyTakeHome()
+          : this.getTotalYearlyTakeHome()
+      },
+
+      getCurrentContingencyBalances() {
+        // Defensive: always return an array of 12 numbers
+        let balances = []
+        if (
+          this.activeExpenseTab === 'year2' &&
+          this.financialData &&
+          this.financialData.year2Projections &&
+          Array.isArray(this.financialData.year2Projections.loanBalance) &&
+          this.financialData.year2Projections.loanBalance.length === 12
+        ) {
+          balances = this.financialData.year2Projections.loanBalance
+        } else if (
+          this.financialData &&
+          this.financialData.monthlyProjections &&
+          Array.isArray(this.financialData.monthlyProjections.loanBalance) &&
+          this.financialData.monthlyProjections.loanBalance.length === 12
+        ) {
+          balances = this.financialData.monthlyProjections.loanBalance
+        } else {
+          // Calculate from profits if not present
+          const monthlyProfits = (typeof this.getMonthlyTakeHome === 'function' ? this.getMonthlyTakeHome() : []) || []
+          const initialLoan = 80000
+          let remainingBalance = initialLoan
+          for (let i = 0; i < 12; i++) {
+            let profit = 0
+            if (monthlyProfits[i] && typeof monthlyProfits[i].value === 'number') {
+              profit = monthlyProfits[i].value
+            }
+            remainingBalance -= profit
+            balances.push(Math.max(0, remainingBalance))
+          }
+          // Store for future use if possible
+          if (
+            this.financialData &&
+            this.financialData.monthlyProjections &&
+            typeof this.$set === 'function'
+          ) {
+            this.$set(this.financialData.monthlyProjections, 'loanBalance', balances)
+          }
+        }
+        // Always return an array of 12 numbers
+        if (!Array.isArray(balances) || balances.length !== 12) {
+          return Array(12).fill(0)
+        }
+        return balances
+      },
+
+      getCurrentFinalContingencyBalance() {
+        const balances = this.getCurrentContingencyBalances()
+        return balances && balances.length > 0 ? balances[balances.length - 1] : 0
       },
       getQuarterlyData() {
         const revenue = this.financialData.monthlyProjections.revenue
@@ -1624,15 +1574,21 @@
         }, 0)
       },
       getTotalExpensesMonthly() {
-        const expenses = this.financialData.expenseBreakdown
-        // Sum all expense categories for each month
-        return Array.from({ length: 12 }, (_, monthIndex) => {
-          return Object.keys(expenses).reduce((sum, category) => {
-            if (category !== 'totalOperatingExpenses' && expenses[category].monthly) {
-              return sum + expenses[category].monthly[monthIndex]
+        // Use the pre-calculated total operating expenses directly from the data
+        return this.financialData.expenseBreakdown.totalOperatingExpenses.monthly.map((expense) => {
+          // Handle both formats: plain numbers or {value, note} objects
+          if (typeof expense === 'object' && expense !== null) {
+            return {
+              value: expense.value || 0,
+              note: expense.note || '',
             }
-            return sum
-          }, 0)
+          } else {
+            // If expense is a plain number
+            return {
+              value: expense || 0,
+              note: '',
+            }
+          }
         })
       },
       getExpenseRowClass(percentage) {
@@ -1654,34 +1610,69 @@
               expenses[key] &&
               expenses[key].monthly &&
               Array.isArray(expenses[key].monthly) &&
-              expenses[key].monthly.length === 12 &&
-              expenses[key].yearly > 0 // Exclude zero-value categories
+              expenses[key].monthly.length === 12
             )
           })
           .map((key) => {
-            const percentage = (expenses[key].yearly / year2Revenue) * 100
+            // Calculate the yearly total from monthly values
+            const yearlyTotal = expenses[key].monthly.reduce(
+              (sum, month) => sum + (month.value || 0),
+              0
+            )
+
+            const percentage = (yearlyTotal / year2Revenue) * 100
             return {
               key,
               label: this.formatCategoryName(key),
               monthly: expenses[key].monthly,
-              yearly: expenses[key].yearly,
+              yearly: { value: yearlyTotal, note: '' },
               percentage: percentage < 1 ? percentage.toFixed(1) : Math.round(percentage),
             }
           })
-          .sort((a, b) => b.yearly - a.yearly)
+          .filter((category) => category.yearly.value > 0) // Exclude zero-value categories
+          .sort((a, b) => b.yearly.value - a.yearly.value)
 
         return categories
       },
       getYear2TotalExpensesMonthly() {
-        return this.financialData.year2ExpenseBreakdown.totalOperatingExpenses.monthly
+        const expenses = this.financialData.year2ExpenseBreakdown
+
+        // Calculate total expenses for each month across all categories
+        return Array.from({ length: 12 }, (_, monthIndex) => {
+          const totalValue = Object.keys(expenses).reduce((sum, category) => {
+            if (
+              category !== 'totalOperatingExpenses' &&
+              expenses[category] &&
+              expenses[category].monthly
+            ) {
+              const monthValue = expenses[category].monthly[monthIndex]?.value || 0
+              return sum + monthValue
+            }
+            return sum
+          }, 0)
+
+          // Get the note if it exists in an object format, otherwise empty string
+          const monthlyData = expenses.totalOperatingExpenses?.monthly?.[monthIndex]
+          const note = typeof monthlyData === 'object' && monthlyData?.note ? monthlyData.note : ''
+
+          return {
+            value: totalValue,
+            note: note,
+          }
+        })
       },
       getYear2MonthlyTakeHome() {
         const monthlyRevenue = this.financialData.year2Projections.revenue
         const monthlyExpenses = this.getYear2TotalExpensesMonthly()
-        return monthlyRevenue.map((revenue, index) => revenue - monthlyExpenses[index])
+        return monthlyRevenue.map((revenue, index) => {
+          return {
+            value: revenue.value - monthlyExpenses[index].value,
+            note: `Revenue ($${revenue.value}) - Expenses ($${monthlyExpenses[index].value}) = Net profit/loss`,
+          }
+        })
       },
       getYear2TotalYearlyTakeHome() {
-        return this.getYear2MonthlyTakeHome().reduce((sum, monthly) => sum + monthly, 0)
+        return this.getYear2MonthlyTakeHome().reduce((sum, monthly) => sum + monthly.value, 0)
       },
       formatCategoryName(key) {
         // Convert camelCase keys to readable labels
@@ -1764,3 +1755,116 @@
     },
   }
 </script>
+
+<style scoped>
+  /* Custom tooltip styling */
+  .expense-cell-with-tooltip {
+    position: relative;
+    cursor: help;
+  }
+
+  .tooltip-text {
+    visibility: hidden;
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 10px 15px;
+    position: absolute;
+    z-index: 1000;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    width: auto;
+    max-width: 50vw;
+    white-space: normal;
+    word-wrap: break-word;
+    font-size: 14px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+  }
+
+  .tooltip-text::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+  }
+
+  .expense-cell-with-tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 0.95;
+  }
+
+  /* Make sure tooltips don't get cut off at the edges of the screen */
+  .expense-cell-with-tooltip:hover .tooltip-text {
+    min-width: 200px;
+    max-width: 50vw;
+  }
+
+  .border-success {
+    border-color: #28a745 !important;
+  }
+
+  .border-2 {
+    border-width: 2px !important;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.5rem 0.75rem;
+    vertical-align: middle;
+  }
+
+  .table thead th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+  }
+
+  /* Tooltip styles for expense cells */
+  .expense-cell-with-tooltip {
+    position: relative;
+    cursor: help;
+  }
+
+  .expense-cell-with-tooltip .tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.8rem;
+    font-weight: normal;
+  }
+
+  .expense-cell-with-tooltip .tooltip-text::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+
+  .expense-cell-with-tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+</style>

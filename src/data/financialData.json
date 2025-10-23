@@ -1,12 +1,51 @@
 {
   "monthlyProjections": {
-    "revenue": [10860, 12360, 14560, 17224, 19436, 21644, 23872, 26520, 28732, 31124, 33496, 33496],
+    "revenue": [
+      {"value": 10860, "note": "Initial enrollment at business opening"},
+      {"value": 12360, "note": "Small increase in enrollment as word spreads"},
+      {"value": 14560, "note": "Continued growth through referrals"},
+      {"value": 17224, "note": "Expanded capacity allowing for more enrollment"},
+      {"value": 19436, "note": "Spring enrollment increase"},
+      {"value": 21644, "note": "Beginning of summer program with higher rates"},
+      {"value": 23872, "note": "Peak summer enrollment"},
+      {"value": 26520, "note": "Expanded capacity with higher summer enrollment"},
+      {"value": 28732, "note": "Back to school enrollment boost"},
+      {"value": 31124, "note": "Fall enrollment growth"},
+      {"value": 33496, "note": "Full capacity reached"},
+      {"value": 33496, "note": "Maintaining full capacity"}
+    ],
     "expenses": [60244, 15329, 15329, 15329, 18447, 18447, 18447, 18447, 20005, 20005, 20005, 20005],
-    "netOperatingIncome": [-49384, -2969, -769, 1895, 989, 3197, 5425, 8073, 8727, 11119, 13491, 13491],
+    "netOperatingIncome": [
+      {"value": -49384, "note": "High initial setup costs resulting in loss"},
+      {"value": -2969, "note": "Approaching break-even as enrollment grows"},
+      {"value": -769, "note": "Nearly break-even point"},
+      {"value": 1895, "note": "First profitable month"},
+      {"value": 989, "note": "Slight profit decrease due to staffing increase"},
+      {"value": 3197, "note": "Increased profitability with summer enrollment"},
+      {"value": 5425, "note": "Growing profits with higher enrollment"},
+      {"value": 8073, "note": "Strong summer program profits"},
+      {"value": 8727, "note": "Stable profits despite additional staff costs"},
+      {"value": 11119, "note": "Growing profits with full enrollment"},
+      {"value": 13491, "note": "Maximum profitability at full capacity"},
+      {"value": 13491, "note": "Sustained maximum profitability"}
+    ],
     "totalYearlyRevenue": 160200,
     "totalYearlyExpenses": 260039,
     "totalNetIncome": 10241,
-    "registrationFees": [440, 0, 0, 80, 80, 80, 80, 120, 80, 80, 80, 0],
+    "registrationFees": [
+      {"value": 440, "note": "Initial business opening registrations"},
+      {"value": 0, "note": "No new registrations this month"},
+      {"value": 0, "note": "No new registrations this month"},
+      {"value": 80, "note": "New registrations with expanded capacity"},
+      {"value": 80, "note": "Continued steady registrations"},
+      {"value": 80, "note": "Summer program registrations"},
+      {"value": 80, "note": "Continued summer registrations"},
+      {"value": 120, "note": "Expanded capacity registrations"},
+      {"value": 80, "note": "Back to school registrations"},
+      {"value": 80, "note": "Fall program registrations"},
+      {"value": 80, "note": "Late fall registrations"},
+      {"value": 0, "note": "Holiday season with no new registrations"}
+    ],
     "kidsPerDay": [15, 17, 20, 23, 26, 29, 32, 35, 38, 41, 44, 44],
     "registeredKids": [11, 12, 14, 16, 18, 20, 22, 25, 27, 29, 31, 31],
     "nonRegisteredKids": [4, 5, 6, 7, 8, 9, 10, 10, 11, 12, 13, 13],
@@ -14,196 +53,807 @@
     "teachers": [2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 4]
   },
   "year2Projections": {
-    "revenue": [19485, 20085, 24560, 26935, 29235, 34885, 36885, 35885, 27935, 28935, 27435, 22935],
+    "revenue": [
+      {"value": 19485, "note": "Lower enrollment due to post-holiday season"},
+      {"value": 20085, "note": "Gradual increase in enrollment"},
+      {"value": 24560, "note": "Increased enrollment as school year progresses"},
+      {"value": 26935, "note": "Spring enrollment growth"},
+      {"value": 29235, "note": "Near full capacity"},
+      {"value": 34885, "note": "Summer program premium rates and full capacity"},
+      {"value": 36885, "note": "Peak summer program with special activities"},
+      {"value": 35885, "note": "Last month of summer program"},
+      {"value": 27935, "note": "Back to school enrollment drop"},
+      {"value": 28935, "note": "Fall enrollment stabilizes"},
+      {"value": 27435, "note": "Slight decrease before holiday season"},
+      {"value": 22935, "note": "Holiday season with reduced attendance"}
+    ],
     "totalYearlyRevenue": 335235,
     "kidsPerDay": [40, 41, 42, 43, 44, 44, 44, 44, 43, 42, 41, 40],
     "registeredKids": [28, 29, 30, 31, 32, 32, 32, 32, 31, 30, 29, 28],
     "nonRegisteredKids": [12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12],
     "capacity": [44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44],
     "teachers": [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-    "registrationFees": [580, 150, 220, 180, 120, 300, 200, 100, 160, 120, 80, 150]
+    "registrationFees": [
+      {"value": 580, "note": "New Year registration rush"},
+      {"value": 150, "note": "Standard monthly registrations"},
+      {"value": 220, "note": "Increased registrations for spring programs"},
+      {"value": 180, "note": "Pre-summer registrations"},
+      {"value": 120, "note": "Late spring registrations"},
+      {"value": 300, "note": "Summer program registrations"},
+      {"value": 200, "note": "Mid-summer registrations"},
+      {"value": 100, "note": "Late summer registrations"},
+      {"value": 160, "note": "Back to school registrations"},
+      {"value": 120, "note": "Fall program registrations"},
+      {"value": 80, "note": "Pre-holiday registrations"},
+      {"value": 150, "note": "New Year pre-registrations"}
+    ]
   },
   "expenseBreakdown": {
     "rent": {
-      "monthly": [10000, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500],
+      "monthly": [
+        {"value": 10000, "note": "Initial higher rent includes security deposit and first month"},
+        {"value": 2500, "note": ""},
+        {"value": 2500, "note": ""},
+        {"value": 2500, "note": ""},
+        {"value": 2500, "note": ""},
+        {"value": 2500, "note": ""},
+        {"value": 2500, "note": ""},
+        {"value": 2500, "note": ""},
+        {"value": 2500, "note": ""},
+        {"value": 2500, "note": ""},
+        {"value": 2500, "note": ""},
+        {"value": 2500, "note": ""}
+      ],
       "yearly": 37500
     },
     "wages": {
-      "monthly": [6928, 6928, 6928, 6928, 10046, 10046, 10046, 10046, 11604, 11604, 11604, 11604],
+      "monthly": [
+        {"value": 6928, "note": ""},
+        {"value": 6928, "note": ""},
+        {"value": 6928, "note": ""},
+        {"value": 6928, "note": ""},
+        {"value": 10046, "note": "Increased staffing from 2 to 3 teachers to meet growing enrollment"},
+        {"value": 10046, "note": ""},
+        {"value": 10046, "note": ""},
+        {"value": 10046, "note": ""},
+        {"value": 11604, "note": "Increased staffing from 3 to 4 teachers for expanded capacity"},
+        {"value": 11604, "note": ""},
+        {"value": 11604, "note": ""},
+        {"value": 11604, "note": ""}
+      ],
       "yearly": 114312
     },
     "loanPayment": {
-      "monthly": [1642, 1642, 1642, 1642, 1642, 1642, 1642, 1642, 1642, 1642, 1642, 1642],
+      "monthly": [
+        {"value": 1642, "note": ""},
+        {"value": 1642, "note": ""},
+        {"value": 1642, "note": ""},
+        {"value": 1642, "note": ""},
+        {"value": 1642, "note": ""},
+        {"value": 1642, "note": ""},
+        {"value": 1642, "note": ""},
+        {"value": 1642, "note": ""},
+        {"value": 1642, "note": ""},
+        {"value": 1642, "note": ""},
+        {"value": 1642, "note": ""},
+        {"value": 1642, "note": ""}
+      ],
       "yearly": 19704
     },
     "payrollTaxes": {
-      "monthly": [754, 754, 754, 754, 879, 879, 879, 879, 1020, 1020, 1020, 1020],
+      "monthly": [
+        {"value": 754, "note": ""},
+        {"value": 754, "note": ""},
+        {"value": 754, "note": ""},
+        {"value": 754, "note": ""},
+        {"value": 879, "note": "Increase due to additional staff member hired"},
+        {"value": 879, "note": ""},
+        {"value": 879, "note": ""},
+        {"value": 879, "note": ""},
+        {"value": 1020, "note": "Increase due to fourth staff member hired"},
+        {"value": 1020, "note": ""},
+        {"value": 1020, "note": ""},
+        {"value": 1020, "note": ""}
+      ],
       "yearly": 9048
     },
     "accountingLegal": {
-      "monthly": [4500, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900],
+      "monthly": [
+        {"value": 4500, "note": "Initial legal setup costs, business registration and accounting setup fees"},
+        {"value": 900, "note": ""},
+        {"value": 900, "note": ""},
+        {"value": 900, "note": ""},
+        {"value": 900, "note": ""},
+        {"value": 900, "note": ""},
+        {"value": 900, "note": ""},
+        {"value": 900, "note": ""},
+        {"value": 900, "note": ""},
+        {"value": 900, "note": ""},
+        {"value": 900, "note": ""},
+        {"value": 900, "note": ""}
+      ],
       "yearly": 18800
     },
     "advertising": {
-      "monthly": [4500, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
+      "monthly": [
+        {"value": 4500, "note": "Initial marketing campaign for grand opening"},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""}
+      ],
       "yearly": 5600
     },
     "duesSubscriptions": {
-      "monthly": [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
+      "monthly": [
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""}
+      ],
       "yearly": 1200
     },
     "website": {
-      "monthly": [20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20],
+      "monthly": [
+        {"value": 20, "note": ""},
+        {"value": 20, "note": ""},
+        {"value": 20, "note": ""},
+        {"value": 20, "note": ""},
+        {"value": 20, "note": ""},
+        {"value": 20, "note": ""},
+        {"value": 20, "note": ""},
+        {"value": 20, "note": ""},
+        {"value": 20, "note": ""},
+        {"value": 20, "note": ""},
+        {"value": 20, "note": ""},
+        {"value": 20, "note": ""}
+      ],
       "yearly": 240
     },
     "technology": {
-      "monthly": [3500, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75],
+      "monthly": [
+        {"value": 3500, "note": "Initial technology equipment purchase"},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""}
+      ],
       "yearly": 4325
     },
     "bankServiceCharges": {
-      "monthly": [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50],
+      "monthly": [
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""}
+      ],
       "yearly": 600
     },
     "facilitySetup": {
-      "monthly": [27500, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150],
+      "monthly": [
+        {"value": 27500, "note": "Initial facility setup and renovation costs"},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""}
+      ],
       "yearly": 21650
     },
     "miscellaneous": {
-      "monthly": [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150],
+      "monthly": [
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""}
+      ],
       "yearly": 1800
     },
     "insurance": {
-      "monthly": [450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450],
+      "monthly": [
+        {"value": 450, "note": ""},
+        {"value": 450, "note": ""},
+        {"value": 450, "note": ""},
+        {"value": 450, "note": ""},
+        {"value": 450, "note": ""},
+        {"value": 450, "note": ""},
+        {"value": 450, "note": ""},
+        {"value": 450, "note": ""},
+        {"value": 450, "note": ""},
+        {"value": 450, "note": ""},
+        {"value": 450, "note": ""},
+        {"value": 450, "note": ""}
+      ],
       "yearly": 5400
     },
     "officeExpenses": {
-      "monthly": [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
+      "monthly": [
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""}
+      ],
       "yearly": 1200
     },
     "permits": {
-      "monthly": [800, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50],
+      "monthly": [
+        {"value": 800, "note": "Initial permits and licenses for business operation"},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""}
+      ],
       "yearly": 1350
     },
     "taxes": {
-      "monthly": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "monthly": [
+        {"value": 0, "note": ""},
+        {"value": 0, "note": ""},
+        {"value": 0, "note": ""},
+        {"value": 0, "note": ""},
+        {"value": 0, "note": ""},
+        {"value": 0, "note": ""},
+        {"value": 0, "note": ""},
+        {"value": 0, "note": ""},
+        {"value": 0, "note": ""},
+        {"value": 0, "note": ""},
+        {"value": 0, "note": ""},
+        {"value": 0, "note": ""}
+      ],
       "yearly": 0
     },
     "communications": {
-      "monthly": [75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75],
+      "monthly": [
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""}
+      ],
       "yearly": 900
     },
     "utilities": {
-      "monthly": [650, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450, 450],
+      "monthly": [
+        {"value": 650, "note": "Higher initial utility costs for setup"},
+        {"value": 450, "note": ""},
+        {"value": 450, "note": ""},
+        {"value": 450, "note": ""},
+        {"value": 450, "note": ""},
+        {"value": 450, "note": ""},
+        {"value": 450, "note": ""},
+        {"value": 450, "note": ""},
+        {"value": 450, "note": ""},
+        {"value": 450, "note": ""},
+        {"value": 450, "note": ""},
+        {"value": 450, "note": ""}
+      ],
       "yearly": 5600
     },
     "foodSnacks": {
-      "monthly": [400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400],
+      "monthly": [
+        {"value": 400, "note": ""},
+        {"value": 400, "note": ""},
+        {"value": 400, "note": ""},
+        {"value": 400, "note": ""},
+        {"value": 400, "note": ""},
+        {"value": 400, "note": ""},
+        {"value": 400, "note": ""},
+        {"value": 400, "note": ""},
+        {"value": 400, "note": ""},
+        {"value": 400, "note": ""},
+        {"value": 400, "note": ""},
+        {"value": 400, "note": ""}
+      ],
       "yearly": 4800
     },
     "staffTraining": {
-      "monthly": [840, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50],
+      "monthly": [
+        {"value": 840, "note": "Initial staff training program and certification costs"},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""}
+      ],
       "yearly": 1390
     },
     "software": {
-      "monthly": [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150],
+      "monthly": [
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""},
+        {"value": 150, "note": ""}
+      ],
       "yearly": 1800
     },
     "supplies": {
-      "monthly": [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
+      "monthly": [
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""},
+        {"value": 100, "note": ""}
+      ],
       "yearly": 1200
     },
     "totalOperatingExpenses": {
-      "monthly": [60244, 15329, 15329, 15329, 18447, 18447, 18447, 18447, 20005, 20005, 20005, 20005],
+      "monthly": [
+        {"value": 60244, "note": "High startup costs in first month including facility setup, permits, and initial marketing"},
+        {"value": 15329, "note": ""},
+        {"value": 15329, "note": ""},
+        {"value": 15329, "note": ""},
+        {"value": 18447, "note": "Increased expenses due to hiring additional staff member"},
+        {"value": 18447, "note": ""},
+        {"value": 18447, "note": ""},
+        {"value": 18447, "note": ""},
+        {"value": 20005, "note": "Increased expenses due to hiring fourth staff member"},
+        {"value": 20005, "note": ""},
+        {"value": 20005, "note": ""},
+        {"value": 20005, "note": ""}
+      ],
       "yearly": 260039
     }
   },
   "year2ExpenseBreakdown": {
     "rent": {
-      "monthly": [2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500],
+      "monthly": [
+        {"value": 2500, "note": ""},
+        {"value": 2500, "note": ""},
+        {"value": 2500, "note": ""},
+        {"value": 2500, "note": ""},
+        {"value": 2500, "note": ""},
+        {"value": 2500, "note": ""},
+        {"value": 2500, "note": ""},
+        {"value": 2500, "note": ""},
+        {"value": 2500, "note": ""},
+        {"value": 2500, "note": ""},
+        {"value": 2500, "note": ""},
+        {"value": 2500, "note": ""}
+      ],
       "yearly": 30000
     },
     "wages": {
-      "monthly": [12068, 12068, 12068, 12068, 12068, 12068, 12068, 12068, 12068, 12068, 12068, 12068],
+      "monthly": [
+        {"value": 12068, "note": "Increased from Year 1 due to staff raises and maintaining 4 full-time teachers"},
+        {"value": 12068, "note": ""},
+        {"value": 12068, "note": ""},
+        {"value": 12068, "note": ""},
+        {"value": 12068, "note": ""},
+        {"value": 12068, "note": ""},
+        {"value": 12068, "note": ""},
+        {"value": 12068, "note": ""},
+        {"value": 12068, "note": ""},
+        {"value": 12068, "note": ""},
+        {"value": 12068, "note": ""},
+        {"value": 12068, "note": ""}
+      ],
       "yearly": 144816
     },
     "loanPayment": {
-      "monthly": [1642, 1642, 1642, 1642, 1642, 1642, 1642, 1642, 1642, 1642, 1642, 1642],
+      "monthly": [
+        {"value": 1642, "note": ""},
+        {"value": 1642, "note": ""},
+        {"value": 1642, "note": ""},
+        {"value": 1642, "note": ""},
+        {"value": 1642, "note": ""},
+        {"value": 1642, "note": ""},
+        {"value": 1642, "note": ""},
+        {"value": 1642, "note": ""},
+        {"value": 1642, "note": ""},
+        {"value": 1642, "note": ""},
+        {"value": 1642, "note": ""},
+        {"value": 1642, "note": ""}
+      ],
       "yearly": 19704
     },
     "payrollTaxes": {
-      "monthly": [1020, 1020, 1020, 1020, 1020, 1020, 1020, 1020, 1020, 1020, 1020, 1020],
+      "monthly": [
+        {"value": 1020, "note": "Increased from Year 1 due to higher staff wages"},
+        {"value": 1020, "note": ""},
+        {"value": 1020, "note": ""},
+        {"value": 1020, "note": ""},
+        {"value": 1020, "note": ""},
+        {"value": 1020, "note": ""},
+        {"value": 1020, "note": ""},
+        {"value": 1020, "note": ""},
+        {"value": 1020, "note": ""},
+        {"value": 1020, "note": ""},
+        {"value": 1020, "note": ""},
+        {"value": 1020, "note": ""}
+      ],
       "yearly": 12240
     },
     "accountingLegal": {
-      "monthly": [900, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75],
+      "monthly": [
+        {"value": 900, "note": "Annual tax preparation and business review"},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""},
+        {"value": 75, "note": ""}
+      ],
       "yearly": 1725
     },
     "advertising": {
-      "monthly": [103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103],
+      "monthly": [
+        {"value": 103, "note": "Increased from Year 1 due to inflation adjustment"},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""}
+      ],
       "yearly": 1236
     },
     "duesSubscriptions": {
-      "monthly": [103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103],
+      "monthly": [
+        {"value": 103, "note": "Increased from Year 1 due to inflation adjustment"},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""}
+      ],
       "yearly": 1236
     },
     "website": {
-      "monthly": [20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20],
+      "monthly": [
+        {"value": 20, "note": ""},
+        {"value": 20, "note": ""},
+        {"value": 20, "note": ""},
+        {"value": 20, "note": ""},
+        {"value": 20, "note": ""},
+        {"value": 20, "note": ""},
+        {"value": 20, "note": ""},
+        {"value": 20, "note": ""},
+        {"value": 20, "note": ""},
+        {"value": 20, "note": ""},
+        {"value": 20, "note": ""},
+        {"value": 20, "note": ""}
+      ],
       "yearly": 240
     },
     "technology": {
-      "monthly": [77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77],
+      "monthly": [
+        {"value": 77, "note": "Regular technology maintenance and subscriptions"},
+        {"value": 77, "note": ""},
+        {"value": 77, "note": ""},
+        {"value": 77, "note": ""},
+        {"value": 77, "note": ""},
+        {"value": 77, "note": ""},
+        {"value": 77, "note": ""},
+        {"value": 77, "note": ""},
+        {"value": 77, "note": ""},
+        {"value": 77, "note": ""},
+        {"value": 77, "note": ""},
+        {"value": 77, "note": ""}
+      ],
       "yearly": 924
     },
     "bankServiceCharges": {
-      "monthly": [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50],
+      "monthly": [
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""},
+        {"value": 50, "note": ""}
+      ],
       "yearly": 600
     },
     "facilitySetup": {
-      "monthly": [0, 25, 0, 25, 0, 50, 0, 25, 0, 25, 0, 50],
+      "monthly": [
+        {"value": 0, "note": ""},
+        {"value": 25, "note": "Minor facility updates"},
+        {"value": 0, "note": ""},
+        {"value": 25, "note": "Minor facility updates"},
+        {"value": 0, "note": ""},
+        {"value": 50, "note": "Quarterly facility improvement"},
+        {"value": 0, "note": ""},
+        {"value": 25, "note": "Minor facility updates"},
+        {"value": 0, "note": ""},
+        {"value": 25, "note": "Minor facility updates"},
+        {"value": 0, "note": ""},
+        {"value": 50, "note": "Quarterly facility improvement"}
+      ],
       "yearly": 200
     },
     "miscellaneous": {
-      "monthly": [155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155],
+      "monthly": [
+        {"value": 155, "note": "Increased from Year 1 to account for unexpected expenses"},
+        {"value": 155, "note": ""},
+        {"value": 155, "note": ""},
+        {"value": 155, "note": ""},
+        {"value": 155, "note": ""},
+        {"value": 155, "note": ""},
+        {"value": 155, "note": ""},
+        {"value": 155, "note": ""},
+        {"value": 155, "note": ""},
+        {"value": 155, "note": ""},
+        {"value": 155, "note": ""},
+        {"value": 155, "note": ""}
+      ],
       "yearly": 1860
     },
     "insurance": {
-      "monthly": [486, 486, 486, 486, 486, 486, 486, 486, 486, 486, 486, 486],
+      "monthly": [
+        {"value": 486, "note": "Increased from Year 1 due to higher liability coverage"},
+        {"value": 486, "note": ""},
+        {"value": 486, "note": ""},
+        {"value": 486, "note": ""},
+        {"value": 486, "note": ""},
+        {"value": 486, "note": ""},
+        {"value": 486, "note": ""},
+        {"value": 486, "note": ""},
+        {"value": 486, "note": ""},
+        {"value": 486, "note": ""},
+        {"value": 486, "note": ""},
+        {"value": 486, "note": ""}
+      ],
       "yearly": 5832
     },
     "officeExpenses": {
-      "monthly": [103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103],
+      "monthly": [
+        {"value": 103, "note": "Increased from Year 1 due to inflation adjustment"},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""}
+      ],
       "yearly": 1236
     },
     "permits": {
-      "monthly": [52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52],
+      "monthly": [
+        {"value": 52, "note": "Annual permits and licenses renewal, prorated monthly"},
+        {"value": 52, "note": ""},
+        {"value": 52, "note": ""},
+        {"value": 52, "note": ""},
+        {"value": 52, "note": ""},
+        {"value": 52, "note": ""},
+        {"value": 52, "note": ""},
+        {"value": 52, "note": ""},
+        {"value": 52, "note": ""},
+        {"value": 52, "note": ""},
+        {"value": 52, "note": ""},
+        {"value": 52, "note": ""}
+      ],
       "yearly": 624
     },
     "communications": {
-      "monthly": [78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78],
+      "monthly": [
+        {"value": 78, "note": "Increased from Year 1 due to inflation adjustment"},
+        {"value": 78, "note": ""},
+        {"value": 78, "note": ""},
+        {"value": 78, "note": ""},
+        {"value": 78, "note": ""},
+        {"value": 78, "note": ""},
+        {"value": 78, "note": ""},
+        {"value": 78, "note": ""},
+        {"value": 78, "note": ""},
+        {"value": 78, "note": ""},
+        {"value": 78, "note": ""},
+        {"value": 78, "note": ""}
+      ],
       "yearly": 936
     },
     "utilities": {
-      "monthly": [477, 477, 477, 477, 477, 477, 477, 477, 477, 477, 477, 477],
+      "monthly": [
+        {"value": 477, "note": "Increased from Year 1 due to inflation and higher capacity"},
+        {"value": 477, "note": ""},
+        {"value": 477, "note": ""},
+        {"value": 477, "note": ""},
+        {"value": 477, "note": ""},
+        {"value": 477, "note": "Higher usage during summer months"},
+        {"value": 477, "note": "Higher usage during summer months"},
+        {"value": 477, "note": "Higher usage during summer months"},
+        {"value": 477, "note": ""},
+        {"value": 477, "note": ""},
+        {"value": 477, "note": ""},
+        {"value": 477, "note": ""}
+      ],
       "yearly": 5724
     },
     "foodSnacks": {
-      "monthly": [420, 420, 420, 420, 420, 420, 420, 420, 420, 420, 420, 420],
+      "monthly": [
+        {"value": 420, "note": "Increased from Year 1 due to full capacity and inflation"},
+        {"value": 420, "note": ""},
+        {"value": 420, "note": ""},
+        {"value": 420, "note": ""},
+        {"value": 420, "note": ""},
+        {"value": 420, "note": ""},
+        {"value": 420, "note": ""},
+        {"value": 420, "note": ""},
+        {"value": 420, "note": ""},
+        {"value": 420, "note": ""},
+        {"value": 420, "note": ""},
+        {"value": 420, "note": ""}
+      ],
       "yearly": 5040
     },
     "staffTraining": {
-      "monthly": [52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52],
+      "monthly": [
+        {"value": 52, "note": "Ongoing staff development and certification maintenance"},
+        {"value": 52, "note": ""},
+        {"value": 52, "note": ""},
+        {"value": 52, "note": ""},
+        {"value": 52, "note": ""},
+        {"value": 52, "note": ""},
+        {"value": 52, "note": ""},
+        {"value": 52, "note": ""},
+        {"value": 52, "note": ""},
+        {"value": 52, "note": ""},
+        {"value": 52, "note": ""},
+        {"value": 52, "note": ""}
+      ],
       "yearly": 624
     },
     "software": {
-      "monthly": [153, 153, 153, 153, 153, 153, 153, 153, 153, 153, 153, 153],
+      "monthly": [
+        {"value": 153, "note": "Increased from Year 1 due to adding premium features"},
+        {"value": 153, "note": ""},
+        {"value": 153, "note": ""},
+        {"value": 153, "note": ""},
+        {"value": 153, "note": ""},
+        {"value": 153, "note": ""},
+        {"value": 153, "note": ""},
+        {"value": 153, "note": ""},
+        {"value": 153, "note": ""},
+        {"value": 153, "note": ""},
+        {"value": 153, "note": ""},
+        {"value": 153, "note": ""}
+      ],
       "yearly": 1836
     },
     "supplies": {
-      "monthly": [103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103],
+      "monthly": [
+        {"value": 103, "note": "Increased from Year 1 due to inflation adjustment"},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""},
+        {"value": 103, "note": ""}
+      ],
       "yearly": 1236
     },
     "totalOperatingExpenses": {
-      "monthly": [19822, 19717, 19717, 19717, 19717, 19767, 19717, 19742, 19717, 19742, 19717, 19767],
+      "monthly": [
+        {"value": 19822, "note": "Higher January expenses due to annual accounting and legal services"},
+        {"value": 19717, "note": "Standard operating costs for the month"},
+        {"value": 19717, "note": "Standard operating costs for the month"},
+        {"value": 19717, "note": "Standard operating costs for the month"},
+        {"value": 19717, "note": "Standard operating costs for the month"},
+        {"value": 19767, "note": "Slightly higher due to quarterly facility improvements"},
+        {"value": 19717, "note": "Standard operating costs for the month"},
+        {"value": 19742, "note": "Includes minor facility updates"},
+        {"value": 19717, "note": "Standard operating costs for the month"},
+        {"value": 19742, "note": "Includes minor facility updates"},
+        {"value": 19717, "note": "Standard operating costs for the month"},
+        {"value": 19767, "note": "Slightly higher due to quarterly facility improvements"}
+      ],
       "yearly": 237869
     }
   },

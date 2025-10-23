@@ -3,7 +3,9 @@
     <div class="card">
       <div class="card-header">
         <h5><i class="bi bi-pie-chart-fill me-2"></i>Personal Net Worth Statement</h5>
-        <small class="text-muted">As of {{ formatDate(netWorthData.personalNetWorth.lastUpdated) }}</small>
+        <small class="text-muted"
+          >As of {{ formatDate(netWorthData.personalNetWorth.lastUpdated) }}</small
+        >
       </div>
       <div class="card-body">
         <!-- Summary Cards -->
@@ -54,7 +56,6 @@
                 <h6 class="mb-0"><i class="bi bi-plus-circle me-2"></i>Assets</h6>
               </div>
               <div class="card-body">
-
                 <!-- Real Estate -->
                 <div class="mb-4">
                   <h6 class="text-success border-bottom pb-2">Real Estate</h6>
@@ -69,17 +70,78 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr v-if="netWorthData.personalNetWorth.assets.realEstate.primaryHome.currentValue > 0">
-                          <td>{{ netWorthData.personalNetWorth.assets.realEstate.primaryHome.description }}</td>
-                          <td class="text-end">${{ formatNumber(netWorthData.personalNetWorth.assets.realEstate.primaryHome.currentValue) }}</td>
-                          <td class="text-end text-danger">${{ formatNumber(netWorthData.personalNetWorth.assets.realEstate.primaryHome.mortgageBalance) }}</td>
-                          <td class="text-end text-success fw-bold">${{ formatNumber(netWorthData.personalNetWorth.assets.realEstate.primaryHome.equity) }}</td>
+                        <tr
+                          v-if="
+                            netWorthData.personalNetWorth.assets.realEstate.primaryHome
+                              .currentValue > 0
+                          "
+                        >
+                          <td>
+                            {{
+                              netWorthData.personalNetWorth.assets.realEstate.primaryHome
+                                .description
+                            }}
+                          </td>
+                          <td class="text-end">
+                            ${{
+                              formatNumber(
+                                netWorthData.personalNetWorth.assets.realEstate.primaryHome
+                                  .currentValue
+                              )
+                            }}
+                          </td>
+                          <td class="text-end text-danger">
+                            ${{
+                              formatNumber(
+                                netWorthData.personalNetWorth.assets.realEstate.primaryHome
+                                  .mortgageBalance
+                              )
+                            }}
+                          </td>
+                          <td class="text-end text-success fw-bold">
+                            ${{
+                              formatNumber(
+                                netWorthData.personalNetWorth.assets.realEstate.primaryHome.equity
+                              )
+                            }}
+                          </td>
                         </tr>
-                        <tr v-if="netWorthData.personalNetWorth.assets.realEstate.rentalProperty.currentValue > 0">
-                          <td>{{ netWorthData.personalNetWorth.assets.realEstate.rentalProperty.description }}</td>
-                          <td class="text-end">${{ formatNumber(netWorthData.personalNetWorth.assets.realEstate.rentalProperty.currentValue) }}</td>
-                          <td class="text-end text-danger">${{ formatNumber(netWorthData.personalNetWorth.assets.realEstate.rentalProperty.mortgageBalance) }}</td>
-                          <td class="text-end text-success fw-bold">${{ formatNumber(netWorthData.personalNetWorth.assets.realEstate.rentalProperty.equity) }}</td>
+                        <tr
+                          v-if="
+                            netWorthData.personalNetWorth.assets.realEstate.rentalProperty
+                              .currentValue > 0
+                          "
+                        >
+                          <td>
+                            {{
+                              netWorthData.personalNetWorth.assets.realEstate.rentalProperty
+                                .description
+                            }}
+                          </td>
+                          <td class="text-end">
+                            ${{
+                              formatNumber(
+                                netWorthData.personalNetWorth.assets.realEstate.rentalProperty
+                                  .currentValue
+                              )
+                            }}
+                          </td>
+                          <td class="text-end text-danger">
+                            ${{
+                              formatNumber(
+                                netWorthData.personalNetWorth.assets.realEstate.rentalProperty
+                                  .mortgageBalance
+                              )
+                            }}
+                          </td>
+                          <td class="text-end text-success fw-bold">
+                            ${{
+                              formatNumber(
+                                netWorthData.personalNetWorth.assets.realEstate.rentalProperty
+                                  .equity
+                              )
+                            }}
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -103,8 +165,12 @@
                         <tr v-for="vehicle in visibleVehicles" :key="vehicle.key">
                           <td>{{ vehicle.year }} {{ vehicle.make }} {{ vehicle.model }}</td>
                           <td class="text-end">${{ formatNumber(vehicle.currentValue) }}</td>
-                          <td class="text-end text-danger">${{ formatNumber(vehicle.loanBalance) }}</td>
-                          <td class="text-end text-success fw-bold">${{ formatNumber(vehicle.equity) }}</td>
+                          <td class="text-end text-danger">
+                            ${{ formatNumber(vehicle.loanBalance) }}
+                          </td>
+                          <td class="text-end text-success fw-bold">
+                            ${{ formatNumber(vehicle.equity) }}
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -124,20 +190,90 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr v-if="netWorthData.personalNetWorth.assets.liquidAssets.checkingAccount.balance > 0">
-                          <td>{{ netWorthData.personalNetWorth.assets.liquidAssets.checkingAccount.description }}</td>
-                          <td>{{ netWorthData.personalNetWorth.assets.liquidAssets.checkingAccount.institution }}</td>
-                          <td class="text-end text-success fw-bold">${{ formatNumber(netWorthData.personalNetWorth.assets.liquidAssets.checkingAccount.balance) }}</td>
+                        <tr
+                          v-if="
+                            netWorthData.personalNetWorth.assets.liquidAssets.checkingAccount
+                              .balance > 0
+                          "
+                        >
+                          <td>
+                            {{
+                              netWorthData.personalNetWorth.assets.liquidAssets.checkingAccount
+                                .description
+                            }}
+                          </td>
+                          <td>
+                            {{
+                              netWorthData.personalNetWorth.assets.liquidAssets.checkingAccount
+                                .institution
+                            }}
+                          </td>
+                          <td class="text-end text-success fw-bold">
+                            ${{
+                              formatNumber(
+                                netWorthData.personalNetWorth.assets.liquidAssets.checkingAccount
+                                  .balance
+                              )
+                            }}
+                          </td>
                         </tr>
-                        <tr v-if="netWorthData.personalNetWorth.assets.liquidAssets.savingsAccount.balance > 0">
-                          <td>{{ netWorthData.personalNetWorth.assets.liquidAssets.savingsAccount.description }}</td>
-                          <td>{{ netWorthData.personalNetWorth.assets.liquidAssets.savingsAccount.institution }}</td>
-                          <td class="text-end text-success fw-bold">${{ formatNumber(netWorthData.personalNetWorth.assets.liquidAssets.savingsAccount.balance) }}</td>
+                        <tr
+                          v-if="
+                            netWorthData.personalNetWorth.assets.liquidAssets.savingsAccount
+                              .balance > 0
+                          "
+                        >
+                          <td>
+                            {{
+                              netWorthData.personalNetWorth.assets.liquidAssets.savingsAccount
+                                .description
+                            }}
+                          </td>
+                          <td>
+                            {{
+                              netWorthData.personalNetWorth.assets.liquidAssets.savingsAccount
+                                .institution
+                            }}
+                          </td>
+                          <td class="text-end text-success fw-bold">
+                            ${{
+                              formatNumber(
+                                netWorthData.personalNetWorth.assets.liquidAssets.savingsAccount
+                                  .balance
+                              )
+                            }}
+                          </td>
                         </tr>
-                        <tr v-if="netWorthData.personalNetWorth.assets.liquidAssets.moneyMarket.balance > 0">
-                          <td>{{ netWorthData.personalNetWorth.assets.liquidAssets.moneyMarket.description }} ({{ netWorthData.personalNetWorth.assets.liquidAssets.moneyMarket.interestRate }}%)</td>
-                          <td>{{ netWorthData.personalNetWorth.assets.liquidAssets.moneyMarket.institution }}</td>
-                          <td class="text-end text-success fw-bold">${{ formatNumber(netWorthData.personalNetWorth.assets.liquidAssets.moneyMarket.balance) }}</td>
+                        <tr
+                          v-if="
+                            netWorthData.personalNetWorth.assets.liquidAssets.moneyMarket.balance >
+                            0
+                          "
+                        >
+                          <td>
+                            {{
+                              netWorthData.personalNetWorth.assets.liquidAssets.moneyMarket
+                                .description
+                            }}
+                            ({{
+                              netWorthData.personalNetWorth.assets.liquidAssets.moneyMarket
+                                .interestRate
+                            }}%)
+                          </td>
+                          <td>
+                            {{
+                              netWorthData.personalNetWorth.assets.liquidAssets.moneyMarket
+                                .institution
+                            }}
+                          </td>
+                          <td class="text-end text-success fw-bold">
+                            ${{
+                              formatNumber(
+                                netWorthData.personalNetWorth.assets.liquidAssets.moneyMarket
+                                  .balance
+                              )
+                            }}
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -157,10 +293,32 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr v-if="netWorthData.personalNetWorth.assets.investments.retirement401k.balance > 0">
-                          <td>{{ netWorthData.personalNetWorth.assets.investments.retirement401k.description }}</td>
-                          <td>{{ netWorthData.personalNetWorth.assets.investments.retirement401k.institution }}</td>
-                          <td class="text-end text-success fw-bold">${{ formatNumber(netWorthData.personalNetWorth.assets.investments.retirement401k.balance) }}</td>
+                        <tr
+                          v-if="
+                            netWorthData.personalNetWorth.assets.investments.retirement401k
+                              .balance > 0
+                          "
+                        >
+                          <td>
+                            {{
+                              netWorthData.personalNetWorth.assets.investments.retirement401k
+                                .description
+                            }}
+                          </td>
+                          <td>
+                            {{
+                              netWorthData.personalNetWorth.assets.investments.retirement401k
+                                .institution
+                            }}
+                          </td>
+                          <td class="text-end text-success fw-bold">
+                            ${{
+                              formatNumber(
+                                netWorthData.personalNetWorth.assets.investments.retirement401k
+                                  .balance
+                              )
+                            }}
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -177,23 +335,36 @@
                           <tbody>
                             <tr>
                               <td>Real Estate Equity</td>
-                              <td class="text-end text-success fw-bold">${{ formatNumber(realEstateEquity) }}</td>
+                              <td class="text-end text-success fw-bold">
+                                ${{ formatNumber(realEstateEquity) }}
+                              </td>
                             </tr>
                             <tr>
                               <td>Vehicle/Equipment Equity</td>
-                              <td class="text-end fw-bold" :class="vehicleAssets >= 0 ? 'text-success' : 'text-danger'">${{ formatNumber(vehicleAssets) }}</td>
+                              <td
+                                class="text-end fw-bold"
+                                :class="vehicleAssets >= 0 ? 'text-success' : 'text-danger'"
+                              >
+                                ${{ formatNumber(vehicleAssets) }}
+                              </td>
                             </tr>
                             <tr>
                               <td>Liquid Assets</td>
-                              <td class="text-end text-success fw-bold">${{ formatNumber(liquidAssetsTotal) }}</td>
+                              <td class="text-end text-success fw-bold">
+                                ${{ formatNumber(liquidAssetsTotal) }}
+                              </td>
                             </tr>
                             <tr>
                               <td>Investments & Retirement</td>
-                              <td class="text-end text-success fw-bold">${{ formatNumber(investmentTotal) }}</td>
+                              <td class="text-end text-success fw-bold">
+                                ${{ formatNumber(investmentTotal) }}
+                              </td>
                             </tr>
                             <tr class="border-top">
                               <td class="fw-bold">Total Assets</td>
-                              <td class="text-end text-primary fw-bold h6">${{ formatNumber(totalAssets) }}</td>
+                              <td class="text-end text-primary fw-bold h6">
+                                ${{ formatNumber(totalAssets) }}
+                              </td>
                             </tr>
                           </tbody>
                         </table>
@@ -201,7 +372,6 @@
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -213,7 +383,6 @@
                 <h6 class="mb-0"><i class="bi bi-dash-circle me-2"></i>Liabilities</h6>
               </div>
               <div class="card-body">
-
                 <!-- Income -->
                 <div class="mb-4">
                   <h6 class="text-success border-bottom pb-2">Monthly Income</h6>
@@ -296,130 +465,135 @@
                           <div class="text-primary">
                             <strong>Available Cash Flow</strong>
                             <br />
-                            <h4 class="text-primary fw-bold">${{ formatNumber(availableCashFlow) }}</h4>
+                            <h4 class="text-primary fw-bold">
+                              ${{ formatNumber(availableCashFlow) }}
+                            </h4>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import netWorthData from '@/data/netWorthData.json'
+  import netWorthData from '@/data/netWorthData.json'
 
-export default {
-  name: 'NetWorthPage',
-  data() {
-    return {
-      netWorthData: netWorthData
-    }
-  },
-  computed: {
-    // Asset Calculations - Full values + liquid assets + investments
-    vehiclesArray() {
-      // Convert vehicles object to array for dynamic looping
-      const vehicles = this.netWorthData?.personalNetWorth?.assets?.vehicles
-      if (!vehicles) return []
-      return Object.keys(vehicles).map(key => ({
-        key,
-        ...vehicles[key]
-      }))
+  export default {
+    name: 'NetWorthPage',
+    data() {
+      return {
+        netWorthData: netWorthData,
+      }
     },
-    visibleVehicles() {
-      // Filter vehicles that have a value greater than 0
-      return this.vehiclesArray.filter(vehicle => vehicle.currentValue > 0)
-    },
-    visibleDebts() {
-      // Filter debts that have a balance greater than 0 OR a payment greater than 0
-      const debts = this.netWorthData?.personalNetWorth?.liabilities?.debts || []
-      return debts.filter(debt => debt.balance > 0 || debt.payment > 0)
-    },
-    realEstateAssets() {
-      if (!this.netWorthData?.personalNetWorth?.assets?.realEstate) return 0
-      return this.netWorthData.personalNetWorth.assets.realEstate.primaryHome.currentValue +
-             this.netWorthData.personalNetWorth.assets.realEstate.rentalProperty.currentValue
-    },
-    realEstateEquity() {
-      if (!this.netWorthData?.personalNetWorth?.assets?.realEstate) return 0
-      return this.netWorthData.personalNetWorth.assets.realEstate.primaryHome.equity +
-             this.netWorthData.personalNetWorth.assets.realEstate.rentalProperty.equity
-    },
-    vehicleAssets() {
-      return this.vehiclesArray.reduce((total, vehicle) => {
-        const equity = vehicle.equity !== undefined ? vehicle.equity : 0
-        return total + equity
-      }, 0)
-    },
-    liquidAssetsTotal() {
-      const liquid = this.netWorthData.personalNetWorth.assets.liquidAssets
-      return liquid.checkingAccount.balance +
-             liquid.savingsAccount.balance +
-             liquid.moneyMarket.balance
-    },
-    investmentTotal() {
-      const investments = this.netWorthData.personalNetWorth.assets.investments
-      return investments.retirement401k.balance
-    },
-    totalAssets() {
-      return this.realEstateAssets +
-             this.vehicleAssets +
-             this.liquidAssetsTotal +
-             this.investmentTotal
-    },
+    computed: {
+      // Asset Calculations - Full values + liquid assets + investments
+      vehiclesArray() {
+        // Convert vehicles object to array for dynamic looping
+        const vehicles = this.netWorthData?.personalNetWorth?.assets?.vehicles
+        if (!vehicles) return []
+        return Object.keys(vehicles).map((key) => ({
+          key,
+          ...vehicles[key],
+        }))
+      },
+      visibleVehicles() {
+        // Filter vehicles that have a value greater than 0
+        return this.vehiclesArray.filter((vehicle) => vehicle.currentValue > 0)
+      },
+      visibleDebts() {
+        // Filter debts that have a balance greater than 0 OR a payment greater than 0
+        const debts = this.netWorthData?.personalNetWorth?.liabilities?.debts || []
+        return debts.filter((debt) => debt.balance > 0 || debt.payment > 0)
+      },
+      realEstateAssets() {
+        if (!this.netWorthData?.personalNetWorth?.assets?.realEstate) return 0
+        return (
+          this.netWorthData.personalNetWorth.assets.realEstate.primaryHome.currentValue +
+          this.netWorthData.personalNetWorth.assets.realEstate.rentalProperty.currentValue
+        )
+      },
+      realEstateEquity() {
+        if (!this.netWorthData?.personalNetWorth?.assets?.realEstate) return 0
+        return (
+          this.netWorthData.personalNetWorth.assets.realEstate.primaryHome.equity +
+          this.netWorthData.personalNetWorth.assets.realEstate.rentalProperty.equity
+        )
+      },
+      vehicleAssets() {
+        return this.vehiclesArray.reduce((total, vehicle) => {
+          const equity = vehicle.equity !== undefined ? vehicle.equity : 0
+          return total + equity
+        }, 0)
+      },
+      liquidAssetsTotal() {
+        const liquid = this.netWorthData.personalNetWorth.assets.liquidAssets
+        return (
+          liquid.checkingAccount.balance +
+          liquid.savingsAccount.balance +
+          liquid.moneyMarket.balance
+        )
+      },
+      investmentTotal() {
+        const investments = this.netWorthData.personalNetWorth.assets.investments
+        return investments.retirement401k.balance
+      },
+      totalAssets() {
+        return (
+          this.realEstateAssets + this.vehicleAssets + this.liquidAssetsTotal + this.investmentTotal
+        )
+      },
 
-    // Liability Calculations - Using the new debts array
-    totalLiabilities() {
-      const debts = this.netWorthData?.personalNetWorth?.liabilities?.debts || []
-      return debts.reduce((total, debt) => total + debt.balance, 0)
-    },
+      // Liability Calculations - Using the new debts array
+      totalLiabilities() {
+        const debts = this.netWorthData?.personalNetWorth?.liabilities?.debts || []
+        return debts.reduce((total, debt) => total + debt.balance, 0)
+      },
 
-    // Net Worth
-    netWorth() {
-      return this.totalAssets - this.totalLiabilities
-    },
+      // Net Worth
+      netWorth() {
+        return this.totalAssets - this.totalLiabilities
+      },
 
-    // Monthly Payment Calculations
-    totalMonthlyPayments() {
-      const debts = this.netWorthData?.personalNetWorth?.liabilities?.debts || []
-      return debts.reduce((total, debt) => total + debt.payment, 0)
-    },
+      // Monthly Payment Calculations
+      totalMonthlyPayments() {
+        const debts = this.netWorthData?.personalNetWorth?.liabilities?.debts || []
+        return debts.reduce((total, debt) => total + debt.payment, 0)
+      },
 
-    // Income and Cash Flow Calculations
-    totalMonthlyIncome() {
-      return 6320 + 2200  // Primary Earner + Secondary Earner
+      // Income and Cash Flow Calculations
+      totalMonthlyIncome() {
+        return 6320 + 2200 // Primary Earner + Secondary Earner
+      },
+      availableCashFlow() {
+        return this.totalMonthlyIncome - this.totalMonthlyPayments
+      },
     },
-    availableCashFlow() {
-      return this.totalMonthlyIncome - this.totalMonthlyPayments
-    }
-  },
-  methods: {
-    formatNumber(number) {
-      return number.toLocaleString()
+    methods: {
+      formatNumber(number) {
+        return number.toLocaleString()
+      },
+      formatDate(dateString) {
+        const date = new Date(dateString)
+        return date.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })
+      },
     },
-    formatDate(dateString) {
-      const date = new Date(dateString)
-      return date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      })
-    }
   }
-}
 </script>
 
 <style scoped>
-.border-bottom {
-  border-bottom: 1px solid #dee2e6 !important;
-}
+  .border-bottom {
+    border-bottom: 1px solid #dee2e6 !important;
+  }
 </style>
